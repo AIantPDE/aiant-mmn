@@ -1,0 +1,70 @@
+
+
+{
+ "python.analysis.extraPaths": [
+ "./src"
+ ],
+ "python.analysis.typeCheckingMode": "basic",
+ "python.analysis.diagnosticSeverityOverrides": {
+ "reportMissingTypeStubs": "none",
+ "reportUnknownVariableType": "information",
+ "reportUnknownArgumentType": "information",
+ "reportUnknownMemberType": "information",
+ "reportUnknownParameterType": "information",
+ "reportMissingParameterType": "warning"
+ },
+ "files.exclude": {
+ "**/__pycache__": true,
+ "**/__pycache__/**": true,
+ "**/.pytest_cache": true,
+ "**/.pytest_cache/**": true,
+ "**/.ruff_cache": true,
+ "**/.ruff_cache/**": true,
+ "**/.mypy_cache": true,
+ "**/.mypy_cache/**": true,
+ "**/.venv": true,
+ "**/.venv/**": true,
+ "**/Lib": true,
+ "**/Lib/**": true,
+ "**/Scripts": true,
+ "**/Scripts/**": true,
+ "**/Include": true,
+ "**/Include/**": true,
+ "**/*.egg-info": true,
+ "**/*.egg-info/**": true
+ },
+ "search.exclude": {
+ "**/__pycache__": true,
+ "**/__pycache__/**": true,
+ "**/.pytest_cache": true,
+ "**/.pytest_cache/**": true,
+ "**/.ruff_cache": true,
+ "**/.ruff_cache/**": true,
+ "**/.mypy_cache": true,
+ "**/.mypy_cache/**": true,
+ "**/.venv": true,
+ "**/.venv/**": true,
+ "**/Lib": true,
+ "**/Lib/**": true,
+ "**/Scripts": true,
+ "**/Scripts/**": true,
+ "**/Include": true,
+ "**/Include/**": true,
+ "**/*.egg-info": true,
+ "**/*.egg-info/**": true
+ },
+ "python.testing.pytestEnabled": true,
+ "python.testing.unittestEnabled": false,
+ "python.testing.pytestArgs": [
+ "tests"
+ ],
+ "python.envFile": "${workspaceFolder}/.env",
+ "editor.formatOnSave": true,
+ "[python]": {
+ "editor.defaultFormatter": "ms-python.python",
+ "editor.codeActionsOnSave": {
+ "source.organizeImports": "explicit"
+ }
+ }
+}
+ 
