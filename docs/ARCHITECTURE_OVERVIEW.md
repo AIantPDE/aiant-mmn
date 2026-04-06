@@ -36,3 +36,15 @@
 
 ### tests
 验证 shape 稳定、provider 稳定、recall 稳定、adapter fail-closed。
+
+---
+
+## 相关文档
+
+当前更细的 MMN 设计说明，请继续参见：
+
+- `MMN_DESIGN_INSIGHTS_FROM_MARKDOWN_MEMORY_V0.md`
+- `MMN_OBJECT_FAMILY_V0.md`
+- `MEMORY_PREVIEW_OUTPUT_V0.md`
+- `PANT_ROUTE_PREVIEW_SEAM_V0.md`
+- `MMN_MINIMAL_FLOW_EXAMPLE_V0.md`

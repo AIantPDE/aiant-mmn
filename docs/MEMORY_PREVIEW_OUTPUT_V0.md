@@ -85,3 +85,14 @@
 - `record_kind`: `evidence_note` / `summary_note` / `trace_note` / `citation_note`
 - `memory_strength_hint`: `weak` / `medium` / `strong`
 - `citation_hint`: `none` / `limited` / `available`
+
+---
+
+## 相关文档
+
+若需理解当前对象在更大 MMN 设计中的位置，请参见：
+
+- `ARCHITECTURE_OVERVIEW.md`
+- `MMN_OBJECT_FAMILY_V0.md`
+- `PANT_ROUTE_PREVIEW_SEAM_V0.md`
+- `MMN_MINIMAL_FLOW_EXAMPLE_V0.md`

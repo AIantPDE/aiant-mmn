@@ -56,3 +56,15 @@
 - 缺少关键字段 -> 拒绝
 - 出现 execution-like 字段 -> 拒绝
 - 输入 shape 不明确 -> 拒绝
+
+---
+
+## 相关文档
+
+若需理解当前 seam 的上游 MMN 设计背景与对象族，请参见：
+
+- `ARCHITECTURE_OVERVIEW.md`
+- `MMN_DESIGN_INSIGHTS_FROM_MARKDOWN_MEMORY_V0.md`
+- `MMN_OBJECT_FAMILY_V0.md`
+- `MEMORY_PREVIEW_OUTPUT_V0.md`
+- `MMN_MINIMAL_FLOW_EXAMPLE_V0.md`
