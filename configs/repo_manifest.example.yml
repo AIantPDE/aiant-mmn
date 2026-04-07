@@ -1,0 +1,61 @@
+repo_name: aiant-mmn
+
+surface_rules:
+  - pattern: "src/mmn/contracts/**/*.py"
+    surface_level: boundary_strict
+  - pattern: "src/mmn/adapters/**/*.py"
+    surface_level: boundary_strict
+  - pattern: "docs/MEMORY_PREVIEW_OUTPUT_V0.md"
+    surface_level: boundary_soft
+  - pattern: "docs/PANT_ROUTE_PREVIEW_SEAM_V0.md"
+    surface_level: boundary_soft
+  - pattern: "docs/ARCHITECTURE_OVERVIEW.md"
+    surface_level: boundary_soft
+  - pattern: "src/mmn/providers/**/*.py"
+    surface_level: repo_local
+  - pattern: "src/mmn/recall/**/*.py"
+    surface_level: repo_local
+  - pattern: "README.md"
+    surface_level: repo_local
+
+exclude_patterns:
+  - ".venv/**"
+  - "**/.venv/**"
+  - "**/__pycache__/**"
+  - "**/.pytest_cache/**"
+  - "**/.ruff_cache/**"
+  - ".git/**"
+  - "**/.git/**"
+
+allow_fields:
+  - memory_output_version
+  - memory_output_model_version
+  - memory_output_id
+  - records
+  - memory_strength_hint
+  - citation_hint
+  - reason_codes
+  - trace
+  - record_kind
+  - source_stage
+
+  # first-pass onboarding suppressions
+  - memory_preview_output_v0
+  - memory_semantic_input_id
+  - memory_semantic_input_version
+  - record_count
+
+broad_fields:
+  - mode
+  - status
+  - name
+  - type
+  - data
+  - payload
+  - result
+  - value
+  - info
+
+synonym_clusters:
+  - [memory_output_version, memory_record_version]
+  - [citation_hint, citation_note]
