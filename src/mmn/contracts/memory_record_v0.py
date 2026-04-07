@@ -3,7 +3,6 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import dataclass
 
-
 MEMORY_RECORD_VERSION_V0 = "memory_record_v0"
 SOURCE_STAGE_V0 = "memory_record_v0"
 

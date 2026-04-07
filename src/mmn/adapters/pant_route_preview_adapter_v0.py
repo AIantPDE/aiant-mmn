@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-
 FORBIDDEN_EXECUTION_FIELDS_V0: tuple[str, ...] = (
     "task_id",
     "job_name",

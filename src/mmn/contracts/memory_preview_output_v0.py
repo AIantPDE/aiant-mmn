@@ -5,7 +5,6 @@ from dataclasses import dataclass
 
 from mmn.contracts.memory_record_v0 import MemoryRecordV0
 
-
 MEMORY_OUTPUT_VERSION_V0 = "memory_preview_output_v0"
 MEMORY_OUTPUT_MODEL_VERSION_V0 = "memory_preview_output_model_v0"
 SOURCE_STAGE_V0 = "memory_preview_output_v0"
