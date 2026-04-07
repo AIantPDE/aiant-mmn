@@ -5,12 +5,25 @@ surface_rules:
     surface_level: boundary_strict
   - pattern: "src/mmn/adapters/**/*.py"
     surface_level: boundary_strict
+
+  - pattern: "docs/ARCHITECTURE_OVERVIEW.md"
+    surface_level: repo_local
+  - pattern: "docs/MMN_DESIGN_INSIGHTS_FROM_MARKDOWN_MEMORY_V0.md"
+    surface_level: repo_local
+  - pattern: "docs/MMN_OBJECT_FAMILY_V0.md"
+    surface_level: repo_local
+  - pattern: "docs/MMN_MINIMAL_FLOW_EXAMPLE_V0.md"
+    surface_level: repo_local
+  - pattern: "docs/README_DOC_CHAIN_V0.md"
+    surface_level: repo_local
+
   - pattern: "docs/MEMORY_PREVIEW_OUTPUT_V0.md"
+    surface_level: boundary_soft
+  - pattern: "docs/MEMORY_RECORD_V0.md"
     surface_level: boundary_soft
   - pattern: "docs/PANT_ROUTE_PREVIEW_SEAM_V0.md"
     surface_level: boundary_soft
-  - pattern: "docs/ARCHITECTURE_OVERVIEW.md"
-    surface_level: boundary_soft
+
   - pattern: "src/mmn/providers/**/*.py"
     surface_level: repo_local
   - pattern: "src/mmn/recall/**/*.py"
@@ -45,6 +58,9 @@ allow_fields:
   - memory_semantic_input_version
   - record_count
 
+  # second-pass decision
+  - record_text
+
 broad_fields:
   - mode
   - status
@@ -55,6 +71,7 @@ broad_fields:
   - result
   - value
   - info
+  - text
 
 synonym_clusters:
   - [memory_output_version, memory_record_version]
