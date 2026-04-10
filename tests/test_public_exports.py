@@ -8,6 +8,8 @@ from mmn import (
     build_memory_preview_output_v0,
     build_memory_record_v0,
     build_recall_stub_v0,
+    memory_preview_output_to_payload_v0,
+    memory_record_to_payload_v0,
 )
 from mmn import (
     __all__ as mmn_all,
@@ -30,6 +32,8 @@ def test_contracts_public_exports_are_stable() -> None:
         "MemoryRecordV0",
         "build_memory_preview_output_v0",
         "build_memory_record_v0",
+        "memory_preview_output_to_payload_v0",
+        "memory_record_to_payload_v0",
     ]
 
 
@@ -65,6 +69,8 @@ def test_top_level_public_exports_are_stable() -> None:
         "build_memory_preview_output_v0",
         "build_memory_record_v0",
         "build_recall_stub_v0",
+        "memory_preview_output_to_payload_v0",
+        "memory_record_to_payload_v0",
     ]
 
 
@@ -77,4 +83,6 @@ def test_top_level_exports_are_importable() -> None:
     assert callable(build_memory_preview_output_v0)
     assert callable(build_recall_stub_v0)
     assert callable(adapt_memory_preview_for_pant_route_v0)
+    assert callable(memory_record_to_payload_v0)
+    assert callable(memory_preview_output_to_payload_v0)
     assert isinstance(FORBIDDEN_EXECUTION_FIELDS_V0, tuple)

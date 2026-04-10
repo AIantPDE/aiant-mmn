@@ -78,10 +78,22 @@ def build_memory_record_v0(
     )
 
 
+def memory_record_to_payload_v0(record: MemoryRecordV0) -> dict[str, object]:
+    return {
+        "record_version": record.record_version,
+        "record_id": record.record_id,
+        "record_kind": record.record_kind,
+        "record_text": record.record_text,
+        "reason_codes": tuple(record.reason_codes),
+        "trace": dict(record.trace),
+    }
+
+
 __all__ = [
     "ALLOWED_RECORD_KINDS_V0",
     "MEMORY_RECORD_VERSION_V0",
     "MemoryRecordV0",
     "build_memory_record_v0",
+    "memory_record_to_payload_v0",
     "normalize_str_tuple_v0",
 ]

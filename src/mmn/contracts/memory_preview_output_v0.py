@@ -3,7 +3,10 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import dataclass
 
-from mmn.contracts.memory_record_v0 import MemoryRecordV0
+from mmn.contracts.memory_record_v0 import (
+    MemoryRecordV0,
+    memory_record_to_payload_v0,
+)
 
 MEMORY_OUTPUT_VERSION_V0 = "memory_preview_output_v0"
 MEMORY_OUTPUT_MODEL_VERSION_V0 = "memory_preview_output_model_v0"
@@ -93,6 +96,21 @@ def build_memory_preview_output_v0(
     )
 
 
+def memory_preview_output_to_payload_v0(
+    output: MemoryPreviewOutputV0,
+) -> dict[str, object]:
+    return {
+        "memory_output_version": output.memory_output_version,
+        "memory_output_model_version": output.memory_output_model_version,
+        "memory_output_id": output.memory_output_id,
+        "records": tuple(memory_record_to_payload_v0(record) for record in output.records),
+        "memory_strength_hint": output.memory_strength_hint,
+        "citation_hint": output.citation_hint,
+        "reason_codes": tuple(output.reason_codes),
+        "trace": dict(output.trace),
+    }
+
+
 __all__ = [
     "ALLOWED_CITATION_HINTS_V0",
     "ALLOWED_MEMORY_STRENGTH_HINTS_V0",
@@ -100,5 +118,6 @@ __all__ = [
     "MEMORY_OUTPUT_VERSION_V0",
     "MemoryPreviewOutputV0",
     "build_memory_preview_output_v0",
+    "memory_preview_output_to_payload_v0",
     "normalize_str_tuple_v0",
 ]
