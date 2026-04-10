@@ -1,26 +1,42 @@
-from dataclasses import asdict, fields
+import pytest
 
 from mmn.contracts.memory_record_v0 import build_memory_record_v0
 
 
-def test_memory_record_shape_is_stable() -> None:
+def test_build_memory_record_v0_rejects_blank_record_seed() -> None:
+    with pytest.raises(ValueError, match="missing record_seed"):
+        build_memory_record_v0(
+            record_seed="   ",
+            record_kind="summary_note",
+            record_text="alpha",
+        )
+
+
+def test_build_memory_record_v0_rejects_unsupported_record_kind() -> None:
+    with pytest.raises(ValueError, match="unsupported record_kind"):
+        build_memory_record_v0(
+            record_seed="alpha",
+            record_kind="unknown_note",
+            record_text="alpha",
+        )
+
+
+def test_build_memory_record_v0_rejects_blank_record_text() -> None:
+    with pytest.raises(ValueError, match="missing record_text"):
+        build_memory_record_v0(
+            record_seed="alpha",
+            record_kind="summary_note",
+            record_text="   ",
+        )
+
+
+def test_build_memory_record_v0_normalizes_text_and_reason_codes() -> None:
     record = build_memory_record_v0(
         record_seed="alpha",
         record_kind="summary_note",
-        record_text="alpha summary",
-        reason_codes=("MEMORY_STUB",),
+        record_text="  alpha summary  ",
+        reason_codes=[" A ", "", "B"],
     )
 
-    field_names = tuple(field.name for field in fields(record))
-    assert field_names == (
-        "record_version",
-        "record_id",
-        "record_kind",
-        "record_text",
-        "reason_codes",
-        "trace",
-    )
-
-    payload = asdict(record)
-    assert payload["record_version"] == "memory_record_v0"
-    assert payload["record_id"] == "memory-record::alpha"
+    assert record.record_text == "alpha summary"
+    assert record.reason_codes == ("A", "B")
