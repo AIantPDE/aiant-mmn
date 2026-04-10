@@ -1,7 +1,21 @@
 import pytest
 
+from mmn.contracts.memory_preview_output_v0 import (
+    memory_preview_output_to_payload_v0,
+)
 from mmn.providers.memory_stub_provider_v0 import MemoryStubProviderV0
 from mmn.recall.recall_stub_v0 import build_recall_stub_v0
+
+
+def test_recall_stub_is_deterministic() -> None:
+    provider = MemoryStubProviderV0()
+    output = provider.generate(output_seed="alpha", richer_memory=True)
+
+    result = build_recall_stub_v0(memory_preview_output_to_payload_v0(output))
+
+    assert result["recall_version"] == "recall_stub_v0"
+    assert result["memory_output_id"] == "memory-preview::alpha"
+    assert result["recall_state"] == "memory_recall_preferred"
 
 
 def test_recall_stub_rejects_unsupported_version() -> None:
@@ -46,6 +60,6 @@ def test_recall_stub_returns_observe_when_citation_is_limited() -> None:
     provider = MemoryStubProviderV0()
     output = provider.generate(output_seed="alpha", richer_memory=False)
 
-    result = build_recall_stub_v0(output.__dict__)
+    result = build_recall_stub_v0(memory_preview_output_to_payload_v0(output))
 
     assert result["recall_state"] == "memory_recall_observe"

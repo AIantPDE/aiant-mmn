@@ -1,7 +1,35 @@
 import pytest
 
-from mmn.adapters.pant_route_preview_adapter_v0 import adapt_memory_preview_for_pant_route_v0
+from mmn.adapters.pant_route_preview_adapter_v0 import (
+    adapt_memory_preview_for_pant_route_v0,
+)
+from mmn.contracts.memory_preview_output_v0 import (
+    memory_preview_output_to_payload_v0,
+)
 from mmn.providers.memory_stub_provider_v0 import MemoryStubProviderV0
+
+
+def test_pant_route_preview_adapter_shape_is_stable() -> None:
+    provider = MemoryStubProviderV0()
+    output = provider.generate(output_seed="alpha", richer_memory=False)
+
+    adapted = adapt_memory_preview_for_pant_route_v0(memory_preview_output_to_payload_v0(output))
+
+    assert adapted["memory_semantic_input_version"] == "pant_route_memory_input_v0"
+    assert adapted["memory_output_id"] == "memory-preview::alpha"
+    assert adapted["memory_strength_hint"] == "medium"
+    assert adapted["citation_hint"] == "limited"
+
+
+def test_pant_route_preview_adapter_is_fail_closed_for_forbidden_field() -> None:
+    provider = MemoryStubProviderV0()
+    output = memory_preview_output_to_payload_v0(
+        provider.generate(output_seed="alpha", richer_memory=False)
+    )
+    output["worker_target"] = "worker_v0"
+
+    with pytest.raises(ValueError):
+        adapt_memory_preview_for_pant_route_v0(output)
 
 
 def test_pant_route_preview_adapter_rejects_unsupported_version() -> None:
@@ -47,7 +75,9 @@ def test_pant_route_preview_adapter_blocks_forbidden_execution_fields(
     field_name: str,
 ) -> None:
     provider = MemoryStubProviderV0()
-    output = provider.generate(output_seed="alpha", richer_memory=False).__dict__.copy()
+    output = memory_preview_output_to_payload_v0(
+        provider.generate(output_seed="alpha", richer_memory=False)
+    )
     output[field_name] = "blocked"
 
     with pytest.raises(ValueError, match="blocked forbidden execution field"):

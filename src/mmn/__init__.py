@@ -13,6 +13,8 @@ from mmn.contracts import (
     MemoryRecordV0,
     build_memory_preview_output_v0,
     build_memory_record_v0,
+    memory_preview_output_to_payload_v0,
+    memory_record_to_payload_v0,
 )
 from mmn.providers import MemoryStubProviderV0
 from mmn.recall import build_recall_stub_v0
@@ -34,4 +36,6 @@ __all__ = [
     "build_memory_preview_output_v0",
     "build_memory_record_v0",
     "build_recall_stub_v0",
+    "memory_preview_output_to_payload_v0",
+    "memory_record_to_payload_v0",
 ]
