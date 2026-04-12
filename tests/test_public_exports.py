@@ -4,7 +4,7 @@ from mmn import (
     MemoryRecordV0,
     MemoryStubProviderV0,
     __version__,
-    adapt_memory_preview_for_pant_route_v0,
+    adapt_memory_preview_for_route_preview_v0,
     build_memory_preview_output_v0,
     build_memory_record_v0,
     build_recall_stub_v0,
@@ -48,7 +48,7 @@ def test_recall_public_exports_are_stable() -> None:
 def test_adapters_public_exports_are_stable() -> None:
     assert adapters_all == [
         "FORBIDDEN_EXECUTION_FIELDS_V0",
-        "adapt_memory_preview_for_pant_route_v0",
+        "adapt_memory_preview_for_route_preview_v0",
     ]
 
 
@@ -65,7 +65,7 @@ def test_top_level_public_exports_are_stable() -> None:
         "MemoryPreviewOutputV0",
         "MemoryRecordV0",
         "MemoryStubProviderV0",
-        "adapt_memory_preview_for_pant_route_v0",
+        "adapt_memory_preview_for_route_preview_v0",
         "build_memory_preview_output_v0",
         "build_memory_record_v0",
         "build_recall_stub_v0",
@@ -82,7 +82,7 @@ def test_top_level_exports_are_importable() -> None:
     assert callable(build_memory_record_v0)
     assert callable(build_memory_preview_output_v0)
     assert callable(build_recall_stub_v0)
-    assert callable(adapt_memory_preview_for_pant_route_v0)
+    assert callable(adapt_memory_preview_for_route_preview_v0)
     assert callable(memory_record_to_payload_v0)
     assert callable(memory_preview_output_to_payload_v0)
     assert isinstance(FORBIDDEN_EXECUTION_FIELDS_V0, tuple)
