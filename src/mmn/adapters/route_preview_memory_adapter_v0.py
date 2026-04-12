@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
+from mmn.contracts.memory_preview_output_v0 import normalize_str_tuple_v0
+
 FORBIDDEN_EXECUTION_FIELDS_V0: tuple[str, ...] = (
     "task_id",
     "job_name",
@@ -18,7 +20,7 @@ FORBIDDEN_EXECUTION_FIELDS_V0: tuple[str, ...] = (
 )
 
 
-def adapt_memory_preview_for_pant_route_v0(
+def adapt_memory_preview_for_route_preview_v0(
     memory_output: Mapping[str, object],
 ) -> dict[str, object]:
     for field_name in FORBIDDEN_EXECUTION_FIELDS_V0:
@@ -43,15 +45,17 @@ def adapt_memory_preview_for_pant_route_v0(
     if not isinstance(citation_hint, str) or not citation_hint.strip():
         raise ValueError("missing citation_hint")
 
+    normalized_reason_codes = normalize_str_tuple_v0(memory_output.get("reason_codes", ()))
+
     return {
-        "memory_semantic_input_version": "pant_route_memory_input_v0",
-        "memory_semantic_input_id": f"pant-route-memory::{memory_output_id}",
+        "memory_semantic_input_version": "route_preview_memory_input_v0",
+        "memory_semantic_input_id": f"route-preview-memory::{memory_output_id}",
         "memory_output_id": memory_output_id,
         "memory_strength_hint": memory_strength_hint.strip(),
         "citation_hint": citation_hint.strip(),
-        "reason_codes": tuple(memory_output.get("reason_codes", ())),
+        "reason_codes": normalized_reason_codes,
         "trace": {
-            "source_stage": "pant_route_preview_adapter_v0",
+            "source_stage": "route_preview_memory_adapter_v0",
             "memory_output_id": memory_output_id,
             "memory_strength_hint": memory_strength_hint.strip(),
             "citation_hint": citation_hint.strip(),

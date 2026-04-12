@@ -1,6 +1,6 @@
 from mmn.adapters import (
     FORBIDDEN_EXECUTION_FIELDS_V0,
-    adapt_memory_preview_for_pant_route_v0,
+    adapt_memory_preview_for_route_preview_v0,
 )
 from mmn.contracts import (
     ALLOWED_CITATION_HINTS_V0,
@@ -32,7 +32,7 @@ __all__ = [
     "MemoryPreviewOutputV0",
     "MemoryRecordV0",
     "MemoryStubProviderV0",
-    "adapt_memory_preview_for_pant_route_v0",
+    "adapt_memory_preview_for_route_preview_v0",
     "build_memory_preview_output_v0",
     "build_memory_record_v0",
     "build_recall_stub_v0",
