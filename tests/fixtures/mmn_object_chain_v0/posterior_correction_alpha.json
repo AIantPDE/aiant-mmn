@@ -1,0 +1,24 @@
+{
+    "correction_version": "posterior_correction_object_v0",
+    "correction_id": "posterior-correction::alpha",
+    "subject_id": "subject-alpha",
+    "correction_target": [
+        "core_asset_promotion_confidence",
+        "chain_spread_expectation"
+    ],
+    "correction_direction": "down",
+    "correction_strength": "medium",
+    "correction_basis": [
+        "historical-comparison::alpha",
+        "historical_chain_sync_realization_low"
+    ],
+    "posterior_notes": "chain spread should be discounted relative to core asset",
+    "trace": {
+        "source_stage": "posterior_correction_object_v0",
+        "correction_id": "posterior-correction::alpha",
+        "subject_id": "subject-alpha",
+        "correction_direction": "down",
+        "correction_strength": "medium",
+        "correction_basis_count": 2
+    }
+}

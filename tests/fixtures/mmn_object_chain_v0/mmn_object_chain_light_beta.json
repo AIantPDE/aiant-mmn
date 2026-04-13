@@ -1,0 +1,74 @@
+{
+    "comparison": {
+        "comparison_version": "historical_comparison_object_v0",
+        "comparison_id": "historical-comparison::beta",
+        "subject_id": "subject-beta",
+        "current_pattern_summary": "single asset confirmation signal",
+        "historical_pattern_refs": [],
+        "matched_dimensions": [],
+        "divergent_dimensions": [],
+        "comparison_confidence": "low",
+        "comparison_notes": "",
+        "trace": {
+            "source_stage": "historical_comparison_object_v0",
+            "comparison_id": "historical-comparison::beta",
+            "subject_id": "subject-beta",
+            "comparison_confidence": "low",
+            "historical_pattern_ref_count": 0
+        }
+    },
+    "correction": {
+        "correction_version": "posterior_correction_object_v0",
+        "correction_id": "posterior-correction::beta",
+        "subject_id": "subject-beta",
+        "correction_target": [],
+        "correction_direction": "neutral",
+        "correction_strength": "light",
+        "correction_basis": [],
+        "posterior_notes": "",
+        "trace": {
+            "source_stage": "posterior_correction_object_v0",
+            "correction_id": "posterior-correction::beta",
+            "subject_id": "subject-beta",
+            "correction_direction": "neutral",
+            "correction_strength": "light",
+            "correction_basis_count": 0
+        }
+    },
+    "write_back_request": {
+        "write_back_version": "memory_writeback_request_v0",
+        "write_back_id": "memory-writeback::beta",
+        "subject_id": "subject-beta",
+        "write_back_reason": [],
+        "target_memory_layer": [
+            "warm"
+        ],
+        "source_evidence_refs": [],
+        "write_back_mode": "preview_only",
+        "trace": {
+            "source_stage": "memory_writeback_request_v0",
+            "write_back_id": "memory-writeback::beta",
+            "subject_id": "subject-beta",
+            "write_back_mode": "preview_only",
+            "target_memory_layer_count": 1,
+            "source_evidence_ref_count": 0
+        }
+    },
+    "write_back_record": {
+        "write_back_version": "memory_writeback_record_v0",
+        "write_back_id": "memory-writeback-record::beta",
+        "stored_memory_ref": "mem_preview_beta",
+        "stored_memory_layer": "warm",
+        "stored_memory_kind": "preview_memory_note",
+        "write_back_status": "deferred",
+        "retention_hint": "short_term",
+        "write_back_notes": "",
+        "trace": {
+            "source_stage": "memory_writeback_record_v0",
+            "write_back_id": "memory-writeback-record::beta",
+            "stored_memory_ref": "mem_preview_beta",
+            "stored_memory_layer": "warm",
+            "write_back_status": "deferred"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "write_back_version": "memory_writeback_record_v0",
+    "write_back_id": "memory-writeback-record::alpha",
+    "stored_memory_ref": "mem_posterior_core_vs_chain_lag_003",
+    "stored_memory_layer": "posterior",
+    "stored_memory_kind": "propagation_realization_correction",
+    "write_back_status": "stored",
+    "retention_hint": "long_term",
+    "write_back_notes": "core asset tends to realize earlier than chain spread",
+    "trace": {
+        "source_stage": "memory_writeback_record_v0",
+        "write_back_id": "memory-writeback-record::alpha",
+        "stored_memory_ref": "mem_posterior_core_vs_chain_lag_003",
+        "stored_memory_layer": "posterior",
+        "write_back_status": "stored"
+    }
+}
