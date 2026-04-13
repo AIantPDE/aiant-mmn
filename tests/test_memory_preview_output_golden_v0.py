@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import TypeAlias
+from typing import TypeAlias, cast
 
 from mmn.adapters import FORBIDDEN_EXECUTION_FIELDS_V0
 from mmn.contracts.memory_preview_output_v0 import (
@@ -27,15 +27,18 @@ def _canonicalize(value: object) -> JsonValue:
         return value
 
     if isinstance(value, tuple):
-        return [_canonicalize(item) for item in value]
+        raw_tuple = cast(tuple[object, ...], value)
+        return [_canonicalize(item) for item in raw_tuple]
 
     if isinstance(value, list):
-        return [_canonicalize(item) for item in value]
+        raw_list = cast(list[object], value)
+        return [_canonicalize(item) for item in raw_list]
 
     if isinstance(value, dict):
+        raw_dict = cast(dict[object, object], value)
         canonical: dict[str, JsonValue] = {}
-        for key, item in value.items():
-            canonical[str(key)] = _canonicalize(item)
+        for key, item in raw_dict.items():
+            canonical[str(cast(object, key))] = _canonicalize(cast(object, item))
         return canonical
 
     msg = f"Unsupported canonicalize value type: {type(value)!r}"
