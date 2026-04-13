@@ -1,5 +1,7 @@
 # MEMORY_WRITEBACK_REQUEST_V0
 
+时间：2026年4月13日
+
 ## 1. 目标
 
 `memory_writeback_request_v0` 是 `aiant-mmn` 当前阶段的最小记忆写回请求对象。
@@ -10,7 +12,7 @@
 
 一句话概括：
 
-> `MemoryWriteBackRequestV0` 用于表达“当前哪些内容值得写回记忆层，以及拟写去哪一层”。 
+> `MemoryWriteBackRequestV0` 用于表达“当前哪些内容值得写回记忆层，以及拟写去哪一层”。
 
 ---
 
@@ -72,6 +74,7 @@
 说明：
 
 该字段用于表达：
+
 - 为什么值得写回
 - 当前写回请求属于哪类最小原因
 
@@ -169,7 +172,35 @@
 
 ---
 
-## 8. 当前阶段的一句话总结
+## 8. 与时间序列 write-back 纪律的关系
+
+当前对象只定义最小 write-back request contract，
+并不单独完成时间序列中的 write-back 治理解释。
+
+尤其需要继续保持清楚的是：
+
+- 当前对象不等于 backend mutation command
+- 当前对象不意味着“到某个固定天数自动写入”
+- 当前对象只表达：
+  - 当前哪些内容值得申请写回
+  - 拟写去哪层
+  - 以什么最小方式写回
+
+关于当前 `MemoryWriteBackRequestV0` 在时间序列语境中的最小纪律解释，
+请继续参见：
+
+- `MMN_WRITEBACK_TIME_SERIES_DISCIPLINE_V0.md`
+
+该文档会进一步说明：
+
+- 为什么 `write-back` 不应按固定日历时间定义
+- 什么才算新的独立事件实例
+- 什么才算 outcome horizon 已闭合
+- 在什么条件下 request 更适合被提出
+
+---
+
+## 9. 当前阶段的一句话总结
 
 可以用下面这句话概括当前对象：
 
