@@ -956,3 +956,41 @@ MMN 不应只是 recall 模块，
 > `aiant-mmn` 已从“最小 memory host”推进到“同时具备最小 memory preview output、record-level preview unit 与最小 MMN 本体对象链”的阶段；
 > 因此下一步更适合做 architecture checkpoint、handoff 收口与 fixture 冻结，
 > 而不是继续无边界新增 object shell。
+
+---
+
+### 当前为何适合继续做 write-back payload / trace hardening
+
+站在 `AIANTPDE_README` 的全局角度看，
+当前 `MMN` 的价值不只在于为当前对象提供 recall 与历史支撑，
+还在于把外部结果重新沉淀为未来可用的 posterior / correction 经验。
+
+因此，当前继续推进 `MemoryWriteBackRequestV0` / `MemoryWriteBackRecordV0`
+的 payload / trace hardening 是合适的，
+但其含义必须保持收敛。
+
+当前所说的 hardening，
+应理解为：
+
+- 稳定当前最小 write-back objects 的 contract-facing payload surface
+- 稳定当前最小 trace 语义
+- 保持 canonical projection
+- 阻止 execution-like fields 渗入当前 preview-only / non-executing surface
+
+而不应被理解为：
+
+- 开始实现完整 MMN 写回治理系统
+- 开始定义完整 persistence ownership
+- 开始定义完整 retention governance
+- 开始引入 backend mutation / queue / worker / scheduler 语义
+
+换句话说：
+
+> 当前阶段适合做的是最小 write-back objects 的 payload / trace 表面硬化，
+> 而不是完整 MMN 写回治理系统的提前展开。
+
+这样做的价值在于：
+
+- 不扩张当前仓的阶段职责
+- 不破坏 preview-only / non-executing / contract-first 边界
+- 但能为未来 `[5]` 与 `[6]` 之间的经验回流保留更稳定的 contract-facing 起点
