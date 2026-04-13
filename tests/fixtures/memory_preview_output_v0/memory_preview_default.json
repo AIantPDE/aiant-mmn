@@ -1,0 +1,58 @@
+{
+    "memory_output_version": "memory_preview_output_v0",
+    "memory_output_model_version": "memory_preview_output_model_v0",
+    "memory_output_id": "memory-preview::alpha",
+    "records": [
+        {
+            "record_version": "memory_record_v0",
+            "record_id": "memory-record::alpha::note",
+            "record_kind": "summary_note",
+            "record_text": "preview memory note",
+            "reason_codes": [
+                "MEMORY_STUB"
+            ],
+            "trace": {
+                "source_stage": "memory_record_v0",
+                "record_id": "memory-record::alpha::note",
+                "record_kind": "summary_note",
+                "record_text": "preview memory note",
+                "reason_codes": [
+                    "MEMORY_STUB"
+                ]
+            }
+        },
+        {
+            "record_version": "memory_record_v0",
+            "record_id": "memory-record::alpha::citation",
+            "record_kind": "citation_note",
+            "record_text": "preview citation note",
+            "reason_codes": [
+                "MEMORY_STUB"
+            ],
+            "trace": {
+                "source_stage": "memory_record_v0",
+                "record_id": "memory-record::alpha::citation",
+                "record_kind": "citation_note",
+                "record_text": "preview citation note",
+                "reason_codes": [
+                    "MEMORY_STUB"
+                ]
+            }
+        }
+    ],
+    "memory_strength_hint": "medium",
+    "citation_hint": "limited",
+    "reason_codes": [
+        "MEMORY_STUB"
+    ],
+    "trace": {
+        "source_stage": "memory_preview_output_v0",
+        "memory_output_id": "memory-preview::alpha",
+        "record_count": 2,
+        "memory_strength_hint": "medium",
+        "citation_hint": "limited",
+        "reason_codes": [
+            "MEMORY_STUB"
+        ]
+    }
+}

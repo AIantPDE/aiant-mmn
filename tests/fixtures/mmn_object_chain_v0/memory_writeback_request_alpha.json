@@ -1,0 +1,27 @@
+{
+    "write_back_version": "memory_writeback_request_v0",
+    "write_back_id": "memory-writeback::alpha",
+    "subject_id": "subject-alpha",
+    "write_back_reason": [
+        "posterior_update_required",
+        "failed_chain_sync_exemplar"
+    ],
+    "target_memory_layer": [
+        "posterior",
+        "cold"
+    ],
+    "source_evidence_refs": [
+        "posterior-correction::alpha",
+        "historical-comparison::alpha",
+        "outcome_trace_001"
+    ],
+    "write_back_mode": "structured_posterior_update",
+    "trace": {
+        "source_stage": "memory_writeback_request_v0",
+        "write_back_id": "memory-writeback::alpha",
+        "subject_id": "subject-alpha",
+        "write_back_mode": "structured_posterior_update",
+        "target_memory_layer_count": 2,
+        "source_evidence_ref_count": 3
+    }
+}
