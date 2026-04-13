@@ -339,3 +339,38 @@ tests/fixtures/mmn_object_chain_v0/mmn_object_chain_light_beta.json
 > 因此下一步最合理的方向是：
 > 先做 architecture checkpoint、handoff 收口与 golden fixture 冻结，
 > 默认暂不继续无边界扩 richer MMN object shell。
+
+---
+
+## 当前继续推进 write-back 的推荐理解
+
+当前阶段若继续推进 `MemoryWriteBackRequestV0` / `MemoryWriteBackRecordV0`，
+推荐优先做：
+
+- payload projection hardening
+- trace semantics hardening
+- canonical payload freeze
+- execution-like field exclusion coverage
+
+不推荐当前直接展开：
+
+- 完整 write-back governance
+- 完整 retention policy
+- 完整 persistence / storage ownership
+- 完整 time-series acceptance policy
+- backend mutation / worker-coupled writeback flow
+
+原因在于：
+
+站在 `AIANTPDE_README` 的全局角度，
+`MMN` 的确需要承担从当前支撑走向未来修正的经验回流职责，
+因此 write-back 是合理方向；
+但当前 `aiant-mmn` 仍处于 preview-only / non-executing / contract-first 阶段，
+更适合先硬化最小 contract-facing 表面，
+而不是提前 materialize 完整治理系统。
+
+因此，后续若继续推进，
+应优先理解为：
+
+> 对最小 write-back objects 的 payload / trace 表面硬化，
+> 而不是开始实现完整 MMN 写回治理系统。
