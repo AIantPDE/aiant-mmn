@@ -1,5 +1,7 @@
 # MMN_WRITEBACK_TIME_SERIES_DISCIPLINE_V0
 
+时间：2026年4月13日
+
 ## 1. 目的
 
 本文档用于单独说明当前 `aiant-mmn` 中 `write-back` 相关对象的时间序列语义边界。
