@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any, cast
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -12,8 +13,11 @@ REFERENCE_PATH = (
 )
 
 
-def load_reference() -> dict[str, object]:
-    return json.loads(REFERENCE_PATH.read_text(encoding="utf-8"))
+JsonObject = dict[str, Any]
+
+
+def load_reference() -> JsonObject:
+    return cast(JsonObject, json.loads(REFERENCE_PATH.read_text(encoding="utf-8")))
 
 
 def test_mmn_vb_next_files_exist() -> None:
