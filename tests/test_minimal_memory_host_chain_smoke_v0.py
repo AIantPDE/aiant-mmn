@@ -32,11 +32,7 @@ def test_minimal_memory_host_chain_smoke_richer_path() -> None:
 
     assert adapted["memory_semantic_input_version"] == "route_preview_memory_input_v0"
     assert adapted["memory_semantic_input_id"] == "route-preview-memory::memory-preview::alpha"
-    assert (
-        adapted["memory_output_id"] == output.memory_id
-        if hasattr(output, "memory_id")
-        else output.memory_output_id
-    )
+    assert adapted["memory_output_id"] == output.memory_output_id
     assert adapted["memory_strength_hint"] == output.memory_strength_hint
     assert adapted["citation_hint"] == output.citation_hint
     assert adapted["reason_codes"] == output.reason_codes
