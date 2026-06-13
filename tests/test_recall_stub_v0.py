@@ -63,3 +63,13 @@ def test_recall_stub_returns_observe_when_citation_is_limited() -> None:
     result = build_recall_stub_v0(memory_preview_output_to_payload_v0(output))
 
     assert result["recall_state"] == "memory_recall_observe"
+
+
+def test_recall_stub_rejects_non_iterable_reason_codes() -> None:
+    provider = MemoryStubProviderV0()
+    output = provider.generate(output_seed="alpha", richer_memory=True)
+    material = dict(output.__dict__)
+    material["reason_codes"] = object()
+
+    with pytest.raises(TypeError, match="reason_codes must be iterable"):
+        build_recall_stub_v0(material)

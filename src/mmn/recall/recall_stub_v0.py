@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 
 
 def build_recall_stub_v0(memory_output: Mapping[str, object]) -> dict[str, object]:
@@ -19,6 +19,10 @@ def build_recall_stub_v0(memory_output: Mapping[str, object]) -> dict[str, objec
     if not isinstance(citation_hint, str) or not citation_hint.strip():
         raise ValueError("missing citation_hint")
 
+    reason_codes = memory_output.get("reason_codes", ())
+    if not isinstance(reason_codes, Iterable):
+        raise TypeError("reason_codes must be iterable")
+
     recall_state = (
         "memory_recall_preferred" if citation_hint == "available" else "memory_recall_observe"
     )
@@ -28,7 +32,7 @@ def build_recall_stub_v0(memory_output: Mapping[str, object]) -> dict[str, objec
         "recall_id": f"memory-recall::{memory_output_id}",
         "memory_output_id": memory_output_id,
         "recall_state": recall_state,
-        "reason_codes": tuple(memory_output.get("reason_codes", ())),
+        "reason_codes": tuple(reason_codes),
         "trace": {
             "source_stage": "recall_stub_v0",
             "memory_output_id": memory_output_id,
