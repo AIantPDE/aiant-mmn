@@ -286,3 +286,17 @@ MEMORY_PREVIEW_OUTPUT_V0
 -> 最小对象链如何走到 comparison / correction / write-back
 -> 当前阶段为什么先做 checkpoint / handoff / write-back discipline / fixture freeze
 ```
+
+## MMN Authority Event Memory V1.3.1
+
+- `docs/authority_event_memory/MMN_AUTHORITY_EVENT_MEMORY_V1_3_1_CURRENT_BUSINESS_INTENT_V0.md`
+- `docs/authority_event_memory/MMN_AUTHORITY_EVENT_MEMORY_V1_3_1_LEGACY_SEAM_ALIGNMENT_V0.md`
+- `docs/authority_event_memory/MMN_AUTHORITY_EVENT_MEMORY_V1_3_1_COMPATIBILITY_BOUNDARY_V0.md`
+- `docs/authority_event_memory/MMN_AUTHORITY_EVENT_MEMORY_V1_3_1_ENGINEERING_ENTRY_PLAN_V0.md`
+
+Boundary:
+
+```text
+V1.3.1 defines the current MMN authority event memory intent.
+Existing V0 preview/writeback/memory seams are legacy-compatible host surfaces only.
+```
