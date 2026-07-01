@@ -1,0 +1,329 @@
+{
+  "adapter_mode": "validator_consumer_read_only",
+  "cases": [
+    {
+      "case_id": "valid_read_only_payload",
+      "expected_report": {
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": false,
+        "fail_closed_reasons": []
+      },
+      "payload": {
+        "authority_envelope": {
+          "authority_granted": false,
+          "blocking_conditions": [],
+          "decision": "read_only_validated",
+          "decision_basis": {
+            "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+            "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1",
+            "adapter_validation_pass": "mmn-read-only-adapter-stub-v0",
+            "approval_trace": "docs-test-only-approval-trace-v0",
+            "core_topology_enablement": "core-boundary:downstream-topology-v0",
+            "downstream_policy": "default-deny-read-only-validation-policy-v0",
+            "field_registry_entry": "docs/FIELD_REGISTRY.md#mmn-authority-event-memory",
+            "governance_scan_pass": "governance-boundary:scanner-v0",
+            "public_export": "aiant_contracts.MMNAuthorityEventMemoryAcceptedV1",
+            "receipt_ledger_entry": "ledger:mmn-aem:accepted:v1"
+          },
+          "default_on_missing_evidence": "false_fail_closed",
+          "deferral_refs": [],
+          "grant_scope": {
+            "adapter_mode": "validator_consumer_read_only",
+            "authority_kind": "read_only_validation",
+            "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+            "repo": "aiant-mmn",
+            "schema": "MMNAuthorityEventMemoryAcceptedV1",
+            "version": "v1"
+          },
+          "missing_evidence": [],
+          "required_evidence": [
+            "accepted_schema_receipt",
+            "accepted_family_receipt",
+            "receipt_ledger_entry",
+            "field_registry_entry",
+            "public_export",
+            "downstream_policy",
+            "core_topology_enablement",
+            "governance_scan_pass",
+            "adapter_validation_pass",
+            "approval_trace"
+          ],
+          "revocation_refs": []
+        },
+        "canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+        "downstream_policy": "default-deny-read-only-validation-policy-v0",
+        "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+        "receipts": {
+          "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+          "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1"
+        },
+        "schema": "MMNAuthorityEventMemoryAcceptedV1"
+      }
+    },
+    {
+      "case_id": "missing_receipt_denied",
+      "expected_report": {
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "fail_closed_reasons": [
+          "missing_receipt_refs"
+        ]
+      },
+      "payload": {
+        "authority_envelope": {
+          "authority_granted": false,
+          "blocking_conditions": [],
+          "decision": "read_only_validated",
+          "decision_basis": {
+            "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+            "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1",
+            "adapter_validation_pass": "mmn-read-only-adapter-stub-v0",
+            "approval_trace": "docs-test-only-approval-trace-v0",
+            "core_topology_enablement": "core-boundary:downstream-topology-v0",
+            "downstream_policy": "default-deny-read-only-validation-policy-v0",
+            "field_registry_entry": "docs/FIELD_REGISTRY.md#mmn-authority-event-memory",
+            "governance_scan_pass": "governance-boundary:scanner-v0",
+            "public_export": "aiant_contracts.MMNAuthorityEventMemoryAcceptedV1",
+            "receipt_ledger_entry": "ledger:mmn-aem:accepted:v1"
+          },
+          "default_on_missing_evidence": "false_fail_closed",
+          "deferral_refs": [],
+          "grant_scope": {
+            "adapter_mode": "validator_consumer_read_only",
+            "authority_kind": "read_only_validation",
+            "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+            "repo": "aiant-mmn",
+            "schema": "MMNAuthorityEventMemoryAcceptedV1",
+            "version": "v1"
+          },
+          "missing_evidence": [],
+          "required_evidence": [
+            "accepted_schema_receipt",
+            "accepted_family_receipt",
+            "receipt_ledger_entry",
+            "field_registry_entry",
+            "public_export",
+            "downstream_policy",
+            "core_topology_enablement",
+            "governance_scan_pass",
+            "adapter_validation_pass",
+            "approval_trace"
+          ],
+          "revocation_refs": []
+        },
+        "canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+        "downstream_policy": "default-deny-read-only-validation-policy-v0",
+        "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+        "receipts": {},
+        "schema": "MMNAuthorityEventMemoryAcceptedV1"
+      }
+    },
+    {
+      "case_id": "canonical_hash_mismatch_denied",
+      "expected_report": {
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "fail_closed_reasons": [
+          "canonical_hash_mismatch"
+        ]
+      },
+      "payload": {
+        "authority_envelope": {
+          "authority_granted": false,
+          "blocking_conditions": [],
+          "decision": "read_only_validated",
+          "decision_basis": {
+            "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+            "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1",
+            "adapter_validation_pass": "mmn-read-only-adapter-stub-v0",
+            "approval_trace": "docs-test-only-approval-trace-v0",
+            "core_topology_enablement": "core-boundary:downstream-topology-v0",
+            "downstream_policy": "default-deny-read-only-validation-policy-v0",
+            "field_registry_entry": "docs/FIELD_REGISTRY.md#mmn-authority-event-memory",
+            "governance_scan_pass": "governance-boundary:scanner-v0",
+            "public_export": "aiant_contracts.MMNAuthorityEventMemoryAcceptedV1",
+            "receipt_ledger_entry": "ledger:mmn-aem:accepted:v1"
+          },
+          "default_on_missing_evidence": "false_fail_closed",
+          "deferral_refs": [],
+          "grant_scope": {
+            "adapter_mode": "validator_consumer_read_only",
+            "authority_kind": "read_only_validation",
+            "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+            "repo": "aiant-mmn",
+            "schema": "MMNAuthorityEventMemoryAcceptedV1",
+            "version": "v1"
+          },
+          "missing_evidence": [],
+          "required_evidence": [
+            "accepted_schema_receipt",
+            "accepted_family_receipt",
+            "receipt_ledger_entry",
+            "field_registry_entry",
+            "public_export",
+            "downstream_policy",
+            "core_topology_enablement",
+            "governance_scan_pass",
+            "adapter_validation_pass",
+            "approval_trace"
+          ],
+          "revocation_refs": []
+        },
+        "canonical_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "downstream_policy": "default-deny-read-only-validation-policy-v0",
+        "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+        "receipts": {
+          "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+          "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1"
+        },
+        "schema": "MMNAuthorityEventMemoryAcceptedV1"
+      }
+    },
+    {
+      "case_id": "scope_mismatch_denied",
+      "expected_report": {
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "fail_closed_reasons": [
+          "authority_envelope_scope_mismatch"
+        ]
+      },
+      "payload": {
+        "authority_envelope": {
+          "authority_granted": false,
+          "blocking_conditions": [],
+          "decision": "read_only_validated",
+          "decision_basis": {
+            "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+            "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1",
+            "adapter_validation_pass": "mmn-read-only-adapter-stub-v0",
+            "approval_trace": "docs-test-only-approval-trace-v0",
+            "core_topology_enablement": "core-boundary:downstream-topology-v0",
+            "downstream_policy": "default-deny-read-only-validation-policy-v0",
+            "field_registry_entry": "docs/FIELD_REGISTRY.md#mmn-authority-event-memory",
+            "governance_scan_pass": "governance-boundary:scanner-v0",
+            "public_export": "aiant_contracts.MMNAuthorityEventMemoryAcceptedV1",
+            "receipt_ledger_entry": "ledger:mmn-aem:accepted:v1"
+          },
+          "default_on_missing_evidence": "false_fail_closed",
+          "deferral_refs": [],
+          "grant_scope": {
+            "adapter_mode": "validator_consumer_read_only",
+            "authority_kind": "read_only_validation",
+            "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+            "repo": "aiant-pant",
+            "schema": "MMNAuthorityEventMemoryAcceptedV1",
+            "version": "v1"
+          },
+          "missing_evidence": [],
+          "required_evidence": [
+            "accepted_schema_receipt",
+            "accepted_family_receipt",
+            "receipt_ledger_entry",
+            "field_registry_entry",
+            "public_export",
+            "downstream_policy",
+            "core_topology_enablement",
+            "governance_scan_pass",
+            "adapter_validation_pass",
+            "approval_trace"
+          ],
+          "revocation_refs": []
+        },
+        "canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+        "downstream_policy": "default-deny-read-only-validation-policy-v0",
+        "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+        "receipts": {
+          "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+          "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1"
+        },
+        "schema": "MMNAuthorityEventMemoryAcceptedV1"
+      }
+    },
+    {
+      "case_id": "memory_write_requested_denied",
+      "expected_report": {
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "fail_closed_reasons": [
+          "memory_write_requested"
+        ]
+      },
+      "payload": {
+        "authority_envelope": {
+          "authority_granted": false,
+          "blocking_conditions": [],
+          "decision": "read_only_validated",
+          "decision_basis": {
+            "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+            "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1",
+            "adapter_validation_pass": "mmn-read-only-adapter-stub-v0",
+            "approval_trace": "docs-test-only-approval-trace-v0",
+            "core_topology_enablement": "core-boundary:downstream-topology-v0",
+            "downstream_policy": "default-deny-read-only-validation-policy-v0",
+            "field_registry_entry": "docs/FIELD_REGISTRY.md#mmn-authority-event-memory",
+            "governance_scan_pass": "governance-boundary:scanner-v0",
+            "public_export": "aiant_contracts.MMNAuthorityEventMemoryAcceptedV1",
+            "receipt_ledger_entry": "ledger:mmn-aem:accepted:v1"
+          },
+          "default_on_missing_evidence": "false_fail_closed",
+          "deferral_refs": [],
+          "grant_scope": {
+            "adapter_mode": "validator_consumer_read_only",
+            "authority_kind": "read_only_validation",
+            "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+            "repo": "aiant-mmn",
+            "schema": "MMNAuthorityEventMemoryAcceptedV1",
+            "version": "v1"
+          },
+          "missing_evidence": [],
+          "required_evidence": [
+            "accepted_schema_receipt",
+            "accepted_family_receipt",
+            "receipt_ledger_entry",
+            "field_registry_entry",
+            "public_export",
+            "downstream_policy",
+            "core_topology_enablement",
+            "governance_scan_pass",
+            "adapter_validation_pass",
+            "approval_trace"
+          ],
+          "revocation_refs": []
+        },
+        "canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+        "downstream_policy": "default-deny-read-only-validation-policy-v0",
+        "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+        "memory_write_requested": true,
+        "receipts": {
+          "accepted_family_receipt": "receipt:accepted-family:mmn-aem:v1",
+          "accepted_schema_receipt": "receipt:accepted-schema:mmn-aem:v1"
+        },
+        "schema": "MMNAuthorityEventMemoryAcceptedV1"
+      }
+    }
+  ],
+  "docs_test_only": true,
+  "explicit_non_authorizations": {
+    "drl_execution_authority_granted": false,
+    "future_live_execution_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_writeback_record_authorized": false,
+    "memory_writeback_request_authorized": false,
+    "production_adapter_adoption_authorized": false,
+    "production_runtime_canonical_hash_created": false,
+    "runtime_canonicalizer_created": false,
+    "runtime_consumption_authorized": false,
+    "trading_signal_authorized": false
+  },
+  "fixture_name": "mmn_authority_event_memory_validator_consumer_read_only_adapter_stub_v0",
+  "fixture_version": "v0",
+  "golden_fixture_canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+  "repo": "aiant-mmn"
+}
