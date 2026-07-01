@@ -1,0 +1,60 @@
+{
+  "adapter_case_matrix": [
+    {
+      "allowed_to_execute": false,
+      "allowed_to_write_memory": false,
+      "case_id": "valid_read_only_reference",
+      "expected_report_only": true,
+      "fail_closed": false,
+      "input_posture": "accepted_schema_read_only_reference"
+    },
+    {
+      "allowed_to_execute": false,
+      "allowed_to_write_memory": false,
+      "case_id": "missing_receipt",
+      "expected_report_only": true,
+      "fail_closed": true,
+      "input_posture": "missing_accepted_schema_receipt"
+    },
+    {
+      "allowed_to_execute": false,
+      "allowed_to_write_memory": false,
+      "case_id": "hash_mismatch",
+      "expected_report_only": true,
+      "fail_closed": true,
+      "input_posture": "canonical_hash_mismatch"
+    },
+    {
+      "allowed_to_execute": false,
+      "allowed_to_write_memory": false,
+      "case_id": "scope_mismatch",
+      "expected_report_only": true,
+      "fail_closed": true,
+      "input_posture": "authority_envelope_scope_mismatch"
+    },
+    {
+      "allowed_to_execute": false,
+      "allowed_to_write_memory": false,
+      "case_id": "memory_write_requested",
+      "expected_report_only": true,
+      "fail_closed": true,
+      "input_posture": "requested_memory_write_or_execution"
+    }
+  ],
+  "adapter_mode": "validator_consumer_read_only_candidate",
+  "derived_authority_summaries": {
+    "drl_execution_authority_granted": false,
+    "future_live_execution_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_writeback_record_authorized": false,
+    "memory_writeback_request_authorized": false,
+    "mmn_validator_consumer_production_adoption_authorized": false,
+    "trading_signal_authorized": false
+  },
+  "docs_test_only": true,
+  "fixture_name": "mmn_authority_event_memory_validator_consumer_read_only_adapter_plan_v0",
+  "fixture_version": "v0",
+  "plan_kind": "mmn_authority_event_memory_validator_consumer_read_only_adapter_plan_v0",
+  "repo": "aiant-mmn"
+}
