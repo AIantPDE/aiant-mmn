@@ -1,0 +1,117 @@
+{
+  "accepted_contract_surface_is_downstream_runtime_authorization": false,
+  "adapter_mode": "validator_consumer_read_only_candidate",
+  "allowed_read_only_operations": [
+    "public_contract_import_check",
+    "accepted_schema_identity_check",
+    "accepted_family_identity_check",
+    "receipt_reference_presence_check",
+    "canonical_hash_equality_check",
+    "downstream_policy_presence_check",
+    "authority_envelope_consistency_check",
+    "scope_match_check",
+    "fail_closed_reason_collection",
+    "read_only_validation_report"
+  ],
+  "authority_envelope_principles": {
+    "adapter_validation_report_is_not_memory_write_authority": true,
+    "boolean_authority_fields_are_derived_summaries_not_authority_sources": true,
+    "default_on_missing_evidence": "false_fail_closed",
+    "payload_claim_is_not_authority": true
+  },
+  "boolean_authority_fields_not_sources": [
+    "mmn_validator_consumer_authorized",
+    "memory_write_authority_granted",
+    "downstream_runtime_consumption_authorized",
+    "drl_execution_authority_granted",
+    "trading_signal_authorized",
+    "future_live_execution_authorized"
+  ],
+  "core_topology_reference_is_runtime_path_enablement": false,
+  "docs_test_only": true,
+  "document": "MMN_AUTHORITY_EVENT_MEMORY_VALIDATOR_CONSUMER_READ_ONLY_ADAPTER_PLAN_V0",
+  "explicit_non_authorizations": {
+    "drl_execution_authority_granted": false,
+    "future_live_execution_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_writeback_record_authorized": false,
+    "memory_writeback_request_authorized": false,
+    "mmn_validator_consumer_production_adoption_authorized": false,
+    "pant_runtime_execution_authorized": false,
+    "production_adapter_implemented": false,
+    "production_runtime_canonical_hash_created": false,
+    "runtime_canonicalizer_created": false,
+    "runtime_consumption_authorized": false,
+    "trading_signal_authorized": false,
+    "vant_accepted_semantic_authority_expansion_authorized": false,
+    "zant_authority_interpretation_expansion_authorized": false
+  },
+  "fail_closed_conditions": [
+    "missing_public_export",
+    "schema_identity_mismatch",
+    "family_identity_mismatch",
+    "missing_accepted_schema_receipt",
+    "missing_accepted_family_receipt",
+    "missing_receipt_ledger_entry",
+    "missing_field_registry_entry",
+    "missing_downstream_policy",
+    "missing_core_topology_boundary",
+    "missing_governance_scanner_boundary",
+    "missing_authority_envelope",
+    "authority_envelope_scope_mismatch",
+    "non_empty_missing_evidence",
+    "non_empty_blocking_conditions",
+    "non_empty_deferral_refs",
+    "non_empty_revocation_refs",
+    "canonical_hash_mismatch",
+    "requested_memory_write_or_execution"
+  ],
+  "forbidden_operations": [
+    "memory_write",
+    "memory_record_creation",
+    "memory_writeback_request",
+    "memory_writeback_record",
+    "runtime_consumption",
+    "scheduler_route",
+    "execution_handoff",
+    "drl_execution",
+    "trading_signal_generation",
+    "future_live_execution",
+    "production_runtime_canonical_hash_creation"
+  ],
+  "golden_fixture_canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+  "mmn_validator_consumer_is_memory_write_authority": false,
+  "plan_kind": "mmn_authority_event_memory_validator_consumer_read_only_adapter_plan_v0",
+  "read_only_validation_report_shape": {
+    "allowed_to_execute": false,
+    "allowed_to_write_memory": false,
+    "authority_envelope_consistent": "bool",
+    "canonical_hash_matches": "bool",
+    "downstream_policy_present": "bool",
+    "fail_closed_reasons": "list[str]",
+    "family_identity_valid": "bool",
+    "receipt_refs_present": "bool",
+    "report_kind": "mmn_authority_event_memory_validator_consumer_read_only_report_v0",
+    "schema_identity_valid": "bool",
+    "scope_matches": "bool"
+  },
+  "recommended_followup_prs": [
+    "mmn: add MMN authority event memory validator-consumer read-only adapter fixture and stub v0",
+    "governance: add MMN authority event memory downstream scanner dry-run fixtures v0",
+    "core: add MMN authority event memory topology dry-run denied fixtures v0"
+  ],
+  "repo": "aiant-mmn",
+  "required_upstream_boundaries": {
+    "contracts_accepted_schema_promotion_execution_v0": true,
+    "contracts_downstream_adoption_boundary_plan_v0": true,
+    "core_downstream_topology_boundary_v0": true,
+    "governance_downstream_consumption_scanner_boundary_v0": true
+  },
+  "source_contract": {
+    "family": "MMNAuthorityEventMemoryAcceptedFamilyV1",
+    "repo": "aiant-contracts",
+    "schema": "MMNAuthorityEventMemoryAcceptedV1",
+    "surface": "accepted_contract_public_export"
+  }
+}
