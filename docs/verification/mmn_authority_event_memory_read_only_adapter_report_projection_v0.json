@@ -1,0 +1,44 @@
+{
+  "authority_envelope_principles": {
+    "boolean_authority_fields_are_derived_summaries_not_authority_sources": true,
+    "default_on_missing_evidence": "false_fail_closed",
+    "projection_preserves_fail_closed_reasons": true,
+    "read_only_validation_report_is_not_memory_write_authority": true,
+    "report_projection_is_not_runtime_authorization": true
+  },
+  "docs_test_only": false,
+  "document": "MMN_AUTHORITY_EVENT_MEMORY_READ_ONLY_ADAPTER_REPORT_PROJECTION_V0",
+  "entrypoints": [
+    "project_mmn_authority_event_memory_read_only_adapter_report_v0"
+  ],
+  "explicit_non_authorizations": {
+    "downstream_runtime_consumption_authorized": false,
+    "drl_execution_authority_granted": false,
+    "future_live_execution_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_writeback_record_authorized": false,
+    "memory_writeback_request_authorized": false,
+    "production_adapter_adoption_authorized": false,
+    "production_runtime_canonical_hash_created": false,
+    "report_projection_is_memory_write_authority": false,
+    "report_projection_is_runtime_authorization": false,
+    "runtime_canonicalizer_created": false,
+    "trading_signal_authorized": false
+  },
+  "fixture": "tests/fixtures/mmn_authority_event_memory/read_only_adapter_report_projection_v0.json",
+  "golden_fixture_canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+  "production_adapter_adoption_authorized": false,
+  "projection_kind": "mmn_authority_event_memory_read_only_adapter_report_projection_v0",
+  "projection_ready": true,
+  "read_only_adapter_report_projection_is_downstream_runtime_authorization": false,
+  "recommended_followup_prs": [
+    "core: add MMN authority event memory topology gate check-path preview v0",
+    "governance: add MMN authority event memory scanner check-path denied fixtures v0",
+    "mmn: add MMN authority event memory read-only adapter report projection fixtures v1"
+  ],
+  "repo": "aiant-mmn",
+  "report_projection_is_memory_write_authority": false,
+  "report_projection_is_runtime_authorization": false,
+  "source_projection": "src/aiant_mmn/mmn_authority_event_memory_read_only_adapter_report_projection_v0.py"
+}
