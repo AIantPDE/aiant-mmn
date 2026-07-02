@@ -1,0 +1,308 @@
+{
+  "authority_envelope_principles": {
+    "accepted_contract_surface_is_not_downstream_runtime_authorization": true,
+    "boolean_authority_fields_are_derived_summaries_not_authority_sources": true,
+    "candidate_payload_summary_is_not_authority_source": true,
+    "core_topology_reference_is_not_runtime_path_enablement": true,
+    "default_on_missing_evidence": "false_fail_closed",
+    "read_only_projection_is_not_memory_write_authority": true,
+    "write_request_candidate_preview_plan_is_not_memory_write_authority": true,
+    "write_request_candidate_preview_plan_is_not_runtime_authorization": true
+  },
+  "candidate_fields": [
+    {
+      "authority_role": "identifier_only",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "identity_and_lineage",
+      "field_name": "write_request_candidate_id",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "version_marker",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "identity_and_lineage",
+      "field_name": "write_request_candidate_version",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "mmn_read_only_projection_reference",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "read_only_source_refs",
+      "field_name": "source_read_only_projection_ref",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "grant_candidate_reference",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "grant_candidate_refs",
+      "field_name": "grant_envelope_candidate_ref",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "candidate_registry_reference",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "grant_candidate_refs",
+      "field_name": "grant_envelope_candidate_field_registry_ref",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "operation_descriptor",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "operation_request",
+      "field_name": "requested_memory_operation",
+      "required_for_preview": true,
+      "value_kind": "enum"
+    },
+    {
+      "authority_role": "payload_digest_descriptor",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "payload_boundary",
+      "field_name": "candidate_payload_digest",
+      "required_for_preview": true,
+      "value_kind": "sha256"
+    },
+    {
+      "authority_role": "derived_summary_not_authority_source",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "payload_boundary",
+      "field_name": "candidate_payload_summary",
+      "required_for_preview": true,
+      "value_kind": "object"
+    },
+    {
+      "authority_role": "required_evidence_manifest",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "evidence_refs",
+      "field_name": "required_evidence_refs",
+      "required_for_preview": true,
+      "value_kind": "array"
+    },
+    {
+      "authority_role": "receipt_reference_manifest",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "evidence_refs",
+      "field_name": "receipt_refs",
+      "required_for_preview": true,
+      "value_kind": "object"
+    },
+    {
+      "authority_role": "governance_preview_reference",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "evidence_refs",
+      "field_name": "governance_scanner_preview_ref",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "topology_preview_reference",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "evidence_refs",
+      "field_name": "core_topology_gate_preview_ref",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "derived_summary_not_authority_source",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "decision_summary",
+      "field_name": "write_candidate_preview_decision",
+      "required_for_preview": true,
+      "value_kind": "enum"
+    },
+    {
+      "authority_role": "evidence_trace_summary",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "decision_summary",
+      "field_name": "write_candidate_preview_basis",
+      "required_for_preview": true,
+      "value_kind": "object"
+    },
+    {
+      "authority_role": "deny_condition_manifest",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "blocking_and_lifecycle",
+      "field_name": "blocking_conditions",
+      "required_for_preview": true,
+      "value_kind": "array"
+    },
+    {
+      "authority_role": "deferral_reference_manifest",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "blocking_and_lifecycle",
+      "field_name": "deferral_refs",
+      "required_for_preview": true,
+      "value_kind": "array"
+    },
+    {
+      "authority_role": "revocation_reference_manifest",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "blocking_and_lifecycle",
+      "field_name": "revocation_refs",
+      "required_for_preview": true,
+      "value_kind": "array"
+    },
+    {
+      "authority_role": "expiry_scope_limiter",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "blocking_and_lifecycle",
+      "field_name": "expiry_policy",
+      "required_for_preview": true,
+      "value_kind": "object"
+    },
+    {
+      "authority_role": "preview_report_reference",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "audit_and_trace",
+      "field_name": "preview_output_ref",
+      "required_for_preview": true,
+      "value_kind": "string"
+    },
+    {
+      "authority_role": "audit_timestamp",
+      "default_on_missing": "deny_fail_closed",
+      "field_category": "audit_and_trace",
+      "field_name": "created_at_utc",
+      "required_for_preview": true,
+      "value_kind": "datetime_utc"
+    }
+  ],
+  "creates_memory_record_schema": false,
+  "creates_write_request_schema": false,
+  "creates_writeback_request_schema": false,
+  "docs_test_only": true,
+  "document": "MMN_AUTHORITY_EVENT_MEMORY_WRITE_REQUEST_CANDIDATE_PREVIEW_PLAN_V0",
+  "explicit_non_authorizations": {
+    "downstream_runtime_consumption_authorized": false,
+    "drl_execution_authority_granted": false,
+    "execution_handoff_enabled": false,
+    "future_live_execution_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_writeback_record_authorized": false,
+    "memory_writeback_request_authorized": false,
+    "plan_creates_memory_record_schema": false,
+    "plan_creates_write_request_schema": false,
+    "plan_creates_writeback_request_schema": false,
+    "plan_is_memory_write_authority": false,
+    "plan_is_runtime_authorization": false,
+    "production_adapter_adoption_authorized": false,
+    "production_runtime_canonical_hash_created": false,
+    "runtime_canonicalizer_created": false,
+    "runtime_topology_path_enabled": false,
+    "scheduler_route_enabled": false,
+    "trading_signal_authorized": false,
+    "write_request_candidate_preview_is_memory_record": false,
+    "write_request_candidate_preview_is_writeback_request": false,
+    "write_request_candidate_preview_persists_memory": false,
+    "writeback_route_enabled": false
+  },
+  "field_categories": [
+    "identity_and_lineage",
+    "read_only_source_refs",
+    "grant_candidate_refs",
+    "operation_request",
+    "payload_boundary",
+    "evidence_refs",
+    "decision_summary",
+    "blocking_and_lifecycle",
+    "audit_and_trace"
+  ],
+  "field_count": 20,
+  "fixture": "tests/fixtures/mmn_authority_event_memory/write_request_candidate_preview_plan_v0.json",
+  "golden_fixture_canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+  "negative_cases": [
+    {
+      "case_id": "missing_read_only_projection_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": "source_read_only_projection_ref",
+      "required_reason": "missing_source_read_only_projection_ref"
+    },
+    {
+      "case_id": "missing_grant_envelope_candidate_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": "grant_envelope_candidate_ref",
+      "required_reason": "missing_grant_envelope_candidate_ref"
+    },
+    {
+      "case_id": "missing_candidate_registry_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": "grant_envelope_candidate_field_registry_ref",
+      "required_reason": "missing_grant_envelope_candidate_field_registry_ref"
+    },
+    {
+      "case_id": "missing_governance_preview_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": "governance_scanner_preview_ref",
+      "required_reason": "missing_governance_scanner_preview_ref"
+    },
+    {
+      "case_id": "missing_core_topology_preview_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": "core_topology_gate_preview_ref",
+      "required_reason": "missing_core_topology_gate_preview_ref"
+    },
+    {
+      "case_id": "non_empty_blockers_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": null,
+      "required_reason": "non_empty_blocking_conditions"
+    },
+    {
+      "case_id": "memory_write_authority_claim_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": null,
+      "required_reason": "forbidden_memory_write_authority_claim"
+    },
+    {
+      "case_id": "writeback_record_claim_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": null,
+      "required_reason": "forbidden_writeback_record_claim"
+    },
+    {
+      "case_id": "drl_or_trading_claim_denied",
+      "expected_decision": "deny_fail_closed",
+      "missing_field": null,
+      "required_reason": "forbidden_drl_trading_or_live_execution_claim"
+    }
+  ],
+  "phase_count": 5,
+  "phases": [
+    {
+      "decision": "input_only",
+      "phase_id": "phase_0_read_only_projection_input"
+    },
+    {
+      "decision": "reference_only",
+      "phase_id": "phase_1_grant_candidate_reference"
+    },
+    {
+      "decision": "preview_only",
+      "phase_id": "phase_2_preview_request_assembly"
+    },
+    {
+      "decision": "preview_only",
+      "phase_id": "phase_3_governance_and_topology_evidence"
+    },
+    {
+      "decision": "report_only",
+      "phase_id": "phase_4_preview_output_report"
+    }
+  ],
+  "plan_is_memory_write_authority": false,
+  "plan_is_runtime_authorization": false,
+  "plan_kind": "mmn_authority_event_memory_write_request_candidate_preview_plan_v0",
+  "plan_ready": true,
+  "recommended_followup_prs": [
+    "core: add MMN authority event memory topology gate grant-envelope preview plan v0",
+    "contracts: draft MMN authority event memory grant decision receipt candidate plan v0",
+    "mmn: add MMN authority event memory write request candidate preview fixtures v0"
+  ],
+  "repo": "aiant-mmn",
+  "required_field_count": 20
+}
