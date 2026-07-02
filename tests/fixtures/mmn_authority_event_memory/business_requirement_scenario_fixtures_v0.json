@@ -1,0 +1,628 @@
+{
+  "asset_id": "mmn_authority_event_memory_business_requirement_scenario_fixtures_v0",
+  "asset_kind": "non_executing_business_requirement_scenario_fixtures",
+  "canonical_principles": [
+    "Business semantics are real; execution path is zero.",
+    "Business requirement scenario fixtures are not runtime shadow mode.",
+    "Candidate field registry is not authoritative field registry.",
+    "Read-only projection is not memory write authority.",
+    "Candidate preview is not runtime authorization.",
+    "Boolean authority fields are derived summaries, not authority sources.",
+    "Missing required evidence defaults to deny_fail_closed."
+  ],
+  "capability": "MMN Authority Event Memory",
+  "expected_trace": [
+    "contracts grant envelope candidate field registry v0",
+    "mmn business requirement scenario fixtures v0",
+    "mmn write request candidate preview plan / alignment",
+    "contracts candidate field registry promotion-or-deferral decision",
+    "formal registry / schema only after explicit promotion"
+  ],
+  "field_feedback_categories": [
+    "missing_fields",
+    "ambiguous_fields",
+    "derived_summary_fields",
+    "evidence_ref_fields",
+    "forbidden_authority_interpretations"
+  ],
+  "pattern_reference": {
+    "asset_pack_excerpt": "aiant-core/docs/asset_pack/AIANT_PDE_TECHNICAL_ASSET_PACK_V0",
+    "canonical_source_type": "independent_tex",
+    "layer": "Layer 4.5",
+    "name": "AIANT Capability Activation Governance Pattern",
+    "subtitle": "Contract-to-Runtime Safety Layers"
+  },
+  "purpose": [
+    "Use real business-shaped requirements to test whether AEM candidate field-registry and write-request preview designs are sufficient.",
+    "Keep all examples non-executing, non-authorizing, preview-only, and report-only.",
+    "Convert draft-to-draft trace into business-requirement driven trace before formal field-registry promotion."
+  ],
+  "repo": "aiant-mmn",
+  "required_non_authorization_keys": [
+    "memory_write_authority_granted",
+    "memory_record_creation_authorized",
+    "writeback_request_authorized",
+    "runtime_topology_path_authorized",
+    "scheduler_route_authorized",
+    "execution_handoff_authorized",
+    "runtime_shadow_mode_authorized",
+    "drl_execution_authorized",
+    "trading_signal_authorized",
+    "future_live_execution_authorized"
+  ],
+  "scenario_count": 9,
+  "scenarios": [
+    {
+      "business_context": {
+        "business_intent": "Represent a denied downstream consumption attempt as a future authority-boundary memory candidate.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "report_requirements_only",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "authority_grant_envelope_ref"
+        ],
+        "derived_summary_fields": [
+          "write_candidate_preview_decision"
+        ],
+        "evidence_ref_fields": [
+          "governance_scan_report_ref",
+          "authority_grant_envelope_ref"
+        ],
+        "forbidden_authority_interpretations": [
+          "A denied downstream consumption event cannot become memory write authority."
+        ],
+        "missing_fields": [
+          "source_repo",
+          "denied_reason"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "authority_boundary_denial",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "missing_authority_grant_envelope",
+        "event_kind": "downstream_consumption_denied",
+        "source_layer": "governance_boundary"
+      },
+      "required_fields": [
+        "source_repo",
+        "target_contract_family",
+        "target_schema_version",
+        "governance_scan_report_ref",
+        "authority_grant_envelope_ref",
+        "denied_reason",
+        "blocking_conditions",
+        "created_at_utc"
+      ],
+      "scenario_id": "missing_authority_grant_envelope_for_downstream_consumption",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Represent an incomplete read-only projection as a future fail-closed memory candidate requirement.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "report_requirements_only",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "receipt_refs_present"
+        ],
+        "derived_summary_fields": [
+          "receipt_refs_present",
+          "required_evidence_complete"
+        ],
+        "evidence_ref_fields": [
+          "accepted_schema_receipt_ref",
+          "accepted_family_receipt_ref",
+          "read_only_projection_ref"
+        ],
+        "forbidden_authority_interpretations": [
+          "Decision-basis references cannot substitute for payload-level receipt refs."
+        ],
+        "missing_fields": [
+          "missing_evidence_refs"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "read_only_projection_evidence_gap",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "accepted_schema_or_family_receipt_missing",
+        "event_kind": "missing_receipt_refs",
+        "source_layer": "read_only_validation"
+      },
+      "required_fields": [
+        "read_only_projection_ref",
+        "accepted_schema_receipt_ref",
+        "accepted_family_receipt_ref",
+        "missing_evidence_refs",
+        "denied_reason",
+        "created_at_utc"
+      ],
+      "scenario_id": "read_only_projection_missing_receipts",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Represent a core topology runtime-path denial as a future topology-boundary memory candidate.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "report_requirements_only",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "runtime_authorization_granted"
+        ],
+        "derived_summary_fields": [
+          "runtime_authorization_granted"
+        ],
+        "evidence_ref_fields": [
+          "core_topology_gate_report_ref",
+          "authority_grant_envelope_ref"
+        ],
+        "forbidden_authority_interpretations": [
+          "Core topology reference is not runtime path enablement."
+        ],
+        "missing_fields": [
+          "requested_runtime_path",
+          "scope_constraints"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "topology_path_denial",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "missing_topology_grant_evidence",
+        "event_kind": "runtime_path_enablement_denied",
+        "source_layer": "topology_boundary"
+      },
+      "required_fields": [
+        "core_topology_gate_report_ref",
+        "requested_runtime_path",
+        "authority_grant_envelope_ref",
+        "scope_constraints",
+        "blocking_conditions",
+        "denied_reason"
+      ],
+      "scenario_id": "topology_runtime_path_denied_without_grant",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Capture the field requirements for a future memory candidate when requested write scope mismatches grant scope.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "report_requirements_only",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "grant_scope"
+        ],
+        "derived_summary_fields": [
+          "grant_decision",
+          "write_candidate_preview_decision"
+        ],
+        "evidence_ref_fields": [
+          "grant_envelope_id"
+        ],
+        "forbidden_authority_interpretations": [
+          "A matching-looking grant_decision is not enough without scope evidence."
+        ],
+        "missing_fields": [
+          "scope_mismatch_reason"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "grant_scope_mismatch",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "requested_operation_out_of_scope",
+        "event_kind": "grant_scope_mismatch",
+        "source_layer": "candidate_preview"
+      },
+      "required_fields": [
+        "grant_envelope_id",
+        "requested_operation",
+        "grant_scope",
+        "scope_constraints",
+        "scope_mismatch_reason",
+        "blocking_conditions"
+      ],
+      "scenario_id": "grant_scope_mismatch_denial",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Ensure future grant-backed write candidates carry revocation and expiry evidence requirements.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "report_requirements_only",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "decision_time_utc"
+        ],
+        "derived_summary_fields": [
+          "grant_lifecycle_status"
+        ],
+        "evidence_ref_fields": [
+          "revocation_refs",
+          "expiry_policy_ref"
+        ],
+        "forbidden_authority_interpretations": [
+          "Absence of revocation evidence cannot be read as active authorization."
+        ],
+        "missing_fields": [
+          "revocation_refs",
+          "expiry_policy_ref",
+          "grant_lifecycle_status"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "grant_lifecycle_evidence_gap",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "revocation_or_expiry_evidence_missing",
+        "event_kind": "revocation_or_expiry_unknown",
+        "source_layer": "authority_grant_candidate"
+      },
+      "required_fields": [
+        "grant_envelope_id",
+        "revocation_refs",
+        "expiry_policy_ref",
+        "decision_time_utc",
+        "grant_lifecycle_status",
+        "blocking_conditions"
+      ],
+      "scenario_id": "revocation_or_expiry_evidence_required",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Prevent repeated previews of the same boundary event from becoming duplicate future memory candidates.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "report_requirements_only",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "source_event_ref"
+        ],
+        "derived_summary_fields": [
+          "is_duplicate_candidate"
+        ],
+        "evidence_ref_fields": [
+          "source_event_ref",
+          "existing_candidate_ref"
+        ],
+        "forbidden_authority_interpretations": [
+          "Dedupe success cannot authorize memory record creation."
+        ],
+        "missing_fields": [
+          "canonical_event_hash",
+          "dedupe_key",
+          "lineage_ref"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "deduped_authority_event_candidate",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "dedupe_key_or_lineage_missing",
+        "event_kind": "duplicate_boundary_event_observed",
+        "source_layer": "report_projection"
+      },
+      "required_fields": [
+        "source_event_ref",
+        "canonical_event_hash",
+        "lineage_ref",
+        "dedupe_key",
+        "existing_candidate_ref",
+        "created_at_utc"
+      ],
+      "scenario_id": "duplicate_write_candidate_dedupe_required",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Detect candidate payloads that try to claim runtime or memory-write authority directly.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "deny_fail_closed",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "authority_source_refs"
+        ],
+        "derived_summary_fields": [
+          "memory_write_authority_granted",
+          "runtime_authorization_granted"
+        ],
+        "evidence_ref_fields": [
+          "candidate_payload_ref",
+          "authority_source_refs"
+        ],
+        "forbidden_authority_interpretations": [
+          "Candidate payload summary is a derived summary, not an authority source."
+        ],
+        "missing_fields": [
+          "forbidden_claims"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "forbidden_authority_claim_denial",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "candidate_payload_contains_authority_claim",
+        "event_kind": "forbidden_authority_claim_present",
+        "source_layer": "candidate_preview"
+      },
+      "required_fields": [
+        "candidate_payload_ref",
+        "forbidden_claims",
+        "authority_source_refs",
+        "blocking_conditions",
+        "denied_reason"
+      ],
+      "scenario_id": "candidate_payload_authorization_claim_denied",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Require future memory candidates to preserve traceable lineage from contract, governance, topology, and projection evidence.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "report_requirements_only",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "contract_receipt_refs"
+        ],
+        "derived_summary_fields": [
+          "lineage_complete"
+        ],
+        "evidence_ref_fields": [
+          "contract_receipt_refs",
+          "governance_report_ref",
+          "topology_report_ref",
+          "projection_report_ref"
+        ],
+        "forbidden_authority_interpretations": [
+          "A lineage-complete summary cannot substitute for canonical receipt refs."
+        ],
+        "missing_fields": [
+          "trace_id",
+          "canonical_source_hash"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "audit_lineage_gap",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "audit_lineage_incomplete",
+        "event_kind": "lineage_or_canonical_hash_missing",
+        "source_layer": "audit_and_trace"
+      },
+      "required_fields": [
+        "trace_id",
+        "canonical_source_hash",
+        "contract_receipt_refs",
+        "governance_report_ref",
+        "topology_report_ref",
+        "projection_report_ref"
+      ],
+      "scenario_id": "audit_lineage_gap_denied",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    },
+    {
+      "business_context": {
+        "business_intent": "Ensure AEM candidate fixtures cannot be interpreted as DRL execution, trading signal, or future live execution authorization.",
+        "event_family": "authority_event_memory"
+      },
+      "expected_current_result": {
+        "action": "deny_fail_closed",
+        "fail_closed": true
+      },
+      "explicit_non_authorizations": {
+        "drl_execution_authorized": false,
+        "execution_handoff_authorized": false,
+        "future_live_execution_authorized": false,
+        "memory_record_creation_authorized": false,
+        "memory_write_authority_granted": false,
+        "runtime_shadow_mode_authorized": false,
+        "runtime_topology_path_authorized": false,
+        "scheduler_route_authorized": false,
+        "trading_signal_authorized": false,
+        "writeback_request_authorized": false
+      },
+      "field_registry_feedback": {
+        "ambiguous_fields": [
+          "source_repo"
+        ],
+        "derived_summary_fields": [
+          "drl_execution_authorized",
+          "trading_signal_authorized",
+          "future_live_execution_authorized"
+        ],
+        "evidence_ref_fields": [
+          "cross_repo_boundary_report_ref"
+        ],
+        "forbidden_authority_interpretations": [
+          "No DRL execution, trading signal, or future live execution may be derived from AEM scenario fixtures."
+        ],
+        "missing_fields": [
+          "cross_repo_boundary_report_ref"
+        ]
+      },
+      "future_candidate_need": {
+        "candidate_kind": "cross_repo_forbidden_claim_denial",
+        "requires_runtime": false,
+        "requires_write": false,
+        "requires_writeback_request": false
+      },
+      "observed_boundary_event": {
+        "decision": "deny_fail_closed",
+        "denied_reason": "drl_trading_or_future_live_claim_forbidden",
+        "event_kind": "forbidden_live_execution_claim",
+        "source_layer": "cross_repo_boundary"
+      },
+      "required_fields": [
+        "source_repo",
+        "forbidden_claims",
+        "denied_reason",
+        "blocking_conditions",
+        "cross_repo_boundary_report_ref"
+      ],
+      "scenario_id": "drl_trading_or_future_live_claim_denied",
+      "scenario_kind": "business_requirement_scenario_fixture"
+    }
+  ],
+  "version": "v0"
+}
