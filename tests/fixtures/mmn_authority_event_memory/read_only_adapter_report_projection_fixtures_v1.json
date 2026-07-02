@@ -1,0 +1,169 @@
+{
+  "cases": [
+    {
+      "case_id": "duplicate_reasons_are_deduplicated_preserving_order",
+      "expected_projection": {
+        "fail_closed": true,
+        "fail_closed_reasons": [
+          "missing_receipt_refs",
+          "non_empty_blocking_conditions"
+        ],
+        "projected_status": "fail_closed_report_only",
+        "projection_action": "preserve_fail_closed",
+        "projection_decision": "project_fail_closed_report"
+      },
+      "source_report": {
+        "adapter_mode": "validator_consumer_read_only",
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "fail_closed_reasons": [
+          "missing_receipt_refs",
+          "missing_receipt_refs",
+          "non_empty_blocking_conditions"
+        ],
+        "report_kind": "mmn_authority_event_memory_read_only_validation_report_v0"
+      }
+    },
+    {
+      "case_id": "unexpected_adapter_mode_fails_closed",
+      "expected_projection": {
+        "fail_closed": true,
+        "projected_status": "fail_closed_report_only",
+        "projection_action": "preserve_fail_closed",
+        "projection_decision": "project_fail_closed_report",
+        "required_reason": "unexpected_adapter_mode"
+      },
+      "source_report": {
+        "adapter_mode": "validator_consumer_runtime",
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": false,
+        "fail_closed_reasons": [],
+        "report_kind": "mmn_authority_event_memory_read_only_validation_report_v0"
+      }
+    },
+    {
+      "case_id": "missing_report_kind_fails_closed",
+      "expected_projection": {
+        "fail_closed": true,
+        "projected_status": "fail_closed_report_only",
+        "projection_action": "preserve_fail_closed",
+        "projection_decision": "project_fail_closed_report",
+        "required_reason": "unexpected_source_report_kind",
+        "source_report_kind": "unknown_report_kind"
+      },
+      "source_report": {
+        "adapter_mode": "validator_consumer_read_only",
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": false,
+        "fail_closed_reasons": []
+      }
+    },
+    {
+      "case_id": "non_sequence_reasons_do_not_expand_characters",
+      "expected_projection": {
+        "fail_closed": true,
+        "fail_closed_reasons": [],
+        "projected_status": "fail_closed_report_only",
+        "projection_action": "preserve_fail_closed",
+        "projection_decision": "project_fail_closed_report"
+      },
+      "source_report": {
+        "adapter_mode": "validator_consumer_read_only",
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "fail_closed_reasons": "missing_receipt_refs",
+        "report_kind": "mmn_authority_event_memory_read_only_validation_report_v0"
+      }
+    },
+    {
+      "case_id": "write_and_execute_claims_fail_closed_without_leaking_authority",
+      "expected_projection": {
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "projected_status": "fail_closed_report_only",
+        "projection_action": "preserve_fail_closed",
+        "projection_decision": "project_fail_closed_report",
+        "required_reason": "source_report_requested_write_or_execution"
+      },
+      "source_report": {
+        "adapter_mode": "validator_consumer_read_only",
+        "allowed_to_execute": true,
+        "allowed_to_write_memory": true,
+        "fail_closed": false,
+        "fail_closed_reasons": [],
+        "report_kind": "mmn_authority_event_memory_read_only_validation_report_v0"
+      }
+    },
+    {
+      "case_id": "attribute_object_valid_report_projects_report_only",
+      "expected_projection": {
+        "fail_closed": false,
+        "projected_status": "read_only_validated_report_only",
+        "projection_action": "no_runtime_authorization",
+        "projection_decision": "project_read_only_report"
+      },
+      "source_report_object": {
+        "adapter_mode": "validator_consumer_read_only",
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": false,
+        "fail_closed_reasons": [],
+        "report_kind": "mmn_authority_event_memory_read_only_validation_report_v0"
+      }
+    },
+    {
+      "case_id": "attribute_object_fail_closed_preserves_reason",
+      "expected_projection": {
+        "fail_closed": true,
+        "projected_status": "fail_closed_report_only",
+        "projection_action": "preserve_fail_closed",
+        "projection_decision": "project_fail_closed_report",
+        "required_reasons": [
+          "missing_field_registry_entry",
+          "missing_governance_scanner_boundary"
+        ]
+      },
+      "source_report_object": {
+        "adapter_mode": "validator_consumer_read_only",
+        "allowed_to_execute": false,
+        "allowed_to_write_memory": false,
+        "fail_closed": true,
+        "fail_closed_reasons": [
+          "missing_field_registry_entry",
+          "missing_governance_scanner_boundary"
+        ],
+        "report_kind": "mmn_authority_event_memory_read_only_validation_report_v0"
+      }
+    }
+  ],
+  "explicit_non_authorizations": {
+    "downstream_runtime_consumption_authorized": false,
+    "drl_execution_authority_granted": false,
+    "fixtures_v1_is_memory_write_authority": false,
+    "fixtures_v1_is_production_adapter_adoption": false,
+    "fixtures_v1_is_runtime_authorization": false,
+    "future_live_execution_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_writeback_record_authorized": false,
+    "memory_writeback_request_authorized": false,
+    "trading_signal_authorized": false
+  },
+  "fixture_name": "mmn_authority_event_memory_read_only_adapter_report_projection_fixtures_v1",
+  "fixture_version": "v1",
+  "fixtures_kind": "mmn_authority_event_memory_read_only_adapter_report_projection_fixtures_v1",
+  "fixtures_v1_ready": true,
+  "golden_fixture_canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+  "production_adapter_adoption_authorized": false,
+  "projection_kind": "mmn_authority_event_memory_read_only_adapter_report_projection_v0",
+  "projection_source_modified": false,
+  "repo": "aiant-mmn",
+  "report_projection_is_memory_write_authority": false,
+  "report_projection_is_runtime_authorization": false,
+  "source_projection": "src/aiant_mmn/mmn_authority_event_memory_read_only_adapter_report_projection_v0.py"
+}
