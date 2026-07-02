@@ -1,0 +1,47 @@
+{
+  "authority_envelope_principles": {
+    "boolean_authority_fields_are_derived_summaries_not_authority_sources": true,
+    "default_on_missing_evidence": "false_fail_closed",
+    "fixtures_are_regression_inputs_not_authority_sources": true,
+    "read_only_validation_report_is_not_memory_write_authority": true,
+    "report_projection_is_not_runtime_authorization": true
+  },
+  "coverage": [
+    "duplicate fail_closed reasons are deduplicated preserving order",
+    "unexpected adapter mode fails closed",
+    "missing report kind fails closed",
+    "string fail_closed_reasons do not expand into characters",
+    "write and execute claims fail closed without leaking authority",
+    "attribute object valid report projects report-only",
+    "attribute object fail-closed report preserves reasons"
+  ],
+  "docs_test_only": true,
+  "document": "MMN_AUTHORITY_EVENT_MEMORY_READ_ONLY_ADAPTER_REPORT_PROJECTION_FIXTURES_V1",
+  "explicit_non_authorizations": {
+    "downstream_runtime_consumption_authorized": false,
+    "drl_execution_authority_granted": false,
+    "fixtures_v1_is_memory_write_authority": false,
+    "fixtures_v1_is_production_adapter_adoption": false,
+    "fixtures_v1_is_runtime_authorization": false,
+    "future_live_execution_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_writeback_record_authorized": false,
+    "memory_writeback_request_authorized": false,
+    "trading_signal_authorized": false
+  },
+  "fixture": "tests/fixtures/mmn_authority_event_memory/read_only_adapter_report_projection_fixtures_v1.json",
+  "fixtures_kind": "mmn_authority_event_memory_read_only_adapter_report_projection_fixtures_v1",
+  "fixtures_v1_ready": true,
+  "golden_fixture_canonical_sha256": "dbac9b7568c4a3f7b6994d752c1de139ef198309c50534527760d0b941057b90",
+  "projection_source_modified": false,
+  "recommended_followup_prs": [
+    "contracts/governance/mmn: draft MMN authority event memory write authority grant envelope plan v0",
+    "governance: add MMN authority event memory scanner check-path preview CLI skeleton v0",
+    "core: add MMN authority event memory topology gate denied fixtures v1"
+  ],
+  "repo": "aiant-mmn",
+  "report_projection_fixtures_v1_is_memory_write_authority": false,
+  "report_projection_fixtures_v1_is_runtime_authorization": false,
+  "source_projection": "src/aiant_mmn/mmn_authority_event_memory_read_only_adapter_report_projection_v0.py"
+}
