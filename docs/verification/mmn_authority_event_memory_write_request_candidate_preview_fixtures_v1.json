@@ -1,0 +1,184 @@
+{
+  "asset_id": "mmn_authority_event_memory_write_request_candidate_preview_fixtures_v1",
+  "asset_kind": "write_request_candidate_preview_fixtures",
+  "fixture_family_version": "v1",
+  "plan_status": "candidate_preview_fixture_only",
+  "candidate_outcome": "write_request_candidate_preview_fixtures_v1_only",
+  "repo": "aiant-mmn",
+  "surface": "docs/verification + tests/fixtures + tests/docs",
+  "language_boundary": "business semantics only; no runtime execution path",
+  "upstream_candidate_references": [
+    {
+      "repo": "aiant-contracts",
+      "asset_id": "mmn_authority_event_memory_grant_decision_receipt_candidate_plan_v0",
+      "role": "candidate receipt planning reference",
+      "authority_source": false,
+      "derived_summary_only": true
+    },
+    {
+      "repo": "aiant-core",
+      "asset_id": "mmn_authority_event_memory_topology_gate_grant_envelope_preview_plan_v0",
+      "role": "topology gate preview planning reference",
+      "authority_source": false,
+      "runtime_path_enabled": false
+    },
+    {
+      "repo": "aiant-mmn",
+      "asset_id": "mmn_authority_event_memory_write_request_candidate_preview_plan_v0",
+      "role": "prior candidate preview plan reference",
+      "authority_source": false,
+      "memory_write_authority_granted": false
+    }
+  ],
+  "candidate_preview_contract": {
+    "required_preview_fields": [
+      "write_request_candidate_id",
+      "grant_decision_receipt_candidate_ref",
+      "source_event_candidate_ref",
+      "requested_memory_action",
+      "preview_reason",
+      "authority_trace",
+      "non_authorization_trace"
+    ],
+    "forbidden_runtime_fields": [
+      "memory_record_id",
+      "persisted_at",
+      "writeback_commit_hash",
+      "runtime_route_id",
+      "scheduler_job_id",
+      "execution_handoff_id",
+      "shadow_mode_trace_id",
+      "trading_signal_id"
+    ],
+    "requested_memory_action_values": [
+      "candidate_write_preview",
+      "deny_fail_closed"
+    ],
+    "materialized_memory_record_allowed": false,
+    "formal_write_request_allowed": false
+  },
+  "fixture_cases": [
+    {
+      "case_id": "aem_write_candidate_preview_minimal_positive_fixture_v1",
+      "scenario_kind": "non_executing_business_requirement_fixture",
+      "expected_preview_decision": "candidate_preview_only",
+      "write_preview_generated": true,
+      "formal_write_request_created": false,
+      "memory_write_authorized": false,
+      "memory_record_created": false,
+      "runtime_path_enabled": false,
+      "input_summary": {
+        "source_event_candidate_ref": "event_candidate:authority_event_memory:demo:0001",
+        "grant_decision_receipt_candidate_ref": "grant_decision_receipt_candidate:demo:0001",
+        "requested_memory_action": "candidate_write_preview",
+        "preview_reason": "document a plausible authority event memory write request without creating a formal write request"
+      },
+      "output_summary": {
+        "preview_artifact_id": "write_request_candidate_preview:demo:0001",
+        "derived_from_candidate_receipt_only": true,
+        "authority_source": false,
+        "persisted_memory_record": null
+      }
+    },
+    {
+      "case_id": "aem_write_candidate_preview_negative_evidence_fixture_v1",
+      "scenario_kind": "non_executing_business_requirement_fixture",
+      "expected_preview_decision": "deny_fail_closed",
+      "write_preview_generated": false,
+      "formal_write_request_created": false,
+      "memory_write_authorized": false,
+      "memory_record_created": false,
+      "runtime_path_enabled": false,
+      "input_summary": {
+        "source_event_candidate_ref": "event_candidate:authority_event_memory:demo:0002",
+        "grant_decision_receipt_candidate_ref": "grant_decision_receipt_candidate:demo:0002",
+        "requested_memory_action": "candidate_write_preview",
+        "negative_evidence": [
+          "missing_attribution_score",
+          "ambiguous_authority_boundary"
+        ]
+      },
+      "output_summary": {
+        "preview_artifact_id": null,
+        "denial_reason": "negative_evidence_requires_fail_closed",
+        "authority_source": false,
+        "persisted_memory_record": null
+      }
+    },
+    {
+      "case_id": "aem_write_candidate_preview_missing_receipt_fixture_v1",
+      "scenario_kind": "non_executing_business_requirement_fixture",
+      "expected_preview_decision": "deny_fail_closed",
+      "write_preview_generated": false,
+      "formal_write_request_created": false,
+      "memory_write_authorized": false,
+      "memory_record_created": false,
+      "runtime_path_enabled": false,
+      "input_summary": {
+        "source_event_candidate_ref": "event_candidate:authority_event_memory:demo:0003",
+        "grant_decision_receipt_candidate_ref": null,
+        "requested_memory_action": "candidate_write_preview",
+        "missing_required_reference": "grant_decision_receipt_candidate_ref"
+      },
+      "output_summary": {
+        "preview_artifact_id": null,
+        "denial_reason": "missing_candidate_receipt_requires_fail_closed",
+        "authority_source": false,
+        "persisted_memory_record": null
+      }
+    }
+  ],
+  "denied_cases": [
+    {
+      "case_id": "missing_grant_decision_receipt_candidate_ref",
+      "expected_decision": "deny_fail_closed",
+      "memory_write_authority_granted": false
+    },
+    {
+      "case_id": "runtime_shadow_mode_requested",
+      "expected_decision": "deny_fail_closed",
+      "runtime_shadow_mode_authorized": false
+    },
+    {
+      "case_id": "formal_write_request_schema_promotion_requested",
+      "expected_decision": "deny_fail_closed",
+      "accepted_schema_surface_expansion_authorized": false
+    },
+    {
+      "case_id": "persisted_memory_record_materialization_requested",
+      "expected_decision": "deny_fail_closed",
+      "memory_record_creation_authorized": false
+    }
+  ],
+  "explicit_non_authorizations": {
+    "formal_grant_decision_receipt_authorized": false,
+    "formal_write_request_schema_authorized": false,
+    "accepted_schema_surface_expansion_authorized": false,
+    "formal_field_registry_update_authorized": false,
+    "writeback_request_authorized": false,
+    "memory_write_authority_granted": false,
+    "memory_record_creation_authorized": false,
+    "runtime_topology_path_authorized": false,
+    "runtime_path_enabled": false,
+    "scheduler_route_authorized": false,
+    "execution_handoff_authorized": false,
+    "runtime_shadow_mode_authorized": false,
+    "drl_execution_authorized": false,
+    "trading_signal_authorized": false,
+    "future_live_execution_authorized": false
+  },
+  "authority_semantics": {
+    "candidate_preview_is_authority_source": false,
+    "grant_decision_receipt_candidate_is_authority_source": false,
+    "business_requirement_fixture_is_runtime_shadow_mode": false,
+    "boolean_authority_fields_are_derived_summaries": true,
+    "fail_closed_default": true
+  },
+  "validation_expectations": [
+    "fixture family remains v1 and candidate-only",
+    "every explicit non-authorization is false",
+    "every denied case expects deny_fail_closed",
+    "no fixture case creates a memory record",
+    "grant decision receipt candidate references are derived planning references, not authority sources"
+  ]
+}
