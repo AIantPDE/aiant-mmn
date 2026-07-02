@@ -1,0 +1,237 @@
+{
+  "alignment_decision": {
+    "default_on_unresolved_alignment_gap": "deny_fail_closed",
+    "formal_field_registry_promotion_allowed": false,
+    "memory_write_authority_allowed": false,
+    "preview_plan_v0_remains_valid_as_candidate_only": true,
+    "preview_plan_v0_requires_alignment_before_v1": true,
+    "runtime_authorization_allowed": false
+  },
+  "alignment_outcome": "keep_preview_plan_candidate_only",
+  "alignment_status": "aligned_candidate_only_with_deferral",
+  "alignment_trace": [
+    {
+      "artifact": "contracts grant envelope candidate field registry v0",
+      "authority_status": "candidate_only",
+      "role": "candidate field inventory",
+      "step": 1
+    },
+    {
+      "artifact": "mmn write request candidate preview plan v0",
+      "authority_status": "candidate_only_preview_only",
+      "role": "initial candidate preview plan",
+      "step": 2
+    },
+    {
+      "artifact": "mmn business requirement scenario fixtures v0",
+      "authority_status": "non_executing_non_authorizing",
+      "role": "business-requirement feedback layer",
+      "step": 3
+    },
+    {
+      "artifact": "contracts candidate field registry promotion-or-deferral decision v0",
+      "authority_status": "defer_formal_field_registry_promotion",
+      "role": "formal promotion decision",
+      "step": 4
+    },
+    {
+      "artifact": "mmn write request candidate preview plan alignment v0",
+      "authority_status": "candidate_only_alignment",
+      "role": "alignment and gap closure plan",
+      "step": 5
+    }
+  ],
+  "asset_id": "mmn_authority_event_memory_write_request_candidate_preview_plan_alignment_v0",
+  "asset_kind": "write_request_candidate_preview_plan_alignment",
+  "blocked_interpretations": [
+    "write request candidate preview plan v0 treated as write request schema",
+    "business scenario fixture treated as runtime shadow mode",
+    "contracts deferral decision treated as formal field registry update",
+    "candidate field registry treated as authoritative field registry",
+    "read-only projection treated as memory write authority",
+    "candidate payload summary treated as authority source",
+    "grant_decision treated as sufficient authority source",
+    "core topology reference treated as runtime path enablement",
+    "absence of revocation evidence treated as active authorization",
+    "preview alignment treated as runtime implementation"
+  ],
+  "capability": "MMN Authority Event Memory",
+  "next_recommended_steps": [
+    "core: add MMN authority event memory topology gate grant-envelope preview plan v0",
+    "contracts: draft MMN authority event memory grant decision receipt candidate plan v0",
+    "mmn: draft MMN authority event memory write request candidate preview fixtures v1 after alignment gaps are resolved"
+  ],
+  "purpose": [
+    "Align the MMN write request candidate preview plan with business requirement scenario fixtures and contracts-side promotion-or-deferral decision.",
+    "Prevent draft-to-draft trace from being read as formal field-registry or runtime authorization trace.",
+    "Identify minimum changes required before future v1 preview plan, formal field-registry delta, or grant decision receipt candidate."
+  ],
+  "repo": "aiant-mmn",
+  "required_alignment_updates_before_v1": [
+    {
+      "alignment_item": "business_scenario_trace_refs",
+      "reason": "Each preview candidate must be traceable to one or more business requirement scenario fixtures.",
+      "status": "required_before_v1"
+    },
+    {
+      "alignment_item": "field_feedback_resolution_refs",
+      "reason": "Missing, ambiguous, derived-summary, and evidence-ref field feedback must be explicitly resolved or deferred.",
+      "status": "required_before_v1"
+    },
+    {
+      "alignment_item": "requested_operation_and_scope_semantics",
+      "reason": "requested_operation, requested_scope, scope_constraints, and scope_mismatch_reason must be distinguished.",
+      "status": "required_before_v1"
+    },
+    {
+      "alignment_item": "revocation_and_expiry_evidence_refs",
+      "reason": "Absence of revocation evidence cannot be interpreted as active authorization.",
+      "status": "required_before_v1"
+    },
+    {
+      "alignment_item": "trace_lineage_and_dedupe_fields",
+      "reason": "trace_id, canonical_source_hash, source_event_ref, lineage_ref, and dedupe_key must be available before dedupe semantics can be trusted.",
+      "status": "required_before_v1"
+    },
+    {
+      "alignment_item": "forbidden_authority_claim_detection",
+      "reason": "candidate payloads must not claim memory write, runtime, DRL, trading, or future-live authority.",
+      "status": "required_before_v1"
+    },
+    {
+      "alignment_item": "core_topology_grant_envelope_preview_dependency",
+      "reason": "Core topology reference is not runtime path enablement.",
+      "status": "required_before_runtime_claims"
+    },
+    {
+      "alignment_item": "grant_decision_receipt_candidate_dependency",
+      "reason": "grant_decision remains a derived summary until a grant decision receipt candidate plan is defined.",
+      "status": "required_before_accepted_surface_expansion"
+    }
+  ],
+  "required_non_authorizations": {
+    "accepted_schema_surface_expansion_authorized": false,
+    "drl_execution_authorized": false,
+    "execution_handoff_authorized": false,
+    "formal_field_registry_update_authorized": false,
+    "future_live_execution_authorized": false,
+    "grant_decision_receipt_authorized": false,
+    "memory_record_creation_authorized": false,
+    "memory_record_schema_authorized": false,
+    "memory_write_authority_granted": false,
+    "production_scanner_enforcement_authorized": false,
+    "runtime_shadow_mode_authorized": false,
+    "runtime_topology_path_authorized": false,
+    "scheduler_route_authorized": false,
+    "trading_signal_authorized": false,
+    "write_request_schema_authorized": false,
+    "writeback_request_authorized": false,
+    "writeback_request_schema_authorized": false
+  },
+  "scenario_to_preview_alignment": [
+    {
+      "alignment_result": "defer_until_field_feedback_resolved",
+      "preview_plan_alignment": "requires_governance_report_and_grant_ref_gap",
+      "required_candidate_fields": [
+        "source_repo",
+        "denied_reason",
+        "governance_scan_report_ref",
+        "authority_grant_envelope_ref"
+      ],
+      "scenario_id": "missing_authority_grant_envelope_for_downstream_consumption"
+    },
+    {
+      "alignment_result": "defer_until_receipt_ref_semantics_resolved",
+      "preview_plan_alignment": "requires_payload_level_receipt_refs",
+      "required_candidate_fields": [
+        "read_only_projection_ref",
+        "accepted_schema_receipt_ref",
+        "accepted_family_receipt_ref",
+        "missing_evidence_refs"
+      ],
+      "scenario_id": "read_only_projection_missing_receipts"
+    },
+    {
+      "alignment_result": "defer_until_core_topology_preview_exists",
+      "preview_plan_alignment": "requires_topology_report_and_scope_constraints",
+      "required_candidate_fields": [
+        "core_topology_gate_report_ref",
+        "requested_runtime_path",
+        "scope_constraints"
+      ],
+      "scenario_id": "topology_runtime_path_denied_without_grant"
+    },
+    {
+      "alignment_result": "revise_before_v1",
+      "preview_plan_alignment": "requires_scope_mismatch_semantics",
+      "required_candidate_fields": [
+        "requested_operation",
+        "grant_scope",
+        "scope_constraints",
+        "scope_mismatch_reason"
+      ],
+      "scenario_id": "grant_scope_mismatch_denial"
+    },
+    {
+      "alignment_result": "revise_before_v1",
+      "preview_plan_alignment": "requires_grant_lifecycle_evidence",
+      "required_candidate_fields": [
+        "revocation_refs",
+        "expiry_policy_ref",
+        "grant_lifecycle_status"
+      ],
+      "scenario_id": "revocation_or_expiry_evidence_required"
+    },
+    {
+      "alignment_result": "revise_before_v1",
+      "preview_plan_alignment": "requires_trace_lineage_and_dedupe",
+      "required_candidate_fields": [
+        "source_event_ref",
+        "canonical_event_hash",
+        "lineage_ref",
+        "dedupe_key"
+      ],
+      "scenario_id": "duplicate_write_candidate_dedupe_required"
+    },
+    {
+      "alignment_result": "deny_fail_closed_if_claim_present",
+      "preview_plan_alignment": "requires_forbidden_claim_detection",
+      "required_candidate_fields": [
+        "candidate_payload_ref",
+        "forbidden_claims",
+        "authority_source_refs"
+      ],
+      "scenario_id": "candidate_payload_authorization_claim_denied"
+    },
+    {
+      "alignment_result": "defer_until_lineage_complete",
+      "preview_plan_alignment": "requires_canonical_audit_lineage",
+      "required_candidate_fields": [
+        "trace_id",
+        "canonical_source_hash",
+        "contract_receipt_refs",
+        "governance_report_ref",
+        "topology_report_ref",
+        "projection_report_ref"
+      ],
+      "scenario_id": "audit_lineage_gap_denied"
+    },
+    {
+      "alignment_result": "deny_fail_closed_if_claim_present",
+      "preview_plan_alignment": "requires_cross_repo_forbidden_claim_boundary",
+      "required_candidate_fields": [
+        "source_repo",
+        "forbidden_claims",
+        "cross_repo_boundary_report_ref"
+      ],
+      "scenario_id": "drl_trading_or_future_live_claim_denied"
+    }
+  ],
+  "source_alignment_inputs": [
+    "MMN_AUTHORITY_EVENT_MEMORY_WRITE_REQUEST_CANDIDATE_PREVIEW_PLAN_V0",
+    "MMN_AUTHORITY_EVENT_MEMORY_BUSINESS_REQUIREMENT_SCENARIO_FIXTURES_V0",
+    "MMN_AUTHORITY_EVENT_MEMORY_CANDIDATE_FIELD_REGISTRY_PROMOTION_OR_DEFERRAL_DECISION_V0",
+    "AIANT Capability Activation Governance Pattern Layer 4.5"
+  ],
+  "version": "v0"
+}
