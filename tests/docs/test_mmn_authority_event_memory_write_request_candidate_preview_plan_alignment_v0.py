@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 from typing import Any, cast
 
-
 ROOT = Path(__file__).resolve().parents[2]
 
 DOC_MD = (
@@ -76,10 +75,7 @@ def test_alignment_trace_includes_business_and_contracts_deferral() -> None:
     artifacts = {_dict(step)["artifact"] for step in trace}
 
     assert "mmn business requirement scenario fixtures v0" in artifacts
-    assert (
-        "contracts candidate field registry promotion-or-deferral decision v0"
-        in artifacts
-    )
+    assert "contracts candidate field registry promotion-or-deferral decision v0" in artifacts
     assert "mmn write request candidate preview plan alignment v0" in artifacts
 
     statuses = {_dict(step)["authority_status"] for step in trace}
@@ -155,10 +151,7 @@ def test_alignment_blocks_dangerous_interpretations() -> None:
     payload = _load_json(FIXTURE_JSON)
     blocked = set(_list(payload["blocked_interpretations"]))
 
-    assert (
-        "write request candidate preview plan v0 treated as write request schema"
-        in blocked
-    )
+    assert "write request candidate preview plan v0 treated as write request schema" in blocked
     assert "business scenario fixture treated as runtime shadow mode" in blocked
     assert "candidate field registry treated as authoritative field registry" in blocked
     assert "read-only projection treated as memory write authority" in blocked
