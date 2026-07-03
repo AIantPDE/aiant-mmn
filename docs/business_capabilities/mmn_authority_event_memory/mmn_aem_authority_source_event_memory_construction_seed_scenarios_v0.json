@@ -1,0 +1,391 @@
+{
+  "object_name": "MMN_AEM_AUTHORITY_SOURCE_EVENT_MEMORY_CONSTRUCTION_SEED_SCENARIOS_V0",
+  "version": "v0",
+  "repo": "aiant-mmn",
+  "status": "draft",
+  "mode": [
+    "docs",
+    "fixtures",
+    "regression_tests",
+    "candidate_only",
+    "seed_scenario_only",
+    "non_executing",
+    "non_authorizing"
+  ],
+  "sentinel": "AEM_AUTHORITY_SOURCE_EVENT_MEMORY_CONSTRUCTION_SEED_SCENARIOS_V0_READY",
+  "purpose": "Define AEM-native authority-source event memory construction seed scenarios using six AEM business sub-capabilities and ORSC v10-style residual/evidence/receipt/witness discipline.",
+  "why_this_exists": {
+    "reclassified_prior_lane": "aiant-mmn #42 through aiant-governance #84",
+    "prior_lane_status": "retained as field-registry-feedback / governance-boundary / scanner-preparation",
+    "this_lane_status": "AEM-native seed scenario lane",
+    "field_derivation_rule": "fields are derived from realistic seed scenarios, not from an already assumed candidate field registry"
+  },
+  "aem_business_subcapabilities": [
+    {
+      "id": "AEM_SUBCAP_1_TURNING_POINT_IDENTIFICATION",
+      "name_cn": "拐点识别能力",
+      "name_en": "turning point identification",
+      "purpose": "从指数、资产、系统状态或治理曲线中识别值得解释的拐点、扰动、异常或失败信号。",
+      "field_focus": [
+        "observed_signal_ref",
+        "turning_point_window",
+        "baseline_window_ref",
+        "perturbation_kind",
+        "detection_rule_ref"
+      ]
+    },
+    {
+      "id": "AEM_SUBCAP_2_AUTHORITY_EVENT_RETRIEVAL",
+      "name_cn": "权威事件检索能力",
+      "name_en": "authority event retrieval",
+      "purpose": "在 as-of 可见窗口内检索可解释该拐点的权威源事件，并保留检索审计。",
+      "field_focus": [
+        "authority_source_ref",
+        "authority_event_ref",
+        "published_at_utc",
+        "as_of_visible_at_utc",
+        "retrieval_audit_log_ref"
+      ]
+    },
+    {
+      "id": "AEM_SUBCAP_3_ATTRIBUTION_CHAIN_CONSTRUCTION",
+      "name_cn": "归因链构造能力",
+      "name_en": "attribution chain construction",
+      "purpose": "构造 turning point 与 authority event 的候选归因链，记录时间、语义、证据与替代解释。",
+      "field_focus": [
+        "attribution_link_ref",
+        "time_lag_component",
+        "semantic_relevance_component",
+        "alternative_event_refs",
+        "negative_evidence_refs"
+      ]
+    },
+    {
+      "id": "AEM_SUBCAP_4_ANTI_BIAS_REVIEW",
+      "name_cn": "反偏差能力",
+      "name_en": "anti-bias review",
+      "purpose": "通过 as-of、检索审计、评分分解、placebo/control tests、盲审与多重检验控制抑制伪因果。",
+      "field_focus": [
+        "score_component_trace",
+        "placebo_test_ref",
+        "control_window_test_ref",
+        "blind_review_receipt_ref",
+        "multiplicity_adjustment_ref"
+      ]
+    },
+    {
+      "id": "AEM_SUBCAP_5_MEMORY_PROMOTION_DECISION",
+      "name_cn": "记忆晋级能力",
+      "name_en": "memory promotion, downgrade, deferral, or denial decision",
+      "purpose": "根据证据完备性、归因质量和边界约束，决定候选记忆的晋级、降级、延期或拒绝。",
+      "field_focus": [
+        "promotion_decision",
+        "downgrade_reason",
+        "deferral_reason",
+        "promotion_checklist_ref",
+        "decision_receipt_ref"
+      ]
+    },
+    {
+      "id": "AEM_SUBCAP_6_FUTURE_REUSE",
+      "name_cn": "未来复用能力",
+      "name_en": "future reuse",
+      "purpose": "让通过审计的事件记忆在未来解释、风险识别、机会诱惑识别、治理复核或扰动理解中可复用但不越权。",
+      "field_focus": [
+        "reuse_context_ref",
+        "reuse_allowed_scope",
+        "reuse_denied_scope",
+        "memory_lookup_boundary",
+        "non_authorizing_reuse_statement"
+      ]
+    }
+  ],
+  "orsc_v10_implementation_method": {
+    "method_name": "ORSC v10-style residual-driven, evidence-gated, receipt-sealed seed derivation",
+    "not_runtime": true,
+    "steps": [
+      "Observe residual: pin the turning point, perturbation, anomaly, or failure signal.",
+      "Select ordered next step: decide which AEM sub-capability is being exercised.",
+      "Hydrate evidence: collect authority-source, as-of, retrieval, and predecessor receipts.",
+      "Evaluate admissibility: reject actions without evidence envelope and scope-bound witness.",
+      "Canonicalize receipts: retain hash-stable references for replay and migration.",
+      "Derive candidate fields: only after the scenario and evidence requirements are clear.",
+      "Append audit ledger entry: keep this as documentation/fixture evidence only."
+    ],
+    "keywords": [
+      "ordered residual-driven spiral convergence",
+      "evidence-gated action admissibility",
+      "receipt-sealed action admissibility",
+      "canonicalization and hash stability",
+      "provenance-sealed successor hydration",
+      "idempotent bounded delta",
+      "deterministic replay receipt",
+      "authority decision evidence envelope as ORSC witness",
+      "scope-bound authority admissibility",
+      "append-only audit ledger"
+    ]
+  },
+  "seed_scenarios": [
+    {
+      "id": "AEM_SEED_SCENARIO_01_TURNING_POINT_FROM_POLICY_SHOCK",
+      "title_cn": "指数拐点与政策冲击候选",
+      "title_en": "index turning point and policy shock candidate",
+      "primary_subcapability": "AEM_SUBCAP_1_TURNING_POINT_IDENTIFICATION",
+      "real_world_shape": "某指数或资产篮子在短窗口内出现跳空、斜率反转或波动率突变，业务方要求解释该拐点是否值得形成 AEM 候选记忆。",
+      "orsc_v10_application": {
+        "residual": "observed curve change cannot be explained by baseline window alone",
+        "ordered_next_step": "identify the turning point before searching for authority events",
+        "evidence_gate": "no authority event may be selected until the observed signal is pinned",
+        "receipt": "turning_point_detection_receipt_ref",
+        "witness": "observed signal and baseline comparison act as the first ORSC witness"
+      },
+      "field_derivation_steps": [
+        "先确定 observed_signal_ref 与 turning_point_window，而不是先问字段是否齐。",
+        "再记录 baseline_window_ref、perturbation_kind 与 detection_rule_ref。",
+        "只有拐点被固定后，才允许进入权威事件检索。"
+      ],
+      "derived_field_candidates": [
+        "observed_signal_ref",
+        "turning_point_window",
+        "baseline_window_ref",
+        "perturbation_kind",
+        "detection_rule_ref",
+        "turning_point_detection_receipt_ref"
+      ],
+      "boundary": "Turning point detection cannot authorize memory write, trading signal, DRL execution, or runtime activation."
+    },
+    {
+      "id": "AEM_SEED_SCENARIO_02_AUTHORITY_EVENT_RETRIEVAL_AS_OF_WINDOW",
+      "title_cn": "权威源事件检索与当时可见窗口",
+      "title_en": "authority event retrieval within an as-of window",
+      "primary_subcapability": "AEM_SUBCAP_2_AUTHORITY_EVENT_RETRIEVAL",
+      "real_world_shape": "拐点发生后，研究者从央行、监管机构、交易所、统计机构、公司公告或 AIANT 内部正式 receipt 中检索当时已经可见的候选事件。",
+      "orsc_v10_application": {
+        "residual": "turning point lacks an authority-source explanation",
+        "ordered_next_step": "retrieve sources under as-of visibility before attribution scoring",
+        "evidence_gate": "events published or visible after the decision time are inadmissible",
+        "receipt": "retrieval_audit_log_ref",
+        "witness": "authority decision evidence envelope records source, publication, visibility, and scope"
+      },
+      "field_derivation_steps": [
+        "先列出 authority_source_ref 与检索范围。",
+        "再记录 published_at_utc、retrieved_at_utc 与 as_of_visible_at_utc。",
+        "最后保留 retrieval_query_set、excluded_source_refs 与 retrieval_audit_log_ref。"
+      ],
+      "derived_field_candidates": [
+        "authority_source_ref",
+        "authority_event_ref",
+        "published_at_utc",
+        "retrieved_at_utc",
+        "as_of_visible_at_utc",
+        "retrieval_query_set",
+        "excluded_source_refs",
+        "retrieval_audit_log_ref"
+      ],
+      "boundary": "Retrieval success is evidence availability, not attribution success and not authority to create a memory record."
+    },
+    {
+      "id": "AEM_SEED_SCENARIO_03_ATTRIBUTION_CHAIN_WITH_REVISION_EVENT",
+      "title_cn": "统计修订事件与归因链构造",
+      "title_en": "statistical revision event and attribution chain construction",
+      "primary_subcapability": "AEM_SUBCAP_3_ATTRIBUTION_CHAIN_CONSTRUCTION",
+      "real_world_shape": "统计机构发布修订数据，导致此前对某次市场或系统拐点的解释需要重新评估，AEM 需要表达事件、拐点与修订之间的候选归因链。",
+      "orsc_v10_application": {
+        "residual": "previous explanation no longer covers revised official data",
+        "ordered_next_step": "hydrate predecessor receipt and construct revised attribution link",
+        "evidence_gate": "revision cannot overwrite prior memory without predecessor receipt",
+        "receipt": "attribution_link_receipt_ref",
+        "witness": "canonical predecessor receipt and revision event form the witness pair"
+      },
+      "field_derivation_steps": [
+        "先保留 predecessor_memory_candidate_ref 与 revision_authority_event_ref。",
+        "再记录 attribution_link_ref、time_lag_component 与 semantic_relevance_component。",
+        "最后列出 alternative_event_refs、negative_evidence_refs 与 revision_effect_summary。"
+      ],
+      "derived_field_candidates": [
+        "predecessor_memory_candidate_ref",
+        "revision_authority_event_ref",
+        "attribution_link_ref",
+        "time_lag_component",
+        "semantic_relevance_component",
+        "alternative_event_refs",
+        "negative_evidence_refs",
+        "revision_effect_summary",
+        "attribution_link_receipt_ref"
+      ],
+      "boundary": "A revised attribution candidate may downgrade or defer prior memory; it cannot silently rewrite accepted memory."
+    },
+    {
+      "id": "AEM_SEED_SCENARIO_04_ANTI_BIAS_REVIEW_FOR_NARRATIVE_RISK",
+      "title_cn": "叙事风险与反偏差审计",
+      "title_en": "narrative risk and anti-bias review",
+      "primary_subcapability": "AEM_SUBCAP_4_ANTI_BIAS_REVIEW",
+      "real_world_shape": "候选事件看起来能解释拐点，但同窗口内存在多个相似公告、媒体叙事或替代事件，AEM 必须防止事后叙事与选择性取证。",
+      "orsc_v10_application": {
+        "residual": "candidate explanation may be an overfit narrative",
+        "ordered_next_step": "apply scoring trace, placebo/control tests, and review before promotion",
+        "evidence_gate": "promotion is inadmissible without anti-bias receipts",
+        "receipt": "anti_bias_review_receipt_ref",
+        "witness": "score trace plus placebo/control receipts serve as review witnesses"
+      },
+      "field_derivation_steps": [
+        "先拆解 score_component_trace，不允许只保存 final_score。",
+        "再记录 placebo_test_ref、control_window_test_ref 与 blind_review_receipt_ref。",
+        "最后记录 multiplicity_adjustment_ref 与 unresolved_bias_risks。"
+      ],
+      "derived_field_candidates": [
+        "score_component_trace",
+        "base_score",
+        "source_tier_component",
+        "time_lag_component",
+        "semantic_relevance_component",
+        "alternative_event_penalty",
+        "negative_evidence_penalty",
+        "placebo_test_ref",
+        "control_window_test_ref",
+        "blind_review_receipt_ref",
+        "multiplicity_adjustment_ref",
+        "unresolved_bias_risks"
+      ],
+      "boundary": "A compelling narrative without anti-bias review must remain candidate-only or be downgraded."
+    },
+    {
+      "id": "AEM_SEED_SCENARIO_05_MEMORY_PROMOTION_DOWNGRADE_DEFERRAL",
+      "title_cn": "候选事件记忆的晋级、降级、延期或拒绝",
+      "title_en": "candidate event memory promotion, downgrade, deferral, or denial",
+      "primary_subcapability": "AEM_SUBCAP_5_MEMORY_PROMOTION_DECISION",
+      "real_world_shape": "AEM 候选记忆完成初步证据链后，需要根据 evidence envelope、归因评分、审计结果与未解决 blocker 决定其处置状态。",
+      "orsc_v10_application": {
+        "residual": "candidate memory exists but admissibility is not yet settled",
+        "ordered_next_step": "evaluate promotion checklist under scope-bound admissibility",
+        "evidence_gate": "missing envelope or unresolved blocker forces deferral or denial",
+        "receipt": "promotion_decision_receipt_ref",
+        "witness": "authority decision evidence envelope is the ORSC v10 witness"
+      },
+      "field_derivation_steps": [
+        "先判断 promotion_checklist_ref 是否覆盖必要证据。",
+        "再记录 promotion_decision、downgrade_reason、deferral_reason 或 denial_reason。",
+        "最后把 decision_receipt_ref 与 unresolved_blocking_conditions 回写为候选字段反馈。"
+      ],
+      "derived_field_candidates": [
+        "promotion_checklist_ref",
+        "promotion_decision",
+        "downgrade_reason",
+        "deferral_reason",
+        "denial_reason",
+        "unresolved_blocking_conditions",
+        "decision_actor_ref",
+        "decision_time_utc",
+        "promotion_decision_receipt_ref"
+      ],
+      "boundary": "Promotion decision preview is not formal accepted memory and cannot authorize writeback or runtime execution."
+    },
+    {
+      "id": "AEM_SEED_SCENARIO_06_FUTURE_REUSE_WITH_NON_AUTHORIZING_BOUNDARY",
+      "title_cn": "未来复用与非授权边界",
+      "title_en": "future reuse with non-authorizing boundary",
+      "primary_subcapability": "AEM_SUBCAP_6_FUTURE_REUSE",
+      "real_world_shape": "未来出现相似扰动、类似权威源事件或类似治理失败信号时，系统可检索既有 AEM 候选记忆帮助解释，但不能把复用解释当作授权或执行信号。",
+      "orsc_v10_application": {
+        "residual": "new event resembles prior memory but scope and context may differ",
+        "ordered_next_step": "hydrate prior receipt before reuse and check scope-bound admissibility",
+        "evidence_gate": "reuse is inadmissible if prior receipt, scope, or context mismatch is missing",
+        "receipt": "reuse_boundary_receipt_ref",
+        "witness": "canonical prior receipt plus current context form a reuse witness pair"
+      },
+      "field_derivation_steps": [
+        "先记录 prior_memory_candidate_ref 与 current_context_ref。",
+        "再检查 reuse_allowed_scope、reuse_denied_scope 与 context_mismatch_reason。",
+        "最后记录 non_authorizing_reuse_statement，防止解释复用被误作执行授权。"
+      ],
+      "derived_field_candidates": [
+        "prior_memory_candidate_ref",
+        "current_context_ref",
+        "reuse_context_ref",
+        "reuse_allowed_scope",
+        "reuse_denied_scope",
+        "context_mismatch_reason",
+        "memory_lookup_boundary",
+        "reuse_boundary_receipt_ref",
+        "non_authorizing_reuse_statement"
+      ],
+      "boundary": "Memory reuse may support interpretation, risk review, or governance review; it cannot become a trading signal, DRL action, or runtime authorization."
+    }
+  ],
+  "derived_field_candidate_groups": {
+    "signal_and_turning_point": [
+      "observed_signal_ref",
+      "turning_point_window",
+      "baseline_window_ref",
+      "perturbation_kind",
+      "detection_rule_ref"
+    ],
+    "authority_source_and_as_of": [
+      "authority_source_ref",
+      "authority_event_ref",
+      "published_at_utc",
+      "retrieved_at_utc",
+      "as_of_visible_at_utc",
+      "retrieval_audit_log_ref"
+    ],
+    "attribution_and_revision": [
+      "attribution_link_ref",
+      "predecessor_memory_candidate_ref",
+      "revision_authority_event_ref",
+      "alternative_event_refs",
+      "negative_evidence_refs"
+    ],
+    "anti_bias_and_scoring": [
+      "score_component_trace",
+      "placebo_test_ref",
+      "control_window_test_ref",
+      "blind_review_receipt_ref",
+      "multiplicity_adjustment_ref"
+    ],
+    "promotion_decision": [
+      "promotion_checklist_ref",
+      "promotion_decision",
+      "downgrade_reason",
+      "deferral_reason",
+      "denial_reason",
+      "promotion_decision_receipt_ref"
+    ],
+    "future_reuse_boundary": [
+      "prior_memory_candidate_ref",
+      "current_context_ref",
+      "reuse_allowed_scope",
+      "reuse_denied_scope",
+      "non_authorizing_reuse_statement"
+    ]
+  },
+  "explicit_non_authorizing_flags": {
+    "memory_write_authority_granted": false,
+    "memory_record_creation_authorized": false,
+    "writeback_request_authorized": false,
+    "runtime_topology_path_authorized": false,
+    "scheduler_route_authorized": false,
+    "execution_handoff_authorized": false,
+    "runtime_shadow_mode_authorized": false,
+    "drl_execution_authorized": false,
+    "trading_signal_authorized": false,
+    "future_live_execution_authorized": false
+  },
+  "next_allowed_use": [
+    "derive a candidate field registry feedback plan",
+    "draft AEM seed fixture alignment review",
+    "draft ORSC-style AEM evidence envelope plan"
+  ],
+  "blocked_use": [
+    "formal FIELD_REGISTRY update",
+    "memory write",
+    "memory record creation",
+    "writeback request",
+    "scanner implementation",
+    "runtime topology path",
+    "scheduler route",
+    "execution handoff",
+    "DRL execution",
+    "trading signal",
+    "future live execution"
+  ]
+}
