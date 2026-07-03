@@ -1,0 +1,107 @@
+{
+  "asset_id": "mmn_authority_event_memory_business_capability_scenario_taxonomy_and_field_registry_feedback_boundary_v0",
+  "asset_kind": "aem_business_capability_taxonomy_boundary_clarification",
+  "fixture_family_version": "v0",
+  "plan_status": "candidate_only_clarification_only_non_executing",
+  "correction_focus": "AEM_six_business_subcapabilities_first",
+  "source_document_under_review": "MMN_AUTHORITY_EVENT_MEMORY_BUSINESS_REQUIREMENT_SCENARIO_FIXTURES_V0",
+  "sentinel": "AEM_BUSINESS_CAPABILITY_SCENARIO_TAXONOMY_FIELD_REGISTRY_FEEDBACK_BOUNDARY_V0_READY",
+  "primary_correction": {
+    "wrong_focus_to_avoid": "using_CAGP_V1_1_paper_as_the_primary_driver_for_this_MMN_pr",
+    "correct_focus": "redefine_AEM_business_capability_by_six_subcapabilities_before_field_registry_feedback",
+    "cagp_role_in_this_pr": "background_context_only_not_the_governing_source",
+    "aem_business_capability_definition": "after_a_key_turning_point_or_anomaly_AEM_systematically_discovers_filters_attributes_audits_downgrades_promotes_authority_events_and_converts_them_into_MMN_reusable_memory"
+  },
+  "legacy_v0_diagnosis": {
+    "semantic_error": "the_legacy_business_requirement_scenario_name_is_too_broad",
+    "actual_coverage": [
+      "field_registry_feedback",
+      "evidence_completeness",
+      "negative_boundary",
+      "forbidden_interpretation"
+    ],
+    "not_actual_coverage": [
+      "complete_AEM_business_capability_scenario_suite",
+      "AEM_six_subcapability_seed_suite",
+      "authority_source_event_memory_construction_seed_scenarios"
+    ],
+    "handling": "keep_legacy_file_do_not_rename_this_pr_but_reclassify_it_downstream"
+  },
+  "aem_six_subcapabilities": [
+    {
+      "id": "turning_point_detection_capability",
+      "cn": "拐点识别能力",
+      "question": "发生了什么值得解释的变化？这个变化是否足够重要，值得构造 event memory？",
+      "not_field_first": true
+    },
+    {
+      "id": "authority_event_retrieval_capability",
+      "cn": "权威事件检索能力",
+      "question": "哪些权威源在该时点附近发布过可能相关的事件？",
+      "not_field_first": true
+    },
+    {
+      "id": "attribution_link_construction_capability",
+      "cn": "归因链构造能力",
+      "question": "如何构造 turning point 与 candidate authority event 之间的可审计 attribution link？",
+      "not_field_first": true
+    },
+    {
+      "id": "anti_bias_review_capability",
+      "cn": "反偏差能力",
+      "question": "如何控制 hindsight bias、narrative backfitting、spurious causality、cherry-picking、look-ahead leakage 与 multiplicity problem？",
+      "not_field_first": true
+    },
+    {
+      "id": "memory_promotion_capability",
+      "cn": "记忆晋级能力",
+      "question": "候选事件为什么晋级、为什么不晋级、为什么降级、什么证据不足、哪些替代解释仍存在？",
+      "not_field_first": true
+    },
+    {
+      "id": "future_reuse_capability",
+      "cn": "未来复用能力",
+      "question": "这段 memory 如何服务未来解释、风险识别、机会诱惑警惕、DRL 稳定性扰动测试、governance scanner 边界校验与 contracts/registry promotion 审计？",
+      "not_field_first": true
+    }
+  ],
+  "taxonomy_reclassification": {
+    "Layer_4_5a": "AEM_six_subcapability_seed_scenarios_required_before_scanner_skeleton",
+    "Layer_4_5b": "field_registry_feedback_scenarios_downstream_of_six_subcapabilities",
+    "Layer_4_5c": "negative_boundary_and_forbidden_interpretation_scenarios",
+    "Layer_4_5d": "non_executing_preview_and_scanner_planning_only_after_4_5a"
+  },
+  "required_next_step": "mmn_draft_AEM_authority_source_event_memory_construction_seed_scenarios_v0",
+  "deferred_steps": [
+    "contracts_candidate_field_registry_promotion_or_deferral_decision_based_on_AEM_six_subcapability_feedback",
+    "governance_scanner_implementation_skeleton_after_AEM_six_subcapability_seed_suite"
+  ],
+  "promotion_gates": {
+    "ready_for_scanner_implementation_skeleton": false,
+    "ready_for_runtime_scanner": false,
+    "ready_for_memory_write": false,
+    "ready_for_formal_field_registry_update": false,
+    "ready_for_accepted_schema_surface_expansion": false
+  },
+  "boundary": {
+    "candidate_only": true,
+    "clarification_only": true,
+    "non_authorizing": true,
+    "non_executing": true,
+    "docs_fixtures_tests_only": true,
+    "no_source_changes": true,
+    "memory_write_authority_granted": false,
+    "memory_record_creation_authorized": false,
+    "writeback_request_authorized": false,
+    "runtime_topology_path_authorized": false,
+    "scheduler_route_authorized": false,
+    "execution_handoff_authorized": false,
+    "runtime_shadow_mode_authorized": false,
+    "scanner_runtime_invocation_authorized": false,
+    "formal_field_registry_update_authorized": false,
+    "accepted_schema_surface_expansion_authorized": false,
+    "drl_execution_authorized": false,
+    "trading_signal_authorized": false,
+    "future_live_execution_authorized": false
+  }
+}
