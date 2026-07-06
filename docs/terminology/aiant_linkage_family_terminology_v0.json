@@ -1,0 +1,167 @@
+{
+  "terminology_record_id": "AIANT_LINKAGE_FAMILY_TERMINOLOGY_V0",
+  "status": "draft",
+  "scope": "AIANT documentation terminology guidance",
+  "boundary": [
+    "docs_only",
+    "terminology_only",
+    "non_executing",
+    "non_authorizing",
+    "no_contract_schema_change",
+    "no_field_registry_update",
+    "no_runtime_activation"
+  ],
+  "sentinel": "AIANT_LINKAGE_FAMILY_TERMINOLOGY_V0_READY",
+  "canonical_terms": {
+    "chain": {
+      "preferred_cn": [
+        "有序链",
+        "方法链",
+        "流程链"
+      ],
+      "governs": "mandatory stage order",
+      "question": "下一步必须是什么？"
+    },
+    "lane": {
+      "preferred_cn": [
+        "治理路线",
+        "工作路线",
+        "归类通道"
+      ],
+      "governs": "work-family classification",
+      "question": "这批工作属于哪类路线？"
+    },
+    "trace": {
+      "preferred_cn": [
+        "可追溯轨迹",
+        "审计轨迹",
+        "修正轨迹"
+      ],
+      "governs": "replayable history",
+      "question": "它怎么走到现在？"
+    },
+    "path": {
+      "preferred_cn": [
+        "路径"
+      ],
+      "governs": "topological reachability",
+      "question": "拓扑上能不能到？"
+    },
+    "route": {
+      "preferred_cn": [
+        "路由"
+      ],
+      "governs": "chosen or admitted processing direction",
+      "question": "实际选择哪条走？"
+    },
+    "flow": {
+      "preferred_cn": [
+        "流",
+        "流程",
+        "信息流"
+      ],
+      "governs": "movement of data/control/information",
+      "question": "数据或信息怎么流？"
+    },
+    "pipeline": {
+      "preferred_cn": [
+        "管线",
+        "流水线"
+      ],
+      "governs": "staged processing machinery",
+      "question": "哪些处理阶段串起来？"
+    },
+    "lineage": {
+      "preferred_cn": [
+        "血缘",
+        "来源谱系",
+        "证据血缘"
+      ],
+      "governs": "source inheritance",
+      "question": "来源从哪里继承？"
+    },
+    "provenance": {
+      "preferred_cn": [
+        "来源证明",
+        "出处",
+        "来源元信息"
+      ],
+      "governs": "source trust metadata",
+      "question": "谁证明来源可信？"
+    },
+    "audit_trail": {
+      "preferred_cn": [
+        "审计轨迹"
+      ],
+      "governs": "audit replay",
+      "question": "证据如何被审计复盘？"
+    },
+    "bridge": {
+      "preferred_cn": [
+        "桥接",
+        "过桥"
+      ],
+      "governs": "safe cross-layer connection",
+      "question": "两个层之间怎么安全连接？"
+    },
+    "seam": {
+      "preferred_cn": [
+        "接缝",
+        "接口接缝"
+      ],
+      "governs": "thin module interface",
+      "question": "两个模块的薄接口在哪里？"
+    },
+    "handoff": {
+      "preferred_cn": [
+        "移交",
+        "交接",
+        "移交信封"
+      ],
+      "governs": "upstream-to-downstream transfer",
+      "question": "上游怎么交给下游？"
+    },
+    "loop": {
+      "preferred_cn": [
+        "闭环",
+        "回路"
+      ],
+      "governs": "feedback return",
+      "question": "反馈如何回流？"
+    },
+    "link": {
+      "preferred_cn": [
+        "关联",
+        "链接"
+      ],
+      "governs": "one object-to-object relation",
+      "question": "两个对象有什么关系？"
+    },
+    "surface": {
+      "preferred_cn": [
+        "暴露面",
+        "合同表面"
+      ],
+      "governs": "externally consumable interface set",
+      "question": "哪些东西可被消费？"
+    },
+    "boundary": {
+      "preferred_cn": [
+        "边界"
+      ],
+      "governs": "allow/deny scope",
+      "question": "哪里不能越界？"
+    }
+  },
+  "forbidden_over_translation_examples": [
+    "route_preview != 路由链路预览",
+    "execution_handoff_envelope != 执行链路信封",
+    "attribution_link_ref != 归因链路引用 when it means a single relation",
+    "field-registry-feedback lane != 字段注册反馈链路 when it means a work lane",
+    "promotion decision trace != 晋级决策链路 when it means replay history",
+    "source provenance != 来源链路 when it means origin proof",
+    "feedback validation loop != 反馈验证链路 when it means a closed loop",
+    "accepted schema surface != accepted schema 链路 when it means consumable surface",
+    "non-authorizing boundary != 非授权链路 when it means a boundary"
+  ]
+}
