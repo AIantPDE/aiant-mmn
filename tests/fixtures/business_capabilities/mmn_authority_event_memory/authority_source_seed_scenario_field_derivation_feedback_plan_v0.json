@@ -1,0 +1,439 @@
+{
+  "fixture_id": "authority_source_seed_scenario_field_derivation_feedback_plan_v0",
+  "fixture_kind": "business_capability_field_pressure_candidate_suggestion_gvr_front_end_plan",
+  "repo": "aiant-mmn",
+  "source_seed_scenarios_doc": "docs/business_capabilities/mmn_authority_event_memory/MMN_AEM_AUTHORITY_SOURCE_EVENT_MEMORY_CONSTRUCTION_SEED_SCENARIOS_V0.md",
+  "field_pressure_policy": {
+    "definition": "a field pressure exists only when a real scenario failure-if-missing affects an AEM/ORSC target and existing fields cannot safely substitute the missing auditable information",
+    "target_objects": [
+      "AEM_sub_capability_target",
+      "ORSC_ordered_next_step",
+      "evidence_gate",
+      "receipt_trace",
+      "authority_envelope_witness",
+      "anti_bias_review",
+      "promotion_deferral_denial_decision",
+      "future_reuse_boundary",
+      "non_authorizing_safety_boundary",
+      "audit_replay_review"
+    ],
+    "absence_test": "if the information is missing, identify the concrete failure, affected target, existing-field insufficiency, and minimal auditable information needed",
+    "pressure_strength_scale": {
+      "P0": "no pressure; discovery lens only",
+      "P1": "descriptive pressure; observation note",
+      "P2": "review pressure; ledger entry, needs recurrence",
+      "P3": "gate pressure; candidate field suggestion",
+      "P4": "safety or authority pressure; strong candidate field need review"
+    }
+  },
+  "natural_language_observed_signal_policy": {
+    "rule": "natural language may be a source of observed signal but must be anchored before it can drive ORSC analysis",
+    "required_layers": [
+      "raw_text_preservation",
+      "source_span_anchor",
+      "baseline_corpus_or_context",
+      "extraction_or_comparison_evidence",
+      "detection_receipt",
+      "authority_envelope_witness"
+    ],
+    "llm_policy": "LLM output may propose extraction but is not an authority source, witness, or final attribution judge",
+    "semantic_front_end": "GVR Display-level semantic front-end is required before AEM anchoring",
+    "display_policy": "Display may feed observed signal anchoring only after source/span/baseline evidence",
+    "possess_policy": "Possess is an inference proposal only, not an observed signal or authority source",
+    "intent_policy": "Intent is an inference proposal only, not attribution or memory promotion evidence",
+    "prohibited_shortcuts": [
+      "display_label_to_authority_source",
+      "possess_inference_to_observed_signal_ref",
+      "intent_inference_to_attribution_conclusion",
+      "llm_extracted_intent_to_memory_promotion_evidence",
+      "gvr_semantic_label_to_candidate_field_need_without_pressure_review"
+    ]
+  },
+  "derivation_method": {
+    "business_rule": "derive field pressure from real AEM seed scenarios before suggesting candidate fields",
+    "orsc_style_steps": [
+      "observe_residual",
+      "select_ordered_next_step",
+      "hydrate_evidence",
+      "evaluate_evidence_gated_admissibility",
+      "seal_receipt_and_authority_envelope_witness",
+      "extract_field_pressure",
+      "record_field_pressure_ledger_entry",
+      "derive_candidate_field_suggestion",
+      "classify_field_feedback"
+    ]
+  },
+  "aem_sub_capability_field_derivations": [
+    {
+      "id": "AEM-1",
+      "name_cn": "拐点识别能力",
+      "name_en": "turning point identification",
+      "seed_scenario_ref": "scenario_1_index_turning_point_policy_shock_candidate",
+      "field_need_cluster": "observed_signal_and_turning_point",
+      "pressure_target": "AEM-1 target: pin the observed signal before selecting an authority event",
+      "field_pressure_observations": [
+        "without an observed signal anchor, the object to be pinned before retrieval is undefined",
+        "without a baseline comparison evidence ref, the residual cannot be reproduced or reviewed",
+        "without a detection rule ref, the turning point can be selected narratively after the fact",
+        "without a detection receipt, later retrieval or attribution has no auditable start point",
+        "without a detection authority envelope, AEM-1 cannot witness that signal pinning is allowed within boundary"
+      ],
+      "candidate_field_suggestions": [
+        "observed_signal_ref",
+        "turning_point_window",
+        "baseline_window_ref",
+        "perturbation_kind",
+        "detection_rule_ref",
+        "observed_signal_baseline_comparison_evidence_ref",
+        "turning_point_detection_receipt_ref",
+        "turning_point_detection_authority_envelope_ref"
+      ],
+      "candidate_fields": [
+        "observed_signal_ref",
+        "turning_point_window",
+        "baseline_window_ref",
+        "perturbation_kind",
+        "detection_rule_ref",
+        "observed_signal_baseline_comparison_evidence_ref",
+        "turning_point_detection_receipt_ref",
+        "turning_point_detection_authority_envelope_ref"
+      ],
+      "orsc_projection": {
+        "residual": "observed curve change cannot be explained by baseline window alone",
+        "ordered_next_step": "pin observed signal before selecting authority event",
+        "evidence_gate": "turning point detection receipt, comparison evidence, and detection authority envelope must exist before retrieval or attribution",
+        "evidence": "observed_signal_baseline_comparison_evidence_ref",
+        "receipt": "turning_point_detection_receipt_ref",
+        "witness": "turning_point_detection_authority_envelope_ref"
+      },
+      "candidate_need_status": "not_yet_candidate_field_need_until_pressure_review"
+    },
+    {
+      "id": "AEM-2",
+      "name_cn": "权威事件检索能力",
+      "name_en": "authority event retrieval",
+      "seed_scenario_ref": "scenario_2_authority_source_retrieval_as_of_visibility",
+      "field_need_cluster": "authority_source_retrieval_and_as_of_visibility",
+      "pressure_target": "AEM-2 target: retrieve only as-of-visible authority sources before attribution scoring",
+      "field_pressure_observations": [
+        "without source and event refs, retrieval cannot identify the authority-source object under review",
+        "without published, retrieved, and as-of-visible times, post-decision visibility cannot be rejected",
+        "without retrieval query and exclusion refs, selective retrieval cannot be audited",
+        "without a retrieval audit receipt, the retrieval step cannot be replayed",
+        "without a retrieval authority envelope, the retrieval step has no ORSC witness for its allowed boundary"
+      ],
+      "candidate_field_suggestions": [
+        "authority_source_ref",
+        "authority_event_ref",
+        "published_at_utc",
+        "retrieved_at_utc",
+        "as_of_visible_at_utc",
+        "retrieval_query_set",
+        "excluded_source_refs",
+        "authority_source_visibility_evidence_ref",
+        "retrieval_audit_log_ref",
+        "authority_source_retrieval_authority_envelope_ref"
+      ],
+      "candidate_fields": [
+        "authority_source_ref",
+        "authority_event_ref",
+        "published_at_utc",
+        "retrieved_at_utc",
+        "as_of_visible_at_utc",
+        "retrieval_query_set",
+        "excluded_source_refs",
+        "authority_source_visibility_evidence_ref",
+        "retrieval_audit_log_ref",
+        "authority_source_retrieval_authority_envelope_ref"
+      ],
+      "orsc_projection": {
+        "residual": "turning point lacks an authority-source explanation",
+        "ordered_next_step": "retrieve as-of-visible sources before attribution scoring",
+        "evidence_gate": "as-of visibility evidence, retrieval audit receipt, and retrieval authority envelope must exist before attribution scoring",
+        "evidence": "authority_source_visibility_evidence_ref",
+        "receipt": "retrieval_audit_log_ref",
+        "witness": "authority_source_retrieval_authority_envelope_ref"
+      },
+      "candidate_need_status": "not_yet_candidate_field_need_until_pressure_review"
+    },
+    {
+      "id": "AEM-3",
+      "name_cn": "归因链构造能力",
+      "name_en": "attribution chain construction",
+      "seed_scenario_ref": "scenario_3_statistical_revision_attribution_chain",
+      "field_need_cluster": "attribution_link_and_revision_context",
+      "pressure_target": "AEM-3 target: construct an auditable attribution link without overwriting predecessor memory",
+      "field_pressure_observations": [
+        "without predecessor memory and predecessor receipt refs, revision may overwrite prior memory without lineage",
+        "without revision event evidence, the revised attribution cannot distinguish official revision from narrative update",
+        "without alternative and negative evidence refs, attribution may preserve a single favored explanation",
+        "without an attribution link receipt, the revised link cannot be audited or replayed",
+        "without an attribution authority envelope, revision attribution has no ORSC witness for scope-bound admissibility"
+      ],
+      "candidate_field_suggestions": [
+        "predecessor_memory_candidate_ref",
+        "predecessor_receipt_ref",
+        "revision_authority_event_ref",
+        "revision_event_evidence_ref",
+        "predecessor_receipt_revision_event_evidence_ref",
+        "attribution_link_ref",
+        "time_lag_component",
+        "semantic_relevance_component",
+        "alternative_event_refs",
+        "negative_evidence_refs",
+        "revision_effect_summary",
+        "attribution_link_receipt_ref",
+        "attribution_revision_authority_envelope_ref"
+      ],
+      "candidate_fields": [
+        "predecessor_memory_candidate_ref",
+        "predecessor_receipt_ref",
+        "revision_authority_event_ref",
+        "revision_event_evidence_ref",
+        "predecessor_receipt_revision_event_evidence_ref",
+        "attribution_link_ref",
+        "time_lag_component",
+        "semantic_relevance_component",
+        "alternative_event_refs",
+        "negative_evidence_refs",
+        "revision_effect_summary",
+        "attribution_link_receipt_ref",
+        "attribution_revision_authority_envelope_ref"
+      ],
+      "orsc_projection": {
+        "residual": "previous explanation no longer covers revised official data",
+        "ordered_next_step": "hydrate predecessor receipt and construct revised link",
+        "evidence_gate": "predecessor receipt, revision evidence, and attribution authority envelope must exist before revising a memory candidate",
+        "evidence": "predecessor_receipt_revision_event_evidence_ref",
+        "receipt": "attribution_link_receipt_ref",
+        "witness": "attribution_revision_authority_envelope_ref"
+      },
+      "candidate_need_status": "not_yet_candidate_field_need_until_pressure_review"
+    },
+    {
+      "id": "AEM-4",
+      "name_cn": "反偏差能力",
+      "name_en": "anti-bias review",
+      "seed_scenario_ref": "scenario_4_narrative_risk_anti_bias_audit",
+      "field_need_cluster": "anti_bias_scoring_and_review",
+      "pressure_target": "AEM-4 target: block narrative backfitting and pseudo-causality before promotion",
+      "field_pressure_observations": [
+        "without score component trace, confidence cannot be decomposed or challenged",
+        "without placebo and control-window evidence, overfit narrative risk cannot be tested",
+        "without alternative and negative evidence penalties, selective causality cannot be penalized",
+        "without anti-bias review receipt, promotion cannot prove bias review occurred",
+        "without an anti-bias authority envelope, the review step has no ORSC witness for allowed review boundary"
+      ],
+      "candidate_field_suggestions": [
+        "score_component_trace",
+        "base_score",
+        "source_tier_component",
+        "time_lag_component",
+        "semantic_relevance_component",
+        "alternative_event_penalty",
+        "negative_evidence_penalty",
+        "placebo_test_ref",
+        "control_window_test_ref",
+        "score_trace_placebo_control_review_evidence_ref",
+        "blind_review_receipt_ref",
+        "anti_bias_review_receipt_ref",
+        "multiplicity_adjustment_ref",
+        "unresolved_bias_risks",
+        "anti_bias_review_authority_envelope_ref"
+      ],
+      "candidate_fields": [
+        "score_component_trace",
+        "base_score",
+        "source_tier_component",
+        "time_lag_component",
+        "semantic_relevance_component",
+        "alternative_event_penalty",
+        "negative_evidence_penalty",
+        "placebo_test_ref",
+        "control_window_test_ref",
+        "score_trace_placebo_control_review_evidence_ref",
+        "blind_review_receipt_ref",
+        "anti_bias_review_receipt_ref",
+        "multiplicity_adjustment_ref",
+        "unresolved_bias_risks",
+        "anti_bias_review_authority_envelope_ref"
+      ],
+      "orsc_projection": {
+        "residual": "candidate explanation may be an overfit narrative",
+        "ordered_next_step": "apply score trace and placebo/control review before promotion",
+        "evidence_gate": "anti-bias evidence, review receipt, and anti-bias authority envelope must exist before promotion",
+        "evidence": "score_trace_placebo_control_review_evidence_ref",
+        "receipt": "anti_bias_review_receipt_ref",
+        "witness": "anti_bias_review_authority_envelope_ref"
+      },
+      "candidate_need_status": "not_yet_candidate_field_need_until_pressure_review"
+    },
+    {
+      "id": "AEM-5",
+      "name_cn": "记忆晋级能力",
+      "name_en": "memory promotion / downgrade / deferral / denial",
+      "seed_scenario_ref": "scenario_5_candidate_memory_disposition_decision",
+      "field_need_cluster": "memory_candidate_disposition",
+      "pressure_target": "AEM-5 target: decide promotion, downgrade, deferral, or denial without opening memory write authority",
+      "field_pressure_observations": [
+        "without checklist and blocker evidence, promotion or denial cannot be justified",
+        "without downgrade, deferral, and denial reasons, non-promotion decisions cannot be audited",
+        "without decision actor and time refs, disposition lineage is incomplete",
+        "without a promotion decision receipt, the disposition step cannot be replayed",
+        "without a disposition authority envelope, memory promotion has no ORSC witness and may be misread as runtime authorization"
+      ],
+      "candidate_field_suggestions": [
+        "promotion_checklist_ref",
+        "blocker_and_promotion_checklist_evidence_ref",
+        "promotion_decision",
+        "downgrade_reason",
+        "deferral_reason",
+        "denial_reason",
+        "unresolved_blocking_conditions",
+        "decision_actor_ref",
+        "decision_time_utc",
+        "promotion_decision_receipt_ref",
+        "memory_disposition_authority_envelope_ref"
+      ],
+      "candidate_fields": [
+        "promotion_checklist_ref",
+        "blocker_and_promotion_checklist_evidence_ref",
+        "promotion_decision",
+        "downgrade_reason",
+        "deferral_reason",
+        "denial_reason",
+        "unresolved_blocking_conditions",
+        "decision_actor_ref",
+        "decision_time_utc",
+        "promotion_decision_receipt_ref",
+        "memory_disposition_authority_envelope_ref"
+      ],
+      "orsc_projection": {
+        "residual": "candidate memory exists but admissibility is unsettled",
+        "ordered_next_step": "evaluate promotion checklist under scope-bound admissibility",
+        "evidence_gate": "blocker evidence, promotion decision receipt, and disposition authority envelope are required before disposition",
+        "evidence": "blocker_and_promotion_checklist_evidence_ref",
+        "receipt": "promotion_decision_receipt_ref",
+        "witness": "memory_disposition_authority_envelope_ref"
+      },
+      "candidate_need_status": "not_yet_candidate_field_need_until_pressure_review"
+    },
+    {
+      "id": "AEM-6",
+      "name_cn": "未来复用能力",
+      "name_en": "future reuse",
+      "seed_scenario_ref": "scenario_6_future_reuse_non_authorizing_boundary",
+      "field_need_cluster": "future_reuse_boundary",
+      "pressure_target": "AEM-6 target: support future reuse while preserving non-authorizing boundaries",
+      "field_pressure_observations": [
+        "without prior memory and prior receipt refs, reuse cannot prove what is being reused",
+        "without current and reuse context refs, semantic resemblance may be mistaken for scope compatibility",
+        "without context mismatch and denied-scope fields, inadmissible reuse cannot be explained",
+        "without a reuse boundary receipt, reuse cannot be audited as a bounded non-authorizing step",
+        "without a reuse authority envelope and non-authorizing statement, future reuse may be misread as runtime authorization"
+      ],
+      "candidate_field_suggestions": [
+        "prior_memory_candidate_ref",
+        "prior_memory_receipt_ref",
+        "current_context_ref",
+        "reuse_context_ref",
+        "prior_receipt_current_context_match_evidence_ref",
+        "reuse_allowed_scope",
+        "reuse_denied_scope",
+        "context_mismatch_reason",
+        "memory_lookup_boundary",
+        "reuse_boundary_receipt_ref",
+        "reuse_authority_envelope_ref",
+        "non_authorizing_reuse_statement"
+      ],
+      "candidate_fields": [
+        "prior_memory_candidate_ref",
+        "prior_memory_receipt_ref",
+        "current_context_ref",
+        "reuse_context_ref",
+        "prior_receipt_current_context_match_evidence_ref",
+        "reuse_allowed_scope",
+        "reuse_denied_scope",
+        "context_mismatch_reason",
+        "memory_lookup_boundary",
+        "reuse_boundary_receipt_ref",
+        "reuse_authority_envelope_ref",
+        "non_authorizing_reuse_statement"
+      ],
+      "orsc_projection": {
+        "residual": "new event resembles prior memory but scope may differ",
+        "ordered_next_step": "hydrate prior receipt before reuse and check scope",
+        "evidence_gate": "prior receipt, context match evidence, reuse receipt, and reuse authority envelope must exist before reuse",
+        "evidence": "prior_receipt_current_context_match_evidence_ref",
+        "receipt": "reuse_boundary_receipt_ref",
+        "witness": "reuse_authority_envelope_ref"
+      },
+      "candidate_need_status": "not_yet_candidate_field_need_until_pressure_review"
+    }
+  ],
+  "non_authorizing_boundary": {
+    "memory_write_authority_granted": false,
+    "memory_record_creation_authorized": false,
+    "writeback_request_authorized": false,
+    "runtime_topology_path_authorized": false,
+    "scheduler_route_authorized": false,
+    "execution_handoff_authorized": false,
+    "runtime_shadow_mode_authorized": false,
+    "drl_execution_authorized": false,
+    "trading_signal_authorized": false,
+    "future_live_execution_authorized": false
+  },
+  "sentinel": "AEM_AUTHORITY_SOURCE_SEED_SCENARIO_FIELD_DERIVATION_FEEDBACK_PLAN_V0_READY",
+  "cagp_v3_alignment": {
+    "business_rule": "candidate fields must emerge from real scenario field pressure, not designer-imagined enumeration; natural-language observed signals must pass through GVR Display-level semantic front-end before AEM anchoring",
+    "enumeration_policy": "enumerations are discovery lenses only and cannot directly create candidate field needs",
+    "field_emergence_chain": [
+      "real_scenario_corpus",
+      "raw_scenario_observation",
+      "gvr_display_level_semantic_front_end_when_natural_language",
+      "observed_signal_anchor",
+      "aem_sub_capability_classification",
+      "orsc_projection",
+      "field_pressure_extraction",
+      "field_pressure_ledger",
+      "candidate_field_suggestion",
+      "candidate_field_need_review",
+      "contracts_governance_review"
+    ],
+    "reverse_path_denied": [
+      "designer_enum_to_candidate_field_need",
+      "candidate_field_registry_to_invented_scenario",
+      "display_to_intent_to_attribution_without_anchor",
+      "gvr_semantic_label_to_candidate_field_need_without_pressure_review"
+    ]
+  },
+  "gvr_semantic_front_end": {
+    "role": "semantic front-end for natural-language observed signal handling; not a field source or attribution model",
+    "display": "observable, anchorable, reviewable surface expression",
+    "possess": "inference proposal only; not observed_signal_ref",
+    "intent": "inference proposal only; not attribution proof",
+    "aem_fear_pattern": [
+      "raw_natural_language",
+      "unanchored_interpretation",
+      "projected_intent",
+      "attribution_narrative",
+      "memory_candidate_or_promotion_claim"
+    ],
+    "allowed_chain": [
+      "raw_natural_language",
+      "gvr_display_level_semantic_front_end",
+      "observed_signal_anchor",
+      "orsc_evidence_receipt_authority_envelope_witness",
+      "field_pressure_ledger",
+      "candidate_field_suggestion",
+      "candidate_field_need_review"
+    ],
+    "prohibited_shortcuts": [
+      "display_label_to_authority_source",
+      "possess_inference_to_observed_signal_ref",
+      "intent_inference_to_attribution_conclusion",
+      "llm_extracted_intent_to_memory_promotion_evidence",
+      "gvr_semantic_label_to_candidate_field_need_without_pressure_review"
+    ]
+  }
+}
