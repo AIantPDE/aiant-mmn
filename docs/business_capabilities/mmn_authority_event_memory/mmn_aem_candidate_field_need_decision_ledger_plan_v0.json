@@ -1,0 +1,95 @@
+{
+  "artifact_id": "MMN_AEM_CANDIDATE_FIELD_NEED_DECISION_LEDGER_PLAN_V0",
+  "sentinel": "MMN_AEM_CANDIDATE_FIELD_NEED_DECISION_LEDGER_PLAN_V0_READY",
+  "status": "candidate_need_decision_ledger_plan",
+  "version": "v0",
+  "source_plan_ref": "MMN_AEM_AUTHORITY_SOURCE_SEED_SCENARIO_FIELD_DERIVATION_FEEDBACK_PLAN_V0",
+  "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+  "source_checkpoint_sentinel": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0_READY",
+  "predecessor_pr_hint": "AIantPDE/aiant-mmn#52",
+  "decision_chain": [
+    "candidate_field_suggestion",
+    "field_pressure_ledger_review_checkpoint",
+    "candidate_field_need_decision_ledger_plan",
+    "candidate_field_need_decision_record_candidate_only",
+    "later_contracts_governance_review",
+    "possible_formal_registry_proposal_later"
+  ],
+  "decision_outcomes": [
+    "candidate_need_ready_for_later_contracts_governance_review",
+    "defer_need_until_more_recurrence",
+    "defer_need_due_to_naming_or_grouping_ambiguity",
+    "defer_need_due_to_existing_field_substitution_review",
+    "reject_need_due_to_no_concrete_failure_if_missing",
+    "reject_need_due_to_authority_or_runtime_risk",
+    "route_to_contracts_governance_review_without_need_promotion"
+  ],
+  "minimum_decision_entry_fields": [
+    "candidate_need_decision_id",
+    "source_checkpoint_ref",
+    "source_field_pressure_id",
+    "candidate_field_suggestion",
+    "proposed_candidate_field_need_name",
+    "decision_outcome",
+    "decision_basis",
+    "pressure_strength",
+    "review_disposition",
+    "recurrence_requirement",
+    "absence_test_gate",
+    "existing_field_substitution_gate",
+    "orsc_slot",
+    "required_evidence_refs",
+    "required_receipt_refs",
+    "required_authority_envelope_refs",
+    "gvr_layer_boundary",
+    "derived_summary_boundary",
+    "non_authorizing_boundary",
+    "later_review_route",
+    "must_not_authorize"
+  ],
+  "denied_scope": {
+    "formal_field_registry_update": false,
+    "contracts_schema_created": false,
+    "scanner_implemented": false,
+    "runtime_activation": "denied",
+    "memory_write": "denied",
+    "memory_record_creation_authorized": false,
+    "runtime_authorizing": false,
+    "drl_execution_authorized": false,
+    "trading_signal_authorized": false,
+    "candidate_need_decisions_default_to_formal_fields": false,
+    "candidate_need_decision_ledger_is_authority_source": false
+  },
+  "theory_boundary_assertions": {
+    "gvr_display_may_enter_observed_signal_anchoring": true,
+    "gvr_possess_intent_remain_inference_candidates_only": true,
+    "intent_attribution_candidate_ref": "attribution_hypothesis_pressure_source_ref",
+    "intent_attribution_candidate_direct_link_allowed": false,
+    "orsc_witness_semantics": "authority_envelope_only",
+    "candidate_field_suggestions_are_not_needs_until_reviewed": true,
+    "candidate_field_needs_are_not_formal_registry_or_schema": true,
+    "boolean_authority_fields_are_derived_summaries_only": true
+  },
+  "review_gates": [
+    "absence_test_gate",
+    "recurrence_or_single_high_risk_p4_gate",
+    "existing_field_substitution_gate",
+    "naming_grouping_gate",
+    "evidence_receipt_authority_envelope_requirement_gate",
+    "derived_summary_boundary_gate",
+    "non_authorizing_boundary_gate"
+  ],
+  "aem3_boundary": {
+    "correct_pressure_source_ref": "attribution_hypothesis_pressure_source_ref",
+    "direct_intent_to_attribution_link_ref_allowed": false,
+    "direct_intent_to_memory_record_allowed": false,
+    "direct_intent_to_runtime_activation_claim_allowed": false
+  },
+  "orsc_semantics": {
+    "evidence": "ordinary_evidence_material",
+    "receipt": "traceable_step_receipt",
+    "witness": "authority_envelope",
+    "authority_booleans": "derived_summaries_only"
+  },
+  "decision_rows_fixture_ref": "tests/fixtures/business_capabilities/mmn_authority_event_memory/aem_candidate_field_need_decision_ledger_plan_v0.json"
+}

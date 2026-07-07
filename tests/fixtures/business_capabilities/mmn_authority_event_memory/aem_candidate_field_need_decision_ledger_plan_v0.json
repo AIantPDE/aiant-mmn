@@ -1,0 +1,353 @@
+{
+  "artifact_id": "MMN_AEM_CANDIDATE_FIELD_NEED_DECISION_LEDGER_PLAN_V0",
+  "sentinel": "MMN_AEM_CANDIDATE_FIELD_NEED_DECISION_LEDGER_PLAN_V0_READY",
+  "source_plan_ref": "MMN_AEM_AUTHORITY_SOURCE_SEED_SCENARIO_FIELD_DERIVATION_FEEDBACK_PLAN_V0",
+  "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+  "source_checkpoint_sentinel": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0_READY",
+  "candidate_need_decision_ledger_is_formal_registry": false,
+  "candidate_need_decision_ledger_is_contract_schema": false,
+  "candidate_need_decision_ledger_authorizes_runtime": false,
+  "candidate_need_decision_ledger_authorizes_memory_write": false,
+  "decision_outcomes": [
+    "candidate_need_ready_for_later_contracts_governance_review",
+    "defer_need_until_more_recurrence",
+    "defer_need_due_to_naming_or_grouping_ambiguity",
+    "defer_need_due_to_existing_field_substitution_review",
+    "reject_need_due_to_no_concrete_failure_if_missing",
+    "reject_need_due_to_authority_or_runtime_risk",
+    "route_to_contracts_governance_review_without_need_promotion"
+  ],
+  "minimum_decision_entry_fields": [
+    "candidate_need_decision_id",
+    "source_checkpoint_ref",
+    "source_field_pressure_id",
+    "candidate_field_suggestion",
+    "proposed_candidate_field_need_name",
+    "decision_outcome",
+    "decision_basis",
+    "pressure_strength",
+    "review_disposition",
+    "recurrence_requirement",
+    "absence_test_gate",
+    "existing_field_substitution_gate",
+    "orsc_slot",
+    "required_evidence_refs",
+    "required_receipt_refs",
+    "required_authority_envelope_refs",
+    "gvr_layer_boundary",
+    "derived_summary_boundary",
+    "non_authorizing_boundary",
+    "later_review_route",
+    "must_not_authorize"
+  ],
+  "denied_scope": {
+    "formal_field_registry_update": false,
+    "contracts_schema_created": false,
+    "scanner_implemented": false,
+    "runtime_activation": "denied",
+    "memory_write": "denied",
+    "memory_record_creation_authorized": false,
+    "runtime_authorizing": false,
+    "drl_execution_authorized": false,
+    "trading_signal_authorized": false,
+    "candidate_need_decisions_default_to_formal_fields": false,
+    "candidate_need_decision_ledger_is_authority_source": false
+  },
+  "theory_boundary_assertions": {
+    "gvr_display_may_enter_observed_signal_anchoring": true,
+    "gvr_possess_intent_remain_inference_candidates_only": true,
+    "intent_attribution_candidate_ref": "attribution_hypothesis_pressure_source_ref",
+    "intent_attribution_candidate_direct_link_allowed": false,
+    "orsc_witness_semantics": "authority_envelope_only",
+    "candidate_field_suggestions_are_not_needs_until_reviewed": true,
+    "candidate_field_needs_are_not_formal_registry_or_schema": true,
+    "boolean_authority_fields_are_derived_summaries_only": true
+  },
+  "decision_rows": [
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-001",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "aem-fplr-v0-002",
+      "candidate_field_suggestion": "authority_envelope_ref",
+      "proposed_candidate_field_need_name": "authority_envelope_ref",
+      "decision_outcome": "candidate_need_ready_for_later_contracts_governance_review",
+      "decision_basis": "P4 safety pressure: ORSC witness must not be ordinary evidence or receipt.",
+      "pressure_strength": "P4 safety / authority pressure",
+      "review_disposition": "ready_for_candidate_need_review",
+      "recurrence_requirement": "recurs_across_authority_source_steps_or_single_high_risk_p4",
+      "absence_test_gate": "passed_concrete_authority_boundary_failure_if_missing",
+      "existing_field_substitution_gate": "no_safe_substitution",
+      "orsc_slot": "witness",
+      "required_evidence_refs": [
+        "authority_source_retrieval_evidence_ref"
+      ],
+      "required_receipt_refs": [
+        "authority_source_retrieval_receipt_ref"
+      ],
+      "required_authority_envelope_refs": [
+        "authority_envelope_ref"
+      ],
+      "gvr_layer_boundary": "not_applicable",
+      "derived_summary_boundary": "boolean_authority_fields_are_summaries_not_sources",
+      "non_authorizing_boundary": true,
+      "later_review_route": "contracts_governance_review_later",
+      "must_not_authorize": [
+        "memory_write",
+        "runtime_activation",
+        "formal_field_registry_update"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-002",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "aem-fplr-v0-003",
+      "candidate_field_suggestion": "attribution_hypothesis_pressure_source_ref",
+      "proposed_candidate_field_need_name": "attribution_hypothesis_pressure_source_ref",
+      "decision_outcome": "candidate_need_ready_for_later_contracts_governance_review",
+      "decision_basis": "AEM-3 requires an intermediate pressure source before attribution review.",
+      "pressure_strength": "P3 gate pressure",
+      "review_disposition": "ready_for_candidate_need_review",
+      "recurrence_requirement": "expected_to_recur_in_aem3_reviews",
+      "absence_test_gate": "passed_attribution_boundary_failure_if_missing",
+      "existing_field_substitution_gate": "no_safe_substitution",
+      "orsc_slot": "receipt",
+      "required_evidence_refs": [
+        "semantic_relevance_evidence_ref",
+        "alternative_event_refs",
+        "negative_evidence_refs"
+      ],
+      "required_receipt_refs": [
+        "attribution_hypothesis_review_receipt_ref"
+      ],
+      "required_authority_envelope_refs": [
+        "attribution_hypothesis_review_authority_envelope_ref"
+      ],
+      "gvr_layer_boundary": "Intent remains inference candidate only",
+      "derived_summary_boundary": "attribution_candidate_is_not_attribution_link",
+      "non_authorizing_boundary": true,
+      "later_review_route": "contracts_governance_review_later",
+      "must_not_authorize": [
+        "attribution_link_ref",
+        "memory_record",
+        "runtime_activation_claim"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-003",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "aem-fplr-v0-005",
+      "candidate_field_suggestion": "negative_evidence_refs",
+      "proposed_candidate_field_need_name": "negative_evidence_refs",
+      "decision_outcome": "candidate_need_ready_for_later_contracts_governance_review",
+      "decision_basis": "Anti-bias review cannot safely separate positive relevance from counter evidence without this reference family.",
+      "pressure_strength": "P3 gate pressure",
+      "review_disposition": "ready_for_candidate_need_review",
+      "recurrence_requirement": "recurs_with_alternative_event_review",
+      "absence_test_gate": "passed_review_gate_pressure_if_missing",
+      "existing_field_substitution_gate": "no_safe_substitution",
+      "orsc_slot": "evidence",
+      "required_evidence_refs": [
+        "negative_evidence_refs",
+        "alternative_event_refs"
+      ],
+      "required_receipt_refs": [
+        "anti_bias_review_receipt_ref"
+      ],
+      "required_authority_envelope_refs": [
+        "anti_bias_review_authority_envelope_ref"
+      ],
+      "gvr_layer_boundary": "not_applicable",
+      "derived_summary_boundary": "negative_evidence_summary_is_not_negative_evidence_ref",
+      "non_authorizing_boundary": true,
+      "later_review_route": "contracts_governance_review_later",
+      "must_not_authorize": [
+        "memory_promotion",
+        "runtime_activation"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-004",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "aem-fplr-v0-001",
+      "candidate_field_suggestion": "observed_signal_anchor_ref",
+      "proposed_candidate_field_need_name": "observed_signal_anchor_ref",
+      "decision_outcome": "defer_need_until_more_recurrence",
+      "decision_basis": "P2 review pressure needs more recurrence before candidate need decision.",
+      "pressure_strength": "P2 review pressure",
+      "review_disposition": "defer_until_more_recurrence",
+      "recurrence_requirement": "needs_cross_scenario_recurrence",
+      "absence_test_gate": "review_needed_but_not_gate_blocking",
+      "existing_field_substitution_gate": "substitution_possible_but_not_confirmed",
+      "orsc_slot": "evidence",
+      "required_evidence_refs": [
+        "raw_text_span_ref",
+        "baseline_comparison_ref"
+      ],
+      "required_receipt_refs": [
+        "language_signal_detection_receipt_ref"
+      ],
+      "required_authority_envelope_refs": [
+        "language_signal_detection_authority_envelope_ref"
+      ],
+      "gvr_layer_boundary": "Display may enter observed signal anchoring",
+      "derived_summary_boundary": "display_label_is_not_authority_source",
+      "non_authorizing_boundary": true,
+      "later_review_route": "recurrence_review_later",
+      "must_not_authorize": [
+        "candidate_field_need_promotion_by_default"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-005",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "aem-fplr-v0-007",
+      "candidate_field_suggestion": "query_visibility_scope_ref",
+      "proposed_candidate_field_need_name": "query_visibility_scope_ref",
+      "decision_outcome": "defer_need_due_to_naming_or_grouping_ambiguity",
+      "decision_basis": "Future reuse visibility remains descriptive until query-time scenarios stabilize naming and grouping.",
+      "pressure_strength": "P1 descriptive pressure",
+      "review_disposition": "defer_due_to_naming_ambiguity",
+      "recurrence_requirement": "needs_query_time_scenarios",
+      "absence_test_gate": "descriptive_only",
+      "existing_field_substitution_gate": "naming_ambiguous",
+      "orsc_slot": "receipt",
+      "required_evidence_refs": [
+        "future_reuse_context_ref"
+      ],
+      "required_receipt_refs": [
+        "reuse_boundary_receipt_ref"
+      ],
+      "required_authority_envelope_refs": [
+        "reuse_authority_envelope_ref"
+      ],
+      "gvr_layer_boundary": "not_applicable",
+      "derived_summary_boundary": "reuse_summary_is_not_authority_source",
+      "non_authorizing_boundary": true,
+      "later_review_route": "naming_grouping_review_later",
+      "must_not_authorize": [
+        "future_live_execution",
+        "runtime_shadow_mode"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-006",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "aem-fplr-v0-006",
+      "candidate_field_suggestion": "promotion_deferral_receipt_ref",
+      "proposed_candidate_field_need_name": "promotion_deferral_receipt_ref",
+      "decision_outcome": "defer_need_due_to_existing_field_substitution_review",
+      "decision_basis": "Existing review_receipt_ref may safely substitute until promotion scenarios prove a narrower receipt is necessary.",
+      "pressure_strength": "P2 review pressure",
+      "review_disposition": "defer_due_to_existing_field_substitution",
+      "recurrence_requirement": "needs_more_promotion_scenarios",
+      "absence_test_gate": "existing_receipt_substitution_possible",
+      "existing_field_substitution_gate": "substitution_possible",
+      "orsc_slot": "receipt",
+      "required_evidence_refs": [
+        "memory_disposition_review_evidence_ref"
+      ],
+      "required_receipt_refs": [
+        "review_receipt_ref"
+      ],
+      "required_authority_envelope_refs": [
+        "memory_disposition_authority_envelope_ref"
+      ],
+      "gvr_layer_boundary": "not_applicable",
+      "derived_summary_boundary": "promotion_decision_summary_is_not_receipt",
+      "non_authorizing_boundary": true,
+      "later_review_route": "existing_field_substitution_review_later",
+      "must_not_authorize": [
+        "memory_write",
+        "memory_record_creation"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-007",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "aem-fplr-v0-004",
+      "candidate_field_suggestion": "attribution_link_ref",
+      "proposed_candidate_field_need_name": "attribution_link_ref",
+      "decision_outcome": "route_to_contracts_governance_review_without_need_promotion",
+      "decision_basis": "AEM-3 attribution link is action-adjacent and cannot be promoted by this docs-only decision plan.",
+      "pressure_strength": "P4 safety / authority pressure",
+      "review_disposition": "needs_contracts_governance_review_later",
+      "recurrence_requirement": "requires_contracts_governance_taxonomy_review",
+      "absence_test_gate": "contracts_governance_review_required_later",
+      "existing_field_substitution_gate": "existing_or_future_contract_field_may_apply",
+      "orsc_slot": "receipt",
+      "required_evidence_refs": [
+        "semantic_relevance_evidence_ref",
+        "alternative_event_refs",
+        "negative_evidence_refs"
+      ],
+      "required_receipt_refs": [
+        "attribution_link_construction_receipt_ref"
+      ],
+      "required_authority_envelope_refs": [
+        "attribution_revision_authority_envelope_ref"
+      ],
+      "gvr_layer_boundary": "Intent cannot directly become attribution_link_ref",
+      "derived_summary_boundary": "attribution_summary_is_not_attribution_link",
+      "non_authorizing_boundary": true,
+      "later_review_route": "contracts_governance_review_later",
+      "must_not_authorize": [
+        "attribution_link_creation_in_this_pr",
+        "memory_write",
+        "runtime_activation"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-008",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "guardrail-no-concrete-failure-v0",
+      "candidate_field_suggestion": "designer_enum_placeholder_field",
+      "proposed_candidate_field_need_name": "designer_enum_placeholder_field",
+      "decision_outcome": "reject_need_due_to_no_concrete_failure_if_missing",
+      "decision_basis": "Designer enumeration is discovery lens only and has no concrete failure-if-missing.",
+      "pressure_strength": "P0 no pressure",
+      "review_disposition": "reject_due_to_no_concrete_failure_if_missing",
+      "recurrence_requirement": "not_applicable",
+      "absence_test_gate": "failed_no_concrete_failure_if_missing",
+      "existing_field_substitution_gate": "not_reviewed_due_to_no_pressure",
+      "orsc_slot": "discovery_lens",
+      "required_evidence_refs": [],
+      "required_receipt_refs": [],
+      "required_authority_envelope_refs": [],
+      "gvr_layer_boundary": "not_applicable",
+      "derived_summary_boundary": "designer_enum_is_not_field_pressure",
+      "non_authorizing_boundary": true,
+      "later_review_route": "closed_until_real_scenario_pressure_exists",
+      "must_not_authorize": [
+        "candidate_field_need_promotion_by_default"
+      ]
+    },
+    {
+      "candidate_need_decision_id": "aem-cfndl-v0-009",
+      "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+      "source_field_pressure_id": "guardrail-authority-runtime-risk-v0",
+      "candidate_field_suggestion": "gvr_intent_to_attribution_link_ref",
+      "proposed_candidate_field_need_name": "gvr_intent_to_attribution_link_ref",
+      "decision_outcome": "reject_need_due_to_authority_or_runtime_risk",
+      "decision_basis": "This shortcut would turn GVR Intent into attribution link or memory/runtime claim.",
+      "pressure_strength": "P4 safety / authority pressure",
+      "review_disposition": "reject_due_to_authority_or_runtime_risk",
+      "recurrence_requirement": "not_applicable_due_to_forbidden_shortcut",
+      "absence_test_gate": "failed_forbidden_display_intent_attribution_shortcut",
+      "existing_field_substitution_gate": "unsafe_by_definition",
+      "orsc_slot": "forbidden_shortcut",
+      "required_evidence_refs": [],
+      "required_receipt_refs": [],
+      "required_authority_envelope_refs": [],
+      "gvr_layer_boundary": "Possess and Intent remain inference candidates only",
+      "derived_summary_boundary": "gvr_intent_label_is_not_attribution_or_authority",
+      "non_authorizing_boundary": true,
+      "later_review_route": "blocked_fail_closed",
+      "must_not_authorize": [
+        "observed_signal_ref",
+        "attribution_link_ref",
+        "memory_record",
+        "runtime_activation_claim"
+      ]
+    }
+  ]
+}
