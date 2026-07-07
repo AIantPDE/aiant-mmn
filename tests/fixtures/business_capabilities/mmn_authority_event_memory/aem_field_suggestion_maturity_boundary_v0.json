@@ -1,0 +1,130 @@
+{
+  "artifact_id": "mmn_aem_field_suggestion_maturity_boundary_v0",
+  "sentinel": "MMN_AEM_FIELD_SUGGESTION_MATURITY_BOUNDARY_V0_READY",
+  "source_checkpoint_ref": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+  "source_decision_plan_ref": "MMN_AEM_CANDIDATE_FIELD_NEED_DECISION_LEDGER_PLAN_V0",
+  "corrected_chain": [
+    "seed_scenario_derived_provisional_field_suggestion_inputs",
+    "AEM_1_to_AEM_6_subcapability_pressure_reviews",
+    "field_pressure_ledger_entries",
+    "reviewed_candidate_field_suggestions",
+    "candidate_field_need_decision_ledger_plan",
+    "candidate_field_need_decision_records_candidate_only",
+    "later_contracts_governance_review",
+    "possible_formal_registry_proposal_later"
+  ],
+  "current_lane_status": {
+    "field_pressure_ledger_review_checkpoint": "scaffold_ready_not_completed_AEM_1_to_AEM_6_validation",
+    "candidate_field_need_decision_ledger_plan": "plan_ready_no_decision_records_created",
+    "contracts_governance_review_handoff": "deferred"
+  },
+  "reviewed_candidate_field_suggestions_available": false,
+  "candidate_need_decision_records_created": false,
+  "aem_1_to_aem_6_pressure_reviews_required": true,
+  "contracts_governance_review_handoff_started": false,
+  "provisional_inputs": [
+    {
+      "input_ref": "observed_signal_ref",
+      "aem_scope": "AEM-1",
+      "current_maturity": "provisional_field_suggestion_input",
+      "required_review": "AEM_1_observed_signal_anchoring_pressure_review",
+      "is_reviewed_candidate_field_suggestion": false,
+      "may_become_reviewed_candidate_field_suggestion_after_review": true
+    },
+    {
+      "input_ref": "authority_source_as_of_ref",
+      "aem_scope": "AEM-2",
+      "current_maturity": "provisional_field_suggestion_input",
+      "required_review": "AEM_2_authority_source_retrieval_pressure_review",
+      "is_reviewed_candidate_field_suggestion": false,
+      "may_become_reviewed_candidate_field_suggestion_after_review": true
+    },
+    {
+      "input_ref": "attribution_hypothesis_pressure_source_ref",
+      "aem_scope": "AEM-3",
+      "current_maturity": "provisional_field_suggestion_input",
+      "required_review": "AEM_3_attribution_hypothesis_pressure_review",
+      "is_reviewed_candidate_field_suggestion": false,
+      "may_become_reviewed_candidate_field_suggestion_after_review": true
+    },
+    {
+      "input_ref": "gvr_intent_to_attribution_link_ref",
+      "aem_scope": "AEM-3",
+      "current_maturity": "forbidden_shortcut_candidate",
+      "required_review": "AEM_3_attribution_hypothesis_pressure_review",
+      "is_reviewed_candidate_field_suggestion": false,
+      "may_become_reviewed_candidate_field_suggestion_after_review": false
+    },
+    {
+      "input_ref": "memory_disposition_authority_envelope_ref",
+      "aem_scope": "AEM-5",
+      "current_maturity": "provisional_field_suggestion_input",
+      "required_review": "AEM_5_memory_disposition_pressure_review",
+      "is_reviewed_candidate_field_suggestion": false,
+      "may_become_reviewed_candidate_field_suggestion_after_review": true
+    }
+  ],
+  "maturity_transition_rules": [
+    {
+      "from": "provisional_field_suggestion_input",
+      "to": "reviewed_candidate_field_suggestion",
+      "requires": [
+        "AEM_subcapability_pressure_review",
+        "absence_test",
+        "concrete_failure_if_missing",
+        "AEM_or_ORSC_target_impact",
+        "existing_field_substitution_review",
+        "evidence_receipt_witness_slot_separation"
+      ]
+    },
+    {
+      "from": "reviewed_candidate_field_suggestion",
+      "to": "candidate_field_need_decision_record_candidate_only",
+      "requires": [
+        "candidate_field_need_review_entry",
+        "decision_outcome",
+        "non_authorizing_boundary",
+        "later_contracts_governance_review_or_defer_or_reject"
+      ]
+    }
+  ],
+  "forbidden_interpretations": [
+    "unreviewed_provisional_input_to_reviewed_candidate_field_suggestion",
+    "seed_field_list_to_candidate_field_need",
+    "field_pressure_checkpoint_scaffold_to_completed_AEM_1_to_AEM_6_validation",
+    "candidate_need_decision_ledger_plan_to_candidate_need_decision_records_created",
+    "candidate_need_decision_record_to_formal_registry_entry",
+    "candidate_need_decision_record_to_contracts_schema",
+    "candidate_need_decision_record_to_scanner_implementation",
+    "candidate_need_decision_record_to_runtime_activation",
+    "candidate_need_decision_record_to_memory_write",
+    "gvr_intent_to_observed_signal_ref",
+    "gvr_intent_to_attribution_link_ref",
+    "ordinary_evidence_to_orsc_witness",
+    "receipt_to_orsc_witness",
+    "authority_boolean_to_authority_source"
+  ],
+  "theory_boundary_assertions": {
+    "gvr_display_may_enter_observed_signal_anchoring": true,
+    "gvr_possess_intent_remain_inference_candidates_only": true,
+    "intent_attribution_candidate_ref": "attribution_hypothesis_pressure_source_ref",
+    "intent_attribution_candidate_is_attribution_link_ref": false,
+    "orsc_witness": "authority_envelope",
+    "authority_booleans": "derived_summaries_only"
+  },
+  "denied_scope": {
+    "formal_field_registry_update": false,
+    "contracts_schema_created": false,
+    "scanner_implemented": false,
+    "runtime_activation": "denied",
+    "memory_write": "denied",
+    "drl_execution_authorized": false,
+    "trading_signal_authorized": false,
+    "candidate_need_decision_records_created": false,
+    "contracts_governance_handoff_started": false,
+    "non_executing": true,
+    "non_authorizing": true,
+    "candidate_only": true
+  },
+  "next_selected_delta": "mmn: add AEM-1 observed signal anchoring pressure review v0"
+}
