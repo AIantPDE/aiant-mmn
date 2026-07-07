@@ -1,0 +1,150 @@
+{
+  "artifact_id": "AIANT_LINKAGE_FAMILY_TERMINOLOGY_SCANNER_REPORT_BASELINE_SAMPLE_V0",
+  "status": "draft_sample_report_format",
+  "sentinel": "AIANT_LINKAGE_FAMILY_TERMINOLOGY_SCANNER_REPORT_BASELINE_SAMPLE_V0_READY",
+  "boundary": {
+    "docs_only": true,
+    "static_sample_only": true,
+    "non_executing": true,
+    "non_authorizing": true,
+    "no_scanner_cli": true,
+    "no_scanner_engine": true,
+    "no_file_traversal": true,
+    "no_match_engine": true,
+    "no_ci_gating": true,
+    "no_blocking_mode": true,
+    "no_auto_replacement": true,
+    "no_suppression_format": true,
+    "synthetic_examples_only": true
+  },
+  "upstream_assets": [
+    "AIANT_LINKAGE_FAMILY_TERMINOLOGY_V0",
+    "AIANT_LINKAGE_FAMILY_CROSS_REPO_ADOPTION_CHECKLIST_V0",
+    "AIANT_LINKAGE_FAMILY_TERMINOLOGY_SCANNER_PREPARATION_REPORT_ONLY_RULES_V0"
+  ],
+  "sample_report": {
+    "report_id": "AIANT_LINKAGE_FAMILY_TERMINOLOGY_REPORT_BASELINE_SAMPLE_V0",
+    "report_kind": "static_sample",
+    "scanner_mode": "report_only_sample",
+    "execution_state": "non_executing",
+    "blocking_state": "non_blocking",
+    "source_scope": "synthetic_examples_only",
+    "summary": {
+      "total_findings": 5,
+      "blocking_findings": 0,
+      "synthetic_sample": true,
+      "activation_ready": false,
+      "rules_observed": [
+        "RULE-LINKAGE-001",
+        "RULE-LINKAGE-002",
+        "RULE-LINKAGE-003",
+        "RULE-LINKAGE-009",
+        "RULE-LINKAGE-011"
+      ],
+      "repos_observed": [
+        "aiant-mmn",
+        "aiant-pant",
+        "aiant-gant",
+        "aiant-drl"
+      ]
+    },
+    "minimum_report_item_fields": [
+      "finding_id",
+      "rule_id",
+      "rule_name",
+      "severity",
+      "repo",
+      "file_path",
+      "line",
+      "matched_text",
+      "expected_term",
+      "recommendation",
+      "blocking",
+      "sample_only"
+    ],
+    "sample_findings": [
+      {
+        "finding_id": "SAMPLE-LINKAGE-001",
+        "rule_id": "RULE-LINKAGE-001",
+        "rule_name": "generic_zh_linkage_without_english_anchor",
+        "severity": "info",
+        "repo": "aiant-mmn",
+        "file_path": "docs/example/SYNTHETIC_ONLY.md",
+        "line": 12,
+        "matched_text": "链路",
+        "expected_term": "precise English anchor",
+        "suggested_anchor": "chain | lane | trace | path | route | lineage | bridge | seam | handoff | loop",
+        "recommendation": "Add a precise English anchor before using 链路 as a generic Chinese term.",
+        "blocking": false,
+        "sample_only": true
+      },
+      {
+        "finding_id": "SAMPLE-LINKAGE-002",
+        "rule_id": "RULE-LINKAGE-002",
+        "rule_name": "chain_lane_trace_confusion",
+        "severity": "warning",
+        "repo": "aiant-mmn",
+        "file_path": "docs/example/SYNTHETIC_ONLY.md",
+        "line": 24,
+        "matched_text": "AEM field feedback chain",
+        "expected_term": "lane",
+        "recommendation": "Use chain only for ordered methodology; use lane for work-route classification; use trace for historical audit.",
+        "blocking": false,
+        "sample_only": true
+      },
+      {
+        "finding_id": "SAMPLE-LINKAGE-003",
+        "rule_id": "RULE-LINKAGE-003",
+        "rule_name": "path_route_confusion",
+        "severity": "warning",
+        "repo": "aiant-pant",
+        "file_path": "docs/example/SYNTHETIC_ONLY.md",
+        "line": 31,
+        "matched_text": "runtime path admission",
+        "expected_term": "route admission",
+        "recommendation": "Use path for reachability and route for admitted / denied / previewed processing choices.",
+        "blocking": false,
+        "sample_only": true
+      },
+      {
+        "finding_id": "SAMPLE-LINKAGE-004",
+        "rule_id": "RULE-LINKAGE-009",
+        "rule_name": "graph_edge_link_chain_confusion",
+        "severity": "warning",
+        "repo": "aiant-gant",
+        "file_path": "docs/example/SYNTHETIC_ONLY.md",
+        "line": 44,
+        "matched_text": "graph chain between two nodes",
+        "expected_term": "edge or link",
+        "recommendation": "Do not collapse graph edge, object link, and ordered chain into the same Chinese 链路 wording.",
+        "blocking": false,
+        "sample_only": true
+      },
+      {
+        "finding_id": "SAMPLE-LINKAGE-005",
+        "rule_id": "RULE-LINKAGE-011",
+        "rule_name": "drl_execution_semantics_boundary",
+        "severity": "warning",
+        "repo": "aiant-drl",
+        "file_path": "docs/example/SYNTHETIC_ONLY.md",
+        "line": 58,
+        "matched_text": "policy execution route",
+        "expected_term": "policy candidate review chain or policy candidate observation surface",
+        "recommendation": "Keep aiant-drl as future downstream preview / candidate surface only; avoid execution-route wording.",
+        "blocking": false,
+        "sample_only": true
+      }
+    ]
+  },
+  "promotion_conditions": [
+    "governance approval for report-only scanner scope",
+    "explicit scanner CLI design",
+    "file traversal policy",
+    "match engine design",
+    "false-positive handling strategy",
+    "suppression format proposal",
+    "baseline report generation command",
+    "CI policy decision for report-only mode",
+    "cross-repo rollout plan"
+  ]
+}
