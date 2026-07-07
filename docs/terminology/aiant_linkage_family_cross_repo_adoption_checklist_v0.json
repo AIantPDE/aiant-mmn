@@ -1,0 +1,257 @@
+{
+  "artifact": "AIANT_LINKAGE_FAMILY_CROSS_REPO_ADOPTION_CHECKLIST_V0",
+  "status": "draft_adoption_checklist",
+  "scope": "cross_repo_terminology_adoption_guidance",
+  "upstream_terminology_baseline": "AIANT_LINKAGE_FAMILY_TERMINOLOGY_V0",
+  "sentinel": "AIANT_LINKAGE_FAMILY_CROSS_REPO_ADOPTION_CHECKLIST_V0_READY",
+  "boundaries": {
+    "docs_only": true,
+    "manifest_only": true,
+    "regression_test_only": true,
+    "non_executing": true,
+    "non_authorizing": true,
+    "no_contracts_schema_change": true,
+    "no_scanner_implementation": true,
+    "no_formal_registry_activation": true,
+    "no_runtime_behavior_change": true
+  },
+  "core_distinctions": [
+    {
+      "term": "chain",
+      "zh": "有序链",
+      "focus": "ordered stages"
+    },
+    {
+      "term": "lane",
+      "zh": "治理路线",
+      "focus": "work classification"
+    },
+    {
+      "term": "trace",
+      "zh": "可追溯轨迹",
+      "focus": "audit replay"
+    },
+    {
+      "term": "path",
+      "zh": "路径",
+      "focus": "reachability"
+    },
+    {
+      "term": "route",
+      "zh": "路由",
+      "focus": "admission or selected route"
+    },
+    {
+      "term": "lineage",
+      "zh": "血缘",
+      "focus": "source inheritance"
+    },
+    {
+      "term": "provenance",
+      "zh": "来源证明",
+      "focus": "source proof"
+    },
+    {
+      "term": "bridge",
+      "zh": "桥接",
+      "focus": "cross-layer connection"
+    },
+    {
+      "term": "seam",
+      "zh": "接缝",
+      "focus": "thin interface"
+    },
+    {
+      "term": "handoff",
+      "zh": "移交",
+      "focus": "context transfer"
+    },
+    {
+      "term": "loop",
+      "zh": "闭环",
+      "focus": "feedback return"
+    },
+    {
+      "term": "link",
+      "zh": "关联",
+      "focus": "object relation"
+    },
+    {
+      "term": "surface",
+      "zh": "暴露面",
+      "focus": "consumer-facing surface"
+    },
+    {
+      "term": "boundary",
+      "zh": "边界",
+      "focus": "allowed or forbidden scope"
+    }
+  ],
+  "repo_adoption_targets": {
+    "aiant-governance": [
+      "lane",
+      "trace",
+      "audit trail",
+      "boundary"
+    ],
+    "aiant-contracts": [
+      "surface",
+      "boundary",
+      "lineage",
+      "provenance",
+      "link"
+    ],
+    "aiant-pant": [
+      "route",
+      "path",
+      "handoff",
+      "loop",
+      "flow",
+      "pipeline",
+      "boundary"
+    ],
+    "aiant-core": [
+      "path",
+      "route",
+      "edge",
+      "graph",
+      "boundary",
+      "surface"
+    ],
+    "aiant-mmn": [
+      "chain",
+      "trace",
+      "lineage",
+      "link",
+      "ledger",
+      "boundary",
+      "loop"
+    ],
+    "aiant-zant": [
+      "seam",
+      "surface",
+      "flow",
+      "boundary",
+      "trace",
+      "policy"
+    ],
+    "aiant-vant": [
+      "flow",
+      "seam",
+      "bridge",
+      "hint",
+      "surface",
+      "boundary"
+    ],
+    "aiant-drl": [
+      "surface",
+      "chain",
+      "trace",
+      "lineage",
+      "provenance",
+      "boundary",
+      "route"
+    ],
+    "aiant-tft": [
+      "surface",
+      "chain",
+      "sequence",
+      "window",
+      "lineage",
+      "provenance",
+      "trace",
+      "boundary"
+    ],
+    "aiant-gant": [
+      "graph",
+      "node",
+      "edge",
+      "link",
+      "chain",
+      "trace",
+      "lineage",
+      "surface",
+      "boundary"
+    ],
+    "aiant-marl": [
+      "surface",
+      "chain",
+      "trace",
+      "topology",
+      "path",
+      "route",
+      "lineage",
+      "boundary",
+      "loop"
+    ]
+  },
+  "high_risk_confusions": [
+    "link_vs_chain",
+    "route_vs_path",
+    "lineage_vs_trace",
+    "bridge_vs_seam",
+    "handoff_vs_flow",
+    "loop_vs_chain",
+    "surface_vs_boundary"
+  ],
+  "review_checklist": [
+    "chain_lane_trace_not_conflated",
+    "path_route_not_conflated",
+    "lineage_provenance_trace_not_conflated",
+    "bridge_seam_handoff_not_conflated",
+    "loop_not_reduced_to_chain",
+    "link_not_expanded_to_chain",
+    "surface_boundary_not_conflated",
+    "generic_zh_linkage_has_precise_english_anchor"
+  ],
+  "future_downstream_preview_repositories": {
+    "aiant-drl": {
+      "business_surface": "policy candidate observation",
+      "boundary": "no-action-execution boundary",
+      "forbidden_terms": [
+        "policy execution chain",
+        "live decision route",
+        "action execution path",
+        "runtime policy loop"
+      ]
+    },
+    "aiant-tft": {
+      "business_surface": "temporal window candidate",
+      "boundary": "no-live-forecast-consumption boundary",
+      "forbidden_terms": [
+        "live forecast route",
+        "prediction execution path",
+        "temporal action chain",
+        "runtime forecasting pipeline"
+      ]
+    },
+    "aiant-gant": {
+      "business_surface": "graph propagation candidate",
+      "boundary": "no-graph-action boundary",
+      "forbidden_terms": [
+        "graph action route",
+        "graph execution path",
+        "node action chain",
+        "live graph propagation loop"
+      ]
+    },
+    "aiant-marl": {
+      "business_surface": "multi-agent candidate interaction",
+      "boundary": "no-live-action boundary",
+      "forbidden_terms": [
+        "agent action execution route",
+        "live coordination path",
+        "multi-agent policy execution chain",
+        "runtime agent loop"
+      ]
+    }
+  },
+  "future_downstream_preview_boundary": [
+    "not_connected",
+    "not_consuming",
+    "not_deciding",
+    "not_executing",
+    "no_runtime_authority",
+    "candidate_preview_surface_only"
+  ]
+}
