@@ -1,0 +1,305 @@
+{
+  "id": "aiant_linkage_family_terminology_scanner_preparation_report_only_rules_v0",
+  "title": "AIANT Linkage-family Terminology Scanner Preparation Report-only Rules V0",
+  "status": "draft_scanner_preparation_report_only",
+  "sentinel": "AIANT_LINKAGE_FAMILY_TERMINOLOGY_SCANNER_PREPARATION_REPORT_ONLY_RULES_V0_READY",
+  "depends_on": [
+    "AIANT_LINKAGE_FAMILY_TERMINOLOGY_V0",
+    "AIANT_LINKAGE_FAMILY_CROSS_REPO_ADOPTION_CHECKLIST_V0"
+  ],
+  "scope": {
+    "docs_only": true,
+    "manifest_only": true,
+    "regression_tests_only": true,
+    "scanner_implementation": false,
+    "ci_gating": false,
+    "automatic_replacement": false,
+    "formal_registry_activation": false,
+    "contracts_schema_change": false,
+    "runtime_behavior_change": false,
+    "cross_repo_file_mutation": false,
+    "non_executing": true,
+    "non_authorizing": true
+  },
+  "scanner_policy": {
+    "mode": "report_only_candidate_rules",
+    "allowed_output": "review report",
+    "must_preserve_context": true,
+    "auto_replace_allowed": false,
+    "ci_blocking_allowed": false,
+    "deny_runtime_authorization": true
+  },
+  "minimum_report_item_fields": [
+    "rule_id",
+    "mode",
+    "severity",
+    "file_path",
+    "line_number",
+    "matched_text",
+    "nearby_context",
+    "recommended_review_question",
+    "suggested_precise_terms",
+    "auto_replace_allowed",
+    "ci_blocking_allowed",
+    "non_authorizing_note"
+  ],
+  "rule_candidates": [
+    {
+      "rule_id": "RULE-LINKAGE-001",
+      "name": "generic_zh_linkage_without_english_anchor",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "链路"
+      ],
+      "review_question": "Which precise English anchor should be used: chain, lane, trace, route, path, lineage, bridge, seam, handoff, loop, link, surface, or boundary?",
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-002",
+      "name": "chain_lane_trace_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "chain",
+        "lane",
+        "trace"
+      ],
+      "distinction": {
+        "chain": "ordered sequence",
+        "lane": "governance classification route",
+        "trace": "auditable history"
+      },
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-003",
+      "name": "path_route_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "path",
+        "route"
+      ],
+      "distinction": {
+        "path": "reachability",
+        "route": "selection/admission/denial"
+      },
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-004",
+      "name": "lineage_trace_provenance_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "lineage",
+        "trace",
+        "provenance"
+      ],
+      "distinction": {
+        "lineage": "source inheritance",
+        "trace": "process replay and decisions",
+        "provenance": "source proof and metadata"
+      },
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-005",
+      "name": "bridge_seam_handoff_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "bridge",
+        "seam",
+        "handoff"
+      ],
+      "distinction": {
+        "bridge": "cross-layer connection",
+        "seam": "thin module interface",
+        "handoff": "upstream-to-downstream transfer envelope"
+      },
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-006",
+      "name": "flow_pipeline_loop_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "flow",
+        "pipeline",
+        "loop"
+      ],
+      "distinction": {
+        "flow": "information or data movement",
+        "pipeline": "multi-stage processing",
+        "loop": "feedback return"
+      },
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-007",
+      "name": "link_chain_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "link",
+        "chain"
+      ],
+      "distinction": {
+        "link": "object-to-object relation",
+        "chain": "ordered structure"
+      },
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-008",
+      "name": "surface_boundary_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_terms": [
+        "surface",
+        "boundary"
+      ],
+      "distinction": {
+        "surface": "consumable exposure",
+        "boundary": "allowed/forbidden scope"
+      },
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-009",
+      "name": "graph_edge_link_chain_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_repositories": [
+        "aiant-gant",
+        "aiant-core"
+      ],
+      "target_terms": [
+        "graph",
+        "node",
+        "edge",
+        "link",
+        "chain"
+      ],
+      "forbidden_runtime_semantics": [
+        "graph action route",
+        "graph execution path",
+        "live graph propagation loop"
+      ],
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-010",
+      "name": "tft_sequence_window_chain_confusion",
+      "mode": "report_only",
+      "severity": "review",
+      "target_repositories": [
+        "aiant-tft"
+      ],
+      "target_terms": [
+        "sequence",
+        "window",
+        "chain"
+      ],
+      "forbidden_runtime_semantics": [
+        "live forecast route",
+        "prediction execution path",
+        "runtime forecasting pipeline"
+      ],
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-011",
+      "name": "drl_execution_semantics_boundary",
+      "mode": "report_only",
+      "severity": "review",
+      "target_repositories": [
+        "aiant-drl"
+      ],
+      "target_terms": [
+        "surface",
+        "chain",
+        "trace",
+        "lineage",
+        "provenance",
+        "boundary"
+      ],
+      "allowed_semantics": [
+        "policy candidate observation surface",
+        "policy candidate review chain",
+        "policy candidate audit trace",
+        "policy feature lineage",
+        "offline observation provenance",
+        "no-action-execution boundary"
+      ],
+      "forbidden_runtime_semantics": [
+        "policy execution chain",
+        "live decision route",
+        "action execution path",
+        "runtime policy loop"
+      ],
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    },
+    {
+      "rule_id": "RULE-LINKAGE-012",
+      "name": "marl_live_action_semantics_boundary",
+      "mode": "report_only",
+      "severity": "review",
+      "target_repositories": [
+        "aiant-marl"
+      ],
+      "target_terms": [
+        "surface",
+        "chain",
+        "trace",
+        "topology",
+        "path",
+        "route",
+        "loop"
+      ],
+      "allowed_semantics": [
+        "multi-agent interaction preview surface",
+        "multi-agent interaction review chain",
+        "agent interaction audit trace",
+        "interaction topology",
+        "agent interaction path",
+        "agent coordination route",
+        "coordination feedback loop",
+        "no-live-action boundary"
+      ],
+      "forbidden_runtime_semantics": [
+        "agent action execution route",
+        "live coordination path",
+        "multi-agent policy execution chain",
+        "runtime agent loop"
+      ],
+      "auto_replace_allowed": false,
+      "ci_blocking_allowed": false
+    }
+  ],
+  "not_ready_for_activation": [
+    "no scanner CLI",
+    "no scanner engine",
+    "no file traversal implementation",
+    "no match engine",
+    "no suppression format",
+    "no baseline report",
+    "no CI policy",
+    "no governance approval for blocking mode",
+    "no cross-repo rollout plan"
+  ]
+}
