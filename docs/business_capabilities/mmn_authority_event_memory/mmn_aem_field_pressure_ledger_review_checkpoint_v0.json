@@ -1,0 +1,101 @@
+{
+  "artifact_id": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0",
+  "sentinel": "MMN_AEM_FIELD_PRESSURE_LEDGER_REVIEW_CHECKPOINT_V0_READY",
+  "status": "candidate_review_checkpoint",
+  "version": "v0",
+  "source_plan_ref": "MMN_AEM_AUTHORITY_SOURCE_SEED_SCENARIO_FIELD_DERIVATION_FEEDBACK_PLAN_V0",
+  "review_chain": [
+    "candidate_field_suggestion",
+    "field_pressure_ledger_review",
+    "candidate_field_need_or_defer_or_reject_or_substitute_decision",
+    "later_governance_or_contracts_readiness"
+  ],
+  "allowed_scope": [
+    "field_pressure_ledger_entry",
+    "candidate_field_suggestion",
+    "absence_test",
+    "failure_if_missing",
+    "existing_field_substitution",
+    "recurrence_pressure_naming_readiness",
+    "review_disposition"
+  ],
+  "denied_scope": {
+    "formal_field_registry_update": false,
+    "contracts_schema_created": false,
+    "scanner_implemented": false,
+    "runtime_activation": "denied",
+    "memory_write": "denied",
+    "runtime_authorizing": false,
+    "candidate_field_suggestions_default_to_candidate_needs": false
+  },
+  "aem_input_sub_capabilities": [
+    "AEM-1 turning point identification",
+    "AEM-2 authority-source retrieval",
+    "AEM-3 attribution chain construction",
+    "AEM-4 anti-bias review",
+    "AEM-5 memory promotion / downgrade / deferral",
+    "AEM-6 future reuse / query-time visibility"
+  ],
+  "review_dispositions": [
+    "ready_for_candidate_need_review",
+    "defer_until_more_recurrence",
+    "defer_due_to_naming_ambiguity",
+    "defer_due_to_existing_field_substitution",
+    "reject_due_to_no_concrete_failure_if_missing",
+    "reject_due_to_authority_or_runtime_risk",
+    "needs_contracts_governance_review_later"
+  ],
+  "pressure_strength_scale": [
+    "P0 no pressure",
+    "P1 descriptive pressure",
+    "P2 review pressure",
+    "P3 gate pressure",
+    "P4 safety / authority pressure"
+  ],
+  "minimum_ledger_entry_fields": [
+    "field_pressure_id",
+    "source_plan_ref",
+    "seed_scenario_ref",
+    "aem_sub_capability",
+    "candidate_field_suggestion",
+    "pressure_target",
+    "failure_if_missing",
+    "absence_test_result",
+    "existing_field_substitution_review",
+    "recurrence_observation",
+    "pressure_strength",
+    "orsc_slot",
+    "gvr_layer_if_applicable",
+    "review_disposition",
+    "review_receipt_ref",
+    "non_authorizing_boundary"
+  ],
+  "theory_boundary_assertions": {
+    "gvr_display_may_enter_observed_signal_anchoring": true,
+    "gvr_possess_intent_remain_inference_candidates_only": true,
+    "gvr_is_semantic_front_end_not_aem_replacement": true,
+    "cagp_reviews_scenario_driven_pressure_only": true,
+    "orsc_witness_semantics": "authority_envelope_only"
+  },
+  "aem3_boundary": {
+    "intent_or_attribution_candidate_ref": "attribution_hypothesis_pressure_source_ref",
+    "must_not_directly_be": [
+      "observed_signal_ref",
+      "attribution_link_ref",
+      "attribution_link_receipt_ref",
+      "memory_record",
+      "runtime_activation_claim"
+    ],
+    "direct_gvr_intent_to_attribution_link_ref_allowed": false
+  },
+  "candidate_field_suggestions_for_review": [
+    "attribution_hypothesis_pressure_source_ref",
+    "attribution_hypothesis_review_receipt_ref",
+    "alternative_event_refs",
+    "negative_evidence_refs",
+    "semantic_relevance_component",
+    "attribution_link_ref",
+    "attribution_link_receipt_ref",
+    "attribution_revision_authority_envelope_ref"
+  ]
+}
